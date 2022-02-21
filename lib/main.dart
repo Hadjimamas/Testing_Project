@@ -107,7 +107,8 @@ class _MyHomePage extends State<MyHomePage> {
           ],
         ),
         //Text("${selectedDate.toLocal()}".split(' ')[0]),
-        Text(dateNow)
+        Text(dateNow),
+        //print(listScore.where((score) => score > 1).toList());
       ],
     );
   }
