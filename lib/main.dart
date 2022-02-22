@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePage extends State<MyHomePage> {
+  TextEditingController editingController = TextEditingController();
   DateTime selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
@@ -105,6 +106,21 @@ class _MyHomePage extends State<MyHomePage> {
               },
             )
           ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: TextField(
+            controller: editingController,
+            decoration: const InputDecoration(
+
+                ///https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685
+
+                labelText: "Search",
+                hintText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0)))),
+          ),
         ),
         //Text("${selectedDate.toLocal()}".split(' ')[0]),
         Text(dateNow),
