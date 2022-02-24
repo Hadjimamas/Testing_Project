@@ -104,6 +104,7 @@ class _MyHomePage extends State<MyHomePage> {
     _timeString = _formatDateTime(DateTime.now());
     Timer.periodic(
         const Duration(seconds: 1), (Timer t) => _getTime(DateTime.now()));
+
     super.initState();
   }
 
@@ -188,6 +189,10 @@ class _MyHomePage extends State<MyHomePage> {
         ),
         Text("Current Time and Date: $_timeString"),
         Text("You have selected: $dateNow"),
+        //print(_foundUsers.length);
+        Text(_allUsers.length.toString()),
+        Text(_foundUsers.length.toString()),
+
         Expanded(
           child: _foundUsers.isNotEmpty
               ? ListView.builder(
