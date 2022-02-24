@@ -4,6 +4,37 @@ import 'dart:async';
 
 import 'package:intl/intl.dart';
 
+Future<void> modalBottomSheet(BuildContext context) {
+  return showModalBottomSheet<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        height: 200,
+        color: Colors.orange,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text(
+                'This is the BottomSheet',
+                style: GoogleFonts.dancingScript(
+                  textStyle:
+                      const TextStyle(color: Colors.white, letterSpacing: .5),
+                ),
+              ),
+              ElevatedButton(
+                child: const Text('Close BottomSheet'),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,8 +59,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePage extends State<MyHomePage> {
-  TextEditingController editingController = TextEditingController();
+  late String _timeString;
   DateTime selectedDate = DateTime.now();
+  TextEditingController editingController = TextEditingController();
+
+  @override
+  void initState() {
+    _timeString = _formatDateTime(DateTime.now());
+    Timer.periodic(
+        const Duration(seconds: 1), (Timer t) => _getTime(DateTime.now()));
+    super.initState();
+  }
+
+  void _getTime(DateTime now) {
+    final String formattedDateTime = _formatDateTime(now);
+    setState(
+      () {
+        _timeString = formattedDateTime;
+      },
+    );
+  }
+
+  String _formatDateTime(DateTime dateTime) {
+    return DateFormat('dd/MM/yyyy hh:mm:ss').format(dateTime);
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -46,8 +99,8 @@ class _MyHomePage extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    DateFormat formatterDate = DateFormat('dd/MM/yyyy');
-    String dateNow = formatterDate.format(selectedDate);
+    //DateFormat formatterDate = DateFormat('dd/MM/yyyy');
+    String dateNow = _formatDateTime(selectedDate);
     return Column(
       children: [
         AppBar(
@@ -75,38 +128,12 @@ class _MyHomePage extends State<MyHomePage> {
                 color: Colors.lightGreenAccent,
               ),
               onPressed: () {
-                showModalBottomSheet<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      height: 200,
-                      color: Colors.amber,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              'This is the BottomSheet',
-                              style: GoogleFonts.dancingScript(
-                                textStyle: const TextStyle(
-                                    color: Colors.white, letterSpacing: .5),
-                              ),
-                            ),
-                            ElevatedButton(
-                              child: const Text('Close BottomSheet'),
-                              onPressed: () => Navigator.pop(context),
-                            )
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
+                modalBottomSheet(context);
               },
-            )
+            ),
           ],
         ),
+        //Search
         Padding(
           padding: const EdgeInsets.all(10),
           child: TextField(
@@ -123,7 +150,8 @@ class _MyHomePage extends State<MyHomePage> {
           ),
         ),
         //Text("${selectedDate.toLocal()}".split(' ')[0]),
-        Text(dateNow),
+        Text("Current Time and Date: $_timeString"),
+        Text("You have selected: $dateNow"),
         //print(listScore.where((score) => score > 1).toList());
       ],
     );
