@@ -86,13 +86,15 @@ class _MyHomePage extends State<MyHomePage> {
           .where((user) =>
               user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
-      // we use the toLowerCase() method to make it case-insensitive
+      //we use the toLowerCase() method to make it case-insensitive
     }
 
     // Refresh the UI
-    setState(() {
-      _foundUsers = results;
-    });
+    setState(
+      () {
+        _foundUsers = results;
+      },
+    );
   }
 
   @override
@@ -174,7 +176,7 @@ class _MyHomePage extends State<MyHomePage> {
             controller: editingController,
             decoration: const InputDecoration(
 
-                ///https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685
+                /// https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685
 
                 labelText: "Search",
                 hintText: "Search",
