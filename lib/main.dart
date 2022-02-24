@@ -62,9 +62,42 @@ class _MyHomePage extends State<MyHomePage> {
   late String _timeString;
   DateTime selectedDate = DateTime.now();
   TextEditingController editingController = TextEditingController();
+  final List<Map<String, dynamic>> _allUsers = [
+    {"id": 1, "name": "Andy", "age": 29},
+    {"id": 2, "name": "Aragon", "age": 40},
+    {"id": 3, "name": "Bob", "age": 5},
+    {"id": 4, "name": "Barbara", "age": 35},
+    {"id": 5, "name": "Candy", "age": 21},
+    {"id": 6, "name": "Colin", "age": 55},
+    {"id": 7, "name": "Audra", "age": 30},
+    {"id": 8, "name": "Banana", "age": 14},
+    {"id": 9, "name": "Caversky", "age": 100},
+    {"id": 10, "name": "Becky", "age": 32},
+  ];
+  List<Map<String, dynamic>> _foundUsers = [];
+
+  void _runFilter(String enteredKeyword) {
+    List<Map<String, dynamic>> results = [];
+    if (enteredKeyword.isEmpty) {
+      // if the search field is empty or only contains white-space, we'll display all users
+      results = _allUsers;
+    } else {
+      results = _allUsers
+          .where((user) =>
+              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
+      // we use the toLowerCase() method to make it case-insensitive
+    }
+
+    // Refresh the UI
+    setState(() {
+      _foundUsers = results;
+    });
+  }
 
   @override
   void initState() {
+    _foundUsers = _allUsers;
     _timeString = _formatDateTime(DateTime.now());
     Timer.periodic(
         const Duration(seconds: 1), (Timer t) => _getTime(DateTime.now()));
@@ -137,6 +170,7 @@ class _MyHomePage extends State<MyHomePage> {
         Padding(
           padding: const EdgeInsets.all(10),
           child: TextField(
+            onChanged: (value) => _runFilter(value),
             controller: editingController,
             decoration: const InputDecoration(
 
@@ -149,9 +183,36 @@ class _MyHomePage extends State<MyHomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(25.0)))),
           ),
         ),
-        //Text("${selectedDate.toLocal()}".split(' ')[0]),
         Text("Current Time and Date: $_timeString"),
         Text("You have selected: $dateNow"),
+        Expanded(
+          child: _foundUsers.isNotEmpty
+              ? ListView.builder(
+                  itemCount: _foundUsers.length,
+                  itemBuilder: (context, index) => Card(
+                    key: ValueKey(_foundUsers[index]["id"]),
+                    color: Colors.amberAccent,
+                    elevation: 4,
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    child: ListTile(
+                      leading: Text(
+                        _foundUsers[index]["id"].toString(),
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                      title: Text(_foundUsers[index]['name']),
+                      subtitle: Text(
+                          '${_foundUsers[index]["age"].toString()} years old'),
+                    ),
+                  ),
+                )
+              : const Center(
+                  child: Text(
+                    'No results found!',
+                    style: TextStyle(fontSize: 24, color: Colors.red),
+                  ),
+                ),
+        ),
+        //Text("${selectedDate.toLocal()}".split(' ')[0]),
         //print(listScore.where((score) => score > 1).toList());
       ],
     );
