@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
-
 import 'package:intl/intl.dart';
 
 Future<void> modalBottomSheet(BuildContext context) {
@@ -71,10 +70,12 @@ class _MyHomePage extends State<MyHomePage> {
     {"id": 6, "name": "Colin", "age": 55},
     {"id": 7, "name": "Audra", "age": 30},
     {"id": 8, "name": "Banana", "age": 14},
-    {"id": 9, "name": "Caversky", "age": 100},
+    {"id": 9, "name": "Caver-sky", "age": 100},
     {"id": 10, "name": "Becky", "age": 32},
   ];
   List<Map<String, dynamic>> _foundUsers = [];
+
+  //List<Map<FixturesData, dynamic>> foundMatches = [];
 
   void _runFilter(String enteredKeyword) {
     List<Map<String, dynamic>> results = [];
