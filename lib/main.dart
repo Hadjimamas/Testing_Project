@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
-import 'package:testing/Widget.dart';
+import 'package:testing/widget.dart';
 
 Future<void> modalBottomSheet(BuildContext context) {
   return showModalBottomSheet<void>(
