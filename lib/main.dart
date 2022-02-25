@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:testing/Widget.dart';
 
 Future<void> modalBottomSheet(BuildContext context) {
   return showModalBottomSheet<void>(
@@ -104,7 +105,6 @@ class _MyHomePage extends State<MyHomePage> {
     _timeString = _formatDateTime(DateTime.now());
     Timer.periodic(
         const Duration(seconds: 1), (Timer t) => _getTime(DateTime.now()));
-
     super.initState();
   }
 
@@ -170,7 +170,9 @@ class _MyHomePage extends State<MyHomePage> {
             ),
           ],
         ),
+        search((value) => _runFilter(value), editingController),
         //Search
+        /*
         Padding(
           padding: const EdgeInsets.all(10),
           child: TextField(
@@ -186,7 +188,7 @@ class _MyHomePage extends State<MyHomePage> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(25.0)))),
           ),
-        ),
+        ),*/
         Text("Current Time and Date: $_timeString"),
         Text("You have selected: $dateNow"),
         //print(_foundUsers.length);
