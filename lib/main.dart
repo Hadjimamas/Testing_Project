@@ -23,9 +23,32 @@ Future<void> modalBottomSheet(BuildContext context) {
                       const TextStyle(color: Colors.white, letterSpacing: .5),
                 ),
               ),
-              ElevatedButton(
-                child: const Text('Close BottomSheet'),
-                onPressed: () => Navigator.pop(context),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 30, top: 0, right: 30, bottom: 20),
+                child: ElevatedButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      //Text('Close BottomSheet'),
+                      Icon(
+                        Icons.close,
+                        color: Colors.red,
+                      ),
+                    ],
+                  ),
+                  onPressed: () => Navigator.pop(context),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(50, 50),
+                    shape: const CircleBorder(),
+                    primary: Colors.black38,
+                    //Below is the colour of the button when you press it
+                    onPrimary: Colors.red,
+                    side: const BorderSide(color: Colors.red, width: 2),
+                    alignment: Alignment.center,
+                    elevation: 2,
+                  ),
+                ),
               ),
             ],
           ),
