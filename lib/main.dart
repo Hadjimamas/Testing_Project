@@ -86,6 +86,7 @@ class _MyHomePage extends State<MyHomePage> {
   DateTime selectedDate = DateTime.now();
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
+    {"id": 0, "name": "Andreas"},
     {"id": 1, "name": "Andy", "age": 29},
     {"id": 2, "name": "Aragon", "age": 40},
     {"id": 3, "name": "Bob", "age": 5},
@@ -219,31 +220,43 @@ class _MyHomePage extends State<MyHomePage> {
         Text(_foundUsers.length.toString()),
 
         Expanded(
-          child: _foundUsers.isNotEmpty
-              ? ListView.builder(
-                  itemCount: _foundUsers.length,
-                  itemBuilder: (context, index) => Card(
-                    key: ValueKey(_foundUsers[index]["id"]),
-                    color: Colors.amberAccent,
-                    elevation: 4,
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    child: ListTile(
-                      leading: Text(
-                        _foundUsers[index]["id"].toString(),
-                        style: const TextStyle(fontSize: 24),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text("Heading of the list"),
+                ],
+              ),
+              Expanded(
+                child: _foundUsers.isNotEmpty
+                    ? ListView.builder(
+                        itemCount: _foundUsers.length,
+                        itemBuilder: (context, index) => Card(
+                          key: ValueKey(_foundUsers[index]["id"]),
+                          color: Colors.amberAccent,
+                          elevation: 4,
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: ListTile(
+                            leading: Text(
+                              _foundUsers[index]["id"].toString(),
+                              style: const TextStyle(fontSize: 24),
+                            ),
+                            title: Text(_foundUsers[index]['name']),
+                            subtitle: Text(
+                                '${_foundUsers[index]["age"].toString()} years old'),
+                          ),
+                        ),
+                      )
+                    : const Center(
+                        child: Text(
+                          'No results found!',
+                          style: TextStyle(fontSize: 24, color: Colors.red),
+                        ),
                       ),
-                      title: Text(_foundUsers[index]['name']),
-                      subtitle: Text(
-                          '${_foundUsers[index]["age"].toString()} years old'),
-                    ),
-                  ),
-                )
-              : const Center(
-                  child: Text(
-                    'No results found!',
-                    style: TextStyle(fontSize: 24, color: Colors.red),
-                  ),
-                ),
+              ),
+            ],
+          ),
         ),
         //Text("${selectedDate.toLocal()}".split(' ')[0]),
         //print(listScore.where((score) => score > 1).toList());
