@@ -86,7 +86,6 @@ class _MyHomePage extends State<MyHomePage> {
   DateTime selectedDate = DateTime.now();
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
-    {"id": 0, "name": "Andreas"},
     {"id": 1, "name": "Andy", "age": 29},
     {"id": 2, "name": "Aragon", "age": 40},
     {"id": 3, "name": "Bob", "age": 5},
@@ -161,15 +160,22 @@ class _MyHomePage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     //DateFormat formatterDate = DateFormat('dd/MM/yyyy');
-    String dateNow = _formatDateTime(selectedDate);
+    String newDate = _formatDateTime(selectedDate);
     return Column(
       children: [
         AppBar(
           title: Text(
             'Example Project',
             style: GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                  color: Colors.white, letterSpacing: .5, fontSize: 30),
+              textStyle: TextStyle(
+                //color: Colors.white,
+                letterSpacing: .5,
+                fontSize: 30,
+                foreground: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 6
+                  ..color = Colors.grey,
+              ),
             ),
           ),
           centerTitle: true,
@@ -214,7 +220,7 @@ class _MyHomePage extends State<MyHomePage> {
           ),
         ),*/
         Text("Current Time and Date: $_timeString"),
-        Text("You have selected: $dateNow"),
+        Text("You have selected: $newDate"),
         //print(_foundUsers.length);
         Text(_allUsers.length.toString()),
         Text(_foundUsers.length.toString()),
