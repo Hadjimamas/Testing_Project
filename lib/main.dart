@@ -206,7 +206,7 @@ class _MyHomePage extends State<MyHomePage> {
               tooltip: ' Bottom Sheet',
               icon: const Icon(
                 Icons.live_tv_rounded,
-                color: Colors.lightGreenAccent,
+                color: Colors.white,
               ),
               onPressed: () {
                 modalBottomSheet(context);
@@ -216,7 +216,7 @@ class _MyHomePage extends State<MyHomePage> {
               tooltip: ' Bottom Sheet',
               icon: const Icon(
                 Icons.stadium_outlined,
-                color: Colors.black,
+                color: Colors.white,
               ),
               onPressed: () {
                 modalBottomSheet(context);
@@ -247,7 +247,7 @@ class _MyHomePage extends State<MyHomePage> {
                           fit: BoxFit.fitHeight,
                         ),
                         title: const Text(
-                          "Division 1",
+                          "Sample Text",
                           style: TextStyle(
                               fontWeight: FontWeight.w700, color: Colors.black),
                         ),
