@@ -159,22 +159,35 @@ class _MyHomePage extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController listScrollController = ScrollController();
     //DateFormat formatterDate = DateFormat('dd/MM/yyyy');
     String newDate = _formatDateTime(selectedDate);
     return Column(
       children: [
+        FloatingActionButton(
+          backgroundColor: const Color(0xE2334753),
+          onPressed: () {
+            if (listScrollController.hasClients) {
+              final position = listScrollController.position.maxScrollExtent;
+              listScrollController.animateTo(
+                position,
+                duration: const Duration(seconds: 3),
+                curve: Curves.easeOut,
+              );
+            }
+          },
+          isExtended: true,
+          tooltip: "Scroll to Bottom",
+          child: const Icon(Icons.arrow_downward),
+        ),
         AppBar(
           title: Text(
             'Example Project',
             style: GoogleFonts.dancingScript(
-              textStyle: TextStyle(
-                //color: Colors.white,
+              textStyle: const TextStyle(
+                color: Colors.white,
                 letterSpacing: .5,
                 fontSize: 30,
-                foreground: Paint()
-                  ..style = PaintingStyle.stroke
-                  ..strokeWidth = 6
-                  ..color = Colors.grey,
               ),
             ),
           ),
@@ -190,6 +203,7 @@ class _MyHomePage extends State<MyHomePage> {
               ),
             ),
             IconButton(
+              tooltip: ' Bottom Sheet',
               icon: const Icon(
                 Icons.live_tv_rounded,
                 color: Colors.lightGreenAccent,
@@ -198,27 +212,19 @@ class _MyHomePage extends State<MyHomePage> {
                 modalBottomSheet(context);
               },
             ),
+            IconButton(
+              tooltip: ' Bottom Sheet',
+              icon: const Icon(
+                Icons.stadium_outlined,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                modalBottomSheet(context);
+              },
+            ),
           ],
         ),
         search((value) => _runFilter(value), editingController),
-        //Search
-        /*
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: TextField(
-            onChanged: (value) => _runFilter(value),
-            controller: editingController,
-            decoration: const InputDecoration(
-
-                /// https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685
-
-                labelText: "Search",
-                hintText: "Search",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(25.0)))),
-          ),
-        ),*/
         Text("Current Time and Date: $_timeString"),
         Text("You have selected: $newDate"),
         //print(_foundUsers.length);
@@ -228,20 +234,37 @@ class _MyHomePage extends State<MyHomePage> {
         Expanded(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Heading of the list"),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: ListTile(
+                        leading: Image.network(
+                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
+                          height: 100.0,
+                          fit: BoxFit.fitHeight,
+                        ),
+                        title: const Text(
+                          "Division 1",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Expanded(
                 child: _foundUsers.isNotEmpty
                     ? ListView.builder(
+                        controller: listScrollController,
                         itemCount: _foundUsers.length,
                         itemBuilder: (context, index) => Card(
                           key: ValueKey(_foundUsers[index]["id"]),
                           color: Colors.amberAccent,
-                          elevation: 4,
+                          elevation: 20,
                           margin: const EdgeInsets.symmetric(vertical: 10),
                           child: ListTile(
                             leading: Text(
