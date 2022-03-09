@@ -253,8 +253,8 @@ class _MyHomePage extends State<MyHomePage> {
                             await InternetConnectionChecker().hasConnection;
                         final color = hasInternet ? Colors.green : Colors.red;
                         final text = hasInternet
-                            ? 'Successfully Connected to the Internet'
-                            : 'No Internet Connection';
+                            ? 'Successfully Connected to the Internet ✔'
+                            : 'No Internet Connection ❌';
                         showSimpleNotification(
                           Text(
                             text,
