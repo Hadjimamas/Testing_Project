@@ -1,7 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/widget.dart';
 
 Future<void> modalBottomSheet(BuildContext context) {
@@ -64,14 +68,14 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: MyHomePage(),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => const OverlaySupport.global(
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Scaffold(
+            body: MyHomePage(),
+          ),
+        ),
+      );
 }
 
 class MyHomePage extends StatefulWidget {
@@ -82,6 +86,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePage extends State<MyHomePage> {
+  bool hasInternet = false;
+  bool connection = false;
+  var isDeviceConnected = false;
+
   late String _timeString;
   DateTime selectedDate = DateTime.now();
   TextEditingController editingController = TextEditingController();
@@ -239,6 +247,25 @@ class _MyHomePage extends State<MyHomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () async {
+                        hasInternet =
+                            await InternetConnectionChecker().hasConnection;
+                        final color = hasInternet ? Colors.green : Colors.red;
+                        final text = hasInternet
+                            ? 'Successfully Connected to the Internet'
+                            : 'No Internet Connection';
+                        showSimpleNotification(
+                          Text(
+                            text,
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20),
+                          ),
+                          background: color,
+                        );
+                      },
+                      child: const Text('Check Internet Connection'),
+                    ),
                     Expanded(
                       child: ListTile(
                         leading: Image.network(
