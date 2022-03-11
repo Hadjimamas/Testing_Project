@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -105,4 +107,6 @@ Future checkNetworkConnection() async {
     slideDismissDirection: DismissDirection.up,
     background: color,
   );
+  print('Is it connected to the internet: $hasInternet');
+  print('Connection Type: $result');
 }
