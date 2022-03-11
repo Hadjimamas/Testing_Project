@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -7,6 +8,35 @@ import 'dart:async';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/widget.dart';
+
+Future checkNetworkConnection() async {
+  bool hasInternet = false;
+  ConnectivityResult result = ConnectivityResult.none;
+  hasInternet = await InternetConnectionChecker().hasConnection;
+  result = await Connectivity().checkConnectivity();
+  Icon connectivityIcon = const Icon(Icons.signal_wifi_off);
+  final color = hasInternet ? Colors.green : Colors.red;
+  String connectionType = 'Unknown Type';
+  final connectionMsg =
+      hasInternet ? 'Internet Connection Success' : 'No Internet Connection';
+  if (result == ConnectivityResult.mobile) {
+    connectionType = 'Mobile Data';
+    connectivityIcon = const Icon(Icons.swap_vert);
+  } else if (result == ConnectivityResult.wifi) {
+    connectionType = 'Wifi';
+    connectivityIcon = const Icon(Icons.wifi);
+  }
+  showSimpleNotification(
+    ListTile(
+      leading: connectivityIcon,
+      title: Text(connectionMsg),
+    ),
+    subtitle: Text('Connected with: $connectionType'),
+    duration: const Duration(seconds: 3),
+    slideDismissDirection: DismissDirection.up,
+    background: color,
+  );
+}
 
 Future<void> modalBottomSheet(BuildContext context) {
   return showModalBottomSheet<void>(
@@ -168,8 +198,9 @@ class _MyHomePage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     ScrollController listScrollController = ScrollController();
-    //DateFormat formatterDate = DateFormat('dd/MM/yyyy');
     String newDate = _formatDateTime(selectedDate);
+    String allUsers = _allUsers.length.toString();
+    String foundUsers = _foundUsers.length.toString();
     return Column(
       children: [
         FloatingActionButton(
@@ -235,10 +266,7 @@ class _MyHomePage extends State<MyHomePage> {
         search((value) => _runFilter(value), editingController),
         Text("Current Time and Date: $_timeString"),
         Text("You have selected: $newDate"),
-        //print(_foundUsers.length);
-        Text(_allUsers.length.toString()),
-        Text(_foundUsers.length.toString()),
-
+        Text("$foundUsers/$allUsers"),
         Expanded(
           child: Column(
             children: [
@@ -248,21 +276,8 @@ class _MyHomePage extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     ElevatedButton(
-                      onPressed: () async {
-                        hasInternet =
-                            await InternetConnectionChecker().hasConnection;
-                        final color = hasInternet ? Colors.green : Colors.red;
-                        final text = hasInternet
-                            ? 'Successfully Connected to the Internet ✔'
-                            : 'No Internet Connection ❌';
-                        showSimpleNotification(
-                          Text(
-                            text,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 20),
-                          ),
-                          background: color,
-                        );
+                      onPressed: () {
+                        checkNetworkConnection();
                       },
                       child: const Text('Check Internet Connection'),
                     ),
