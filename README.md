@@ -10,3 +10,7 @@ Is like a subproject of the Flutter_Live_Score
 
 https://www.ucraft.com/free-logo-maker#create-logo  
 https://logomakr.com/app/
+
+### Add Ads to your project
+
+https://www.youtube.com/watch?v=IYHEG-9gTMU
