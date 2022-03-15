@@ -4,11 +4,18 @@ A flutter project that I will test new features and interesting packages
 
 ## Purpose of this project
 
+### https://www.markdownguide.org/extended-syntax/
+
 - [x] Is like a subproject of the Flutter_Live_Score
 - [ ] Check Point
 - **Bold Example**
 - _Italian_
 - Emoji Example :soccer:
+
+| Syntax    | Description |   Test Text |
+|:----------|:-----------:|------------:|
+| Header    |    Title    | Here's this |
+| Paragraph |    Text     |    And more |
 
 ### Logo Creator
 
