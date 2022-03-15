@@ -8,6 +8,7 @@ A flutter project that I will test new features and interesting packages
 - [ ] Check Point
 - **Bold Example**
 - _Italian_
+- Emoji Example :soccer:
 
 ### Logo Creator
 
