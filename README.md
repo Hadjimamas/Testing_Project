@@ -4,7 +4,10 @@ A flutter project that I will test new features and interesting packages
 
 ## Purpose of this project
 
-Is like a subproject of the Flutter_Live_Score
+- [x] Is like a subproject of the Flutter_Live_Score
+- [ ] Check Point
+- **Bold Example**
+- _Italian_
 
 ### Logo Creator
 

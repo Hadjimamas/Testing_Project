@@ -159,16 +159,6 @@ class _MyHomePage extends State<MyHomePage> {
             IconButton(
               tooltip: ' Bottom Sheet',
               icon: const Icon(
-                Icons.live_tv_rounded,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                modalBottomSheet(context);
-              },
-            ),
-            IconButton(
-              tooltip: ' Bottom Sheet',
-              icon: const Icon(
                 Icons.stadium_outlined,
                 color: Colors.white,
               ),

@@ -94,7 +94,7 @@ Future checkNetworkConnection() async {
     connectionType = 'Mobile Data';
     connectivityIcon = const Icon(Icons.swap_vert);
   } else if (result == ConnectivityResult.wifi) {
-    connectionType = 'Wifi';
+    connectionType = 'Wi-Fi';
     connectivityIcon = const Icon(Icons.wifi);
   }
   showSimpleNotification(
@@ -107,6 +107,6 @@ Future checkNetworkConnection() async {
     slideDismissDirection: DismissDirection.up,
     background: color,
   );
-  print('Is it connected to the internet: $hasInternet');
-  print('Connection Type: $result');
+  print(
+      'Is it connected to the internet: $hasInternet \n Connection Type: $result');
 }
