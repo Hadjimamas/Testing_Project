@@ -156,22 +156,12 @@ class _MyHomePage extends State<MyHomePage> {
                 color: Colors.white,
               ),
             ),
-            IconButton(
-              tooltip: ' Bottom Sheet',
-              icon: const Icon(
-                Icons.stadium_outlined,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                modalBottomSheet(context);
-              },
-            ),
           ],
         ),
         search((value) => _runFilter(value), editingController),
         Text("Current Time and Date: $_timeString"),
         Text("You have selected: $newDate"),
-        Text("$foundUsers/$allUsers"),
+        Text("Results: $foundUsers/$allUsers"),
         Expanded(
           child: Column(
             children: [
@@ -188,10 +178,10 @@ class _MyHomePage extends State<MyHomePage> {
                     ),
                     Expanded(
                       child: ListTile(
-                        leading: Image.network(
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
-                          height: 100.0,
-                          fit: BoxFit.fitHeight,
+                        leading: Image.asset(
+                          "assets/GIF_Test.gif",
+                          // height: 100.0,
+                          // fit: BoxFit.fitHeight,
                         ),
                         title: const Text(
                           "Sample Text",

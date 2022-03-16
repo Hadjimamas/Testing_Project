@@ -20,4 +20,5 @@ A flutter project that I will test new features and interesting packages
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
 - ## **[Refresh ListView](https://www.youtube.com/watch?v=ApQ1l_Cu0dE)**
+- ## **[GIF Icons](https://lordicon.com/)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
