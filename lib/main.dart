@@ -1,8 +1,9 @@
 // ignore_for_file: avoid_print
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/widget.dart';
@@ -53,7 +54,6 @@ class _MyHomePage extends State<MyHomePage> {
   List<Map<String, dynamic>> _foundUsers = [];
 
   //List<Map<FixturesData, dynamic>> foundMatches = [];
-
   void _runFilter(String enteredKeyword) {
     List<Map<String, dynamic>> results = [];
     if (enteredKeyword.isEmpty) {
