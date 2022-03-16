@@ -1,12 +1,8 @@
-# Welcome to my project
+# <p style="text-align: center;"> Welcome to my project</p>
 
 A flutter project that I will test new features and interesting packages
 
-# **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
-
 ## Purpose of this project
-
-### https://www.markdownguide.org/extended-syntax/
 
 - [x] Is like a subproject of the Flutter_Live_Score
 - [ ] Check Point
@@ -19,15 +15,7 @@ A flutter project that I will test new features and interesting packages
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
 
-### Logo Creator
-
-https://www.ucraft.com/free-logo-maker#create-logo  
-https://logomakr.com/app/
-
-### Add Ads to your project
-
-https://www.youtube.com/watch?v=IYHEG-9gTMU
-
-### Refresh ListView with RefreshIndicator
-
-https://www.youtube.com/watch?v=ApQ1l_Cu0dE
+- ## **[Logo Creator](https://logomakr.com/app/)**
+- ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
+- ## **[Refresh ListView](https://www.youtube.com/watch?v=ApQ1l_Cu0dE)**
+- ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
