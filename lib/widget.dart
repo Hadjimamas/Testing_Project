@@ -85,9 +85,9 @@ Future checkNetworkConnection() async {
   ConnectivityResult result = ConnectivityResult.none;
   hasInternet = await InternetConnectionChecker().hasConnection;
   result = await Connectivity().checkConnectivity();
-  Icon connectivityIcon = const Icon(Icons.signal_wifi_off);
+  Icon connectivityIcon;
   final color = hasInternet ? Colors.green : Colors.red;
-  String connectionType = 'Unknown Type';
+  String connectionType;
   final connectionMsg =
       hasInternet ? 'Internet Connection Success' : 'No Internet Connection';
   if (result == ConnectivityResult.mobile) {
@@ -96,6 +96,9 @@ Future checkNetworkConnection() async {
   } else if (result == ConnectivityResult.wifi) {
     connectionType = 'Wi-Fi';
     connectivityIcon = const Icon(Icons.wifi);
+  } else {
+    connectionType = 'Unknown Type';
+    connectivityIcon = const Icon(Icons.signal_wifi_off);
   }
   showSimpleNotification(
     ListTile(

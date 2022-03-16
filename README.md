@@ -15,6 +15,8 @@ A flutter project that I will test new features and interesting packages
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
 
+![alt-text](assets/Markdown_Table_Guide.png "optional-title")
+
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
 - ## **[Refresh ListView](https://www.youtube.com/watch?v=ApQ1l_Cu0dE)**
