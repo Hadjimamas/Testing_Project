@@ -26,3 +26,4 @@ A flutter project that I will test new features and interesting packages
 | Division 1 | :white_check_mark: | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
 | Division 2 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
 | Division 3 | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :x:                |
+| Cup        | :white_check_mark: | :white_check_mark: |
