@@ -8,17 +8,16 @@ A flutter project that I will test new features and interesting packages
 - [ ] Check Point
 - **Bold Example**
 - _Italian_
-- Emoji Example :soccer:
-
-| Syntax    | Description |   Test Text |
-|:----------|:-----------:|------------:|
-| Header    |    Title    | Here's this |
-| Paragraph |    Text     |    And more |
 
 ![alt-text](assets/Markdown_Table_Guide.png "optional-title")
 
-- ## **[Logo Creator](https://logomakr.com/app/)**
-- ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
-- ## **[Refresh ListView](https://www.youtube.com/watch?v=ApQ1l_Cu0dE)**
-- ## **[GIF Icons](https://lordicon.com/)**
-- ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
+1. ## **[Logo Creator](https://logomakr.com/app/)**
+2. ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
+3. ## **[GIF Icons](https://lordicon.com/)**
+4. ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
+
+| **League** | **All Matches**    | **Live Scores**    | **Standings**      | **Teams**          | **Scorers**        |
+|------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| Division 1 | :white_check_mark: | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
+| Division 2 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
+| Division 3 | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :x:                |
