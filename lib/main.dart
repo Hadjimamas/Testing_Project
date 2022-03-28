@@ -32,10 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePage extends State<MyHomePage> {
-  bool hasInternet = false;
-  bool connection = false;
-  var isDeviceConnected = false;
-
   late String _timeString;
   DateTime selectedDate = DateTime.now();
   TextEditingController editingController = TextEditingController();

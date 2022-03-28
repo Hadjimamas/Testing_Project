@@ -107,6 +107,5 @@ Future checkNetworkConnection() async {
     slideDismissDirection: DismissDirection.up,
     background: color,
   );
-  print(
-      'Is it connected to the internet: $hasInternet \n Connection Type: $result');
+  print('Internet Connection: $hasInternet\nConnection Type: $result');
 }
