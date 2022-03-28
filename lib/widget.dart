@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -26,6 +27,15 @@ Widget search(
 }
 
 Future<void> modalBottomSheet(BuildContext context) {
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    print('Android');
+  } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+    print('iOS');
+  } else if (defaultTargetPlatform == TargetPlatform.windows) {
+    print('Windows');
+  } else {
+    print('Other Platform');
+  }
   return showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
