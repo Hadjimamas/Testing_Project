@@ -17,8 +17,8 @@ Widget search(
 
           /// https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685
 
-          labelText: "Widget Search",
-          hintText: "Widget Search",
+          labelText: "Search",
+          hintText: "Search Name",
           prefixIcon: Icon(Icons.search),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(25.0)))),

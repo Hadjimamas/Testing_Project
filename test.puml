@@ -1,0 +1,37 @@
+@startuml
+set namespaceSeparator ::
+
+class "testing::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "testing::main.dart::MyApp"
+
+class "testing::main.dart::MyHomePage" {
+  +_MyHomePage createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
+
+class "testing::main.dart::_MyHomePage" {
+  +bool hasInternet
+  +bool connection
+  +bool isDeviceConnected
+  -String _timeString
+  +DateTime selectedDate
+  +TextEditingController editingController
+  -List<Map<String, dynamic>> _allUsers
+  -List<Map<String, dynamic>> _foundUsers
+  -void _runFilter()
+  +void initState()
+  -void _getTime()
+  -String _formatDateTime()
+  -Future<void> _selectDate()
+  +Widget build()
+}
+
+"testing::main.dart::_MyHomePage" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::_MyHomePage"
+
+
+@enduml

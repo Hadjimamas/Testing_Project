@@ -53,7 +53,6 @@ class _MyHomePage extends State<MyHomePage> {
   ];
   List<Map<String, dynamic>> _foundUsers = [];
 
-  //List<Map<FixturesData, dynamic>> foundMatches = [];
   void _runFilter(String enteredKeyword) {
     List<Map<String, dynamic>> results = [];
     if (enteredKeyword.isEmpty) {
