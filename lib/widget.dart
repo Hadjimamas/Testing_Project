@@ -14,9 +14,6 @@ Widget search(
       onChanged: onChanged,
       controller: editingController,
       decoration: const InputDecoration(
-
-          /// https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685
-
           labelText: "Search",
           hintText: "Search Name",
           prefixIcon: Icon(Icons.search),

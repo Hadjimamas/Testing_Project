@@ -155,6 +155,16 @@ class _MyHomePage extends State<MyHomePage> {
                 color: Colors.white,
               ),
             ),
+            IconButton(
+              tooltip: 'Bottom Sheet',
+              icon: const Icon(
+                Icons.stadium_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                modalBottomSheet(context);
+              },
+            ),
           ],
         ),
         search((value) => _runFilter(value), editingController),
