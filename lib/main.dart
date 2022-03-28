@@ -185,8 +185,6 @@ class _MyHomePage extends State<MyHomePage> {
                       child: ListTile(
                         leading: Image.asset(
                           "assets/GIF_Test.gif",
-                          // height: 100.0,
-                          // fit: BoxFit.fitHeight,
                         ),
                         title: const Text(
                           "Sample Text",

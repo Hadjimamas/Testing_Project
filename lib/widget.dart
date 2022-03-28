@@ -14,11 +14,13 @@ Widget search(
       onChanged: onChanged,
       controller: editingController,
       decoration: const InputDecoration(
-          labelText: "Search",
-          hintText: "Search Name",
-          prefixIcon: Icon(Icons.search),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(25.0)))),
+        labelText: "Search",
+        hintText: "Search Name",
+        prefixIcon: Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+        ),
+      ),
     ),
   );
 }
