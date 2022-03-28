@@ -3,7 +3,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:overlay_support/overlay_support.dart';
 
@@ -27,11 +26,15 @@ Widget search(
 }
 
 Future<void> modalBottomSheet(BuildContext context) {
+  String platformType = 'Other Platform';
   if (defaultTargetPlatform == TargetPlatform.android) {
+    platformType = 'Android';
     print('Android');
   } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+    platformType = 'iOS';
     print('iOS');
   } else if (defaultTargetPlatform == TargetPlatform.windows) {
+    platformType = 'Windows';
     print('Windows');
   } else {
     print('Other Platform');
@@ -48,11 +51,7 @@ Future<void> modalBottomSheet(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                'This is the BottomSheet',
-                style: GoogleFonts.dancingScript(
-                  textStyle:
-                      const TextStyle(color: Colors.white, letterSpacing: .5),
-                ),
+                '$platformType Platform',
               ),
               Padding(
                 padding: const EdgeInsets.only(

@@ -14,9 +14,6 @@ class "testing::main.dart::MyHomePage" {
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
 
 class "testing::main.dart::_MyHomePage" {
-  +bool hasInternet
-  +bool connection
-  +bool isDeviceConnected
   -String _timeString
   +DateTime selectedDate
   +TextEditingController editingController
