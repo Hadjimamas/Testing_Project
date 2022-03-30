@@ -120,3 +120,31 @@ Future checkNetworkConnection() async {
   );
   print('Internet Connection: $hasInternet\nConnection Type: $result');
 }
+
+Future troubleshoot() async {
+  bool hasInternet = false;
+  ConnectivityResult result = ConnectivityResult.none;
+  hasInternet = await InternetConnectionChecker().hasConnection;
+  result = await Connectivity().checkConnectivity();
+  Icon connectivityIcon;
+  final color = hasInternet ? Colors.green : Colors.red;
+  String connectionType;
+  final connectionMsg =
+      hasInternet ? 'Internet Connection Success' : 'No Internet Connection';
+  if (result == ConnectivityResult.mobile) {
+    connectionType = 'Mobile Data';
+    connectivityIcon = const Icon(Icons.swap_vert);
+  } else if (result == ConnectivityResult.wifi) {
+    connectionType = 'Wi-Fi';
+    connectivityIcon = const Icon(Icons.wifi);
+  } else {
+    connectionType = 'Unknown Type';
+    connectivityIcon = const Icon(Icons.signal_wifi_off);
+  }
+  return Column(
+    children: [
+      Text(connectionMsg),
+      Text(connectionType),
+    ],
+  );
+}
