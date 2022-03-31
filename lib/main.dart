@@ -13,6 +13,7 @@ void main() {
   runApp(const MyApp());
 }
 
+//flutter pub global run dcdg
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -165,7 +166,7 @@ class _MyHomePage extends State<MyHomePage> {
               },
             ),
             IconButton(
-              tooltip: 'Bottom Sheet',
+              tooltip: 'Troubleshot',
               icon: const Icon(
                 Icons.perm_data_setting,
                 color: Colors.white,
@@ -173,7 +174,7 @@ class _MyHomePage extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(builder: (context) => const Troubleshoot()),
                 );
               },
             ),

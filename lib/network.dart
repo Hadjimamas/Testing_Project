@@ -6,30 +6,14 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Troubleshoot extends StatefulWidget {
+  const Troubleshoot({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _TroubleshootState createState() => _TroubleshootState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _TroubleshootState extends State<Troubleshoot> {
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
   ConnectivityResult result = ConnectivityResult.none;
   bool hasInternet = false;

@@ -30,5 +30,30 @@ class "testing::main.dart::_MyHomePage" {
 "testing::main.dart::_MyHomePage" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
 "flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::_MyHomePage"
 
+class "testing::network.dart::Troubleshoot" {
+  +_TroubleshootState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::network.dart::Troubleshoot"
+
+class "testing::network.dart::_TroubleshootState" {
+  -StreamSubscription<ConnectivityResult> _connectivitySubscription
+  +ConnectivityResult result
+  +bool hasInternet
+  +Icon networkIcon
+  +Color color
+  +String platformType
+  +String msg
+  +void initState()
+  +void dispose()
+  +Widget build()
+}
+
+"testing::network.dart::_TroubleshootState" o-- "dart::async::StreamSubscription<ConnectivityResult>"
+"testing::network.dart::_TroubleshootState" o-- "connectivity_plus_platform_interface::src::enums.dart::ConnectivityResult"
+"testing::network.dart::_TroubleshootState" o-- "flutter::src::widgets::icon.dart::Icon"
+"testing::network.dart::_TroubleshootState" o-- "dart::ui::Color"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::network.dart::_TroubleshootState"
+
 
 @enduml
