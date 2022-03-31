@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:testing/network.dart';
 import 'package:testing/widget.dart';
 
 void main() {
@@ -161,6 +162,19 @@ class _MyHomePage extends State<MyHomePage> {
               ),
               onPressed: () {
                 modalBottomSheet(context);
+              },
+            ),
+            IconButton(
+              tooltip: 'Bottom Sheet',
+              icon: const Icon(
+                Icons.perm_data_setting,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
               },
             ),
           ],

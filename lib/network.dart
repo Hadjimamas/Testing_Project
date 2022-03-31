@@ -3,14 +3,12 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-void main() {
-  runApp(MyApp());
-}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -32,14 +30,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final Connectivity _connectivity = Connectivity();
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  ConnectivityResult result = ConnectivityResult.none;
+  bool hasInternet = false;
+  Icon networkIcon = const Icon(Icons.wifi_off);
+  Color color = Colors.red;
+  String platformType = 'Other Platform';
+  String msg = 'No Internet Connection';
 
   @override
   void initState() {
-    initConnectivity();
-    _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen(_UpdateConnectionState);
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      platformType = 'Android';
+      print('Android');
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      platformType = 'iOS';
+      print('iOS');
+    } else if (defaultTargetPlatform == TargetPlatform.windows) {
+      platformType = 'Windows';
+      print('Windows');
+    } else {
+      print('Other Platform');
+    }
+    Connectivity().onConnectivityChanged.listen((result) {
+      setState(() => this.result = result);
+      if (result == ConnectivityResult.wifi) {
+        msg = 'Wi-Fi Connection';
+        networkIcon = const Icon(Icons.wifi);
+        color = Colors.green;
+      } else if (result == ConnectivityResult.ethernet) {
+        msg = 'Ethernet Connection';
+        networkIcon = const Icon(Icons.settings_ethernet);
+        color = Colors.green;
+      }
+    });
     super.initState();
   }
 
@@ -52,40 +76,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Network Status"),
+      backgroundColor: color,
+      appBar: AppBar(
+        title: const Text("Network Status"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('$platformType Platform'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                networkIcon,
+                Text(msg),
+              ],
+            ),
+          ],
         ),
-        body: const Center(child: Text("FlutterAnt.com")));
-  }
-
-  Future<void> initConnectivity() async {
-    late ConnectivityResult result;
-    try {
-      result = await _connectivity.checkConnectivity();
-    } on PlatformException catch (e) {
-      print("Error Occurred: ${e.toString()} ");
-      return;
-    }
-    if (!mounted) {
-      return Future.value(null);
-    }
-    return _UpdateConnectionState(result);
-  }
-
-  Future<void> _UpdateConnectionState(ConnectivityResult result) async {
-    if (result == ConnectivityResult.mobile ||
-        result == ConnectivityResult.wifi) {
-      showStatus(result, true);
-    } else {
-      showStatus(result, false);
-    }
-  }
-
-  void showStatus(ConnectivityResult result, bool status) {
-    final snackBar = SnackBar(
-        content:
-            Text("${status ? 'ONLINE\n' : 'OFFLINE\n'}${result.toString()} "),
-        backgroundColor: status ? Colors.green : Colors.red);
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      ),
+    );
   }
 }
