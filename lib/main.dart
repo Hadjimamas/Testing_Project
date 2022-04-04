@@ -9,6 +9,15 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/network.dart';
 import 'package:testing/widget.dart';
 
+/// String _formatDateTime(DateTime dateTime) {
+///     return DateFormat('dd/MM/yyyy hh:mm:ss').format(dateTime);
+///     }
+///
+///
+/// String newDate = _formatDateTime(selectedDate);
+///
+///
+
 void main() {
   runApp(const MyApp());
 }
@@ -96,7 +105,7 @@ class _MyHomePage extends State<MyHomePage> {
     return DateFormat('dd/MM/yyyy hh:mm:ss').format(dateTime);
   }
 
-  Future<void> _selectDate(BuildContext context) async {
+  Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
@@ -148,7 +157,7 @@ class _MyHomePage extends State<MyHomePage> {
           actions: <Widget>[
             IconButton(
               onPressed: () {
-                _selectDate(context);
+                selectDate(context);
               },
               icon: const Icon(
                 Icons.date_range,
