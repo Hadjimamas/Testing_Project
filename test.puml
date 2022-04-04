@@ -23,7 +23,7 @@ class "testing::main.dart::_MyHomePage" {
   +void initState()
   -void _getTime()
   -String _formatDateTime()
-  -Future<void> _selectDate()
+  +Future<void> selectDate()
   +Widget build()
 }
 
@@ -40,8 +40,8 @@ class "testing::network.dart::_TroubleshootState" {
   -StreamSubscription<ConnectivityResult> _connectivitySubscription
   +ConnectivityResult result
   +bool hasInternet
-  +Icon networkIcon
   +Color color
+  +Icon networkIcon
   +String platformType
   +String msg
   +void initState()
@@ -51,8 +51,8 @@ class "testing::network.dart::_TroubleshootState" {
 
 "testing::network.dart::_TroubleshootState" o-- "dart::async::StreamSubscription<ConnectivityResult>"
 "testing::network.dart::_TroubleshootState" o-- "connectivity_plus_platform_interface::src::enums.dart::ConnectivityResult"
-"testing::network.dart::_TroubleshootState" o-- "flutter::src::widgets::icon.dart::Icon"
 "testing::network.dart::_TroubleshootState" o-- "dart::ui::Color"
+"testing::network.dart::_TroubleshootState" o-- "flutter::src::widgets::icon.dart::Icon"
 "flutter::src::widgets::framework.dart::State" <|-- "testing::network.dart::_TroubleshootState"
 
 
