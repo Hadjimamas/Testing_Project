@@ -17,8 +17,11 @@ class _TroubleshootState extends State<Troubleshoot> {
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
   ConnectivityResult result = ConnectivityResult.none;
   bool hasInternet = false;
-  Icon networkIcon = const Icon(Icons.wifi_off);
   Color color = Colors.red;
+  Icon networkIcon = const Icon(
+    Icons.wifi_off,
+    color: Colors.red,
+  );
   String platformType = 'Other Platform';
   String msg = 'No Internet Connection';
 
@@ -40,12 +43,18 @@ class _TroubleshootState extends State<Troubleshoot> {
       setState(() => this.result = result);
       if (result == ConnectivityResult.wifi) {
         msg = 'Wi-Fi Connection';
-        networkIcon = const Icon(Icons.wifi);
         color = Colors.green;
+        networkIcon = Icon(
+          Icons.wifi,
+          color: color,
+        );
       } else if (result == ConnectivityResult.ethernet) {
         msg = 'Ethernet Connection';
-        networkIcon = const Icon(Icons.settings_ethernet);
         color = Colors.green;
+        networkIcon = Icon(
+          Icons.settings_ethernet,
+          color: color,
+        );
       }
     });
     super.initState();
@@ -60,7 +69,7 @@ class _TroubleshootState extends State<Troubleshoot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Network Status"),
       ),
@@ -69,12 +78,9 @@ class _TroubleshootState extends State<Troubleshoot> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('$platformType Platform'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                networkIcon,
-                Text(msg),
-              ],
+            ListTile(
+              leading: networkIcon,
+              title: Text(msg),
             ),
           ],
         ),
