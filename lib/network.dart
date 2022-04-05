@@ -13,18 +13,18 @@ class Troubleshoot extends StatefulWidget {
   _TroubleshootState createState() => _TroubleshootState();
 }
 
-class _TroubleshootState extends State<Troubleshoot> {
-  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  ConnectivityResult result = ConnectivityResult.none;
-  bool hasInternet = false;
-  Color color = Colors.red;
-  Icon networkIcon = const Icon(
-    Icons.wifi_off,
-    color: Colors.red,
-  );
-  String platformType = 'Other Platform';
-  String msg = 'No Internet Connection';
+late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+ConnectivityResult result = ConnectivityResult.none;
+bool hasInternet = false;
+Color color = Colors.red;
+Icon networkIcon = const Icon(
+  Icons.wifi_off,
+  color: Colors.red,
+);
+String platformType = 'Other Platform';
+String msg = 'No Internet Connection';
 
+class _TroubleshootState extends State<Troubleshoot> {
   @override
   void initState() {
     if (defaultTargetPlatform == TargetPlatform.android) {
@@ -39,16 +39,16 @@ class _TroubleshootState extends State<Troubleshoot> {
     } else {
       print('Other Platform');
     }
-    Connectivity().onConnectivityChanged.listen((result) {
-      setState(() => this.result = result);
-      if (result == ConnectivityResult.wifi) {
+    Connectivity().onConnectivityChanged.listen((newResult) {
+      setState(() => result = newResult);
+      if (newResult == ConnectivityResult.wifi) {
         msg = 'Wi-Fi Connection';
         color = Colors.green;
         networkIcon = Icon(
           Icons.wifi,
           color: color,
         );
-      } else if (result == ConnectivityResult.ethernet) {
+      } else if (newResult == ConnectivityResult.ethernet) {
         msg = 'Ethernet Connection';
         color = Colors.green;
         networkIcon = Icon(
