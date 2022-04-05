@@ -10,7 +10,7 @@ import 'package:testing/network.dart';
 import 'package:testing/widget.dart';
 
 /// String _formatDateTime(DateTime dateTime) {
-///     return DateFormat('dd/MM/yyyy hh:mm:ss').format(dateTime);
+///     return DateFormat('dd/MM/yyyy').format(dateTime);
 ///     }
 ///
 ///
@@ -70,7 +70,7 @@ class _MyHomePage extends State<MyHomePage> {
     } else {
       results = _allUsers
           .where((user) =>
-              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+              user['name'].toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
       //we use the toLowerCase() method to make it case-insensitive
     }
@@ -109,8 +109,8 @@ class _MyHomePage extends State<MyHomePage> {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
+        firstDate: DateTime(DateTime.now().year - 1),
+        lastDate: DateTime(DateTime.now().year + 1));
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
@@ -139,7 +139,7 @@ class _MyHomePage extends State<MyHomePage> {
             }
           },
           isExtended: true,
-          tooltip: "Scroll to Bottom",
+          tooltip: 'Scroll to Bottom',
           child: const Icon(Icons.arrow_downward),
         ),
         AppBar(
@@ -156,6 +156,7 @@ class _MyHomePage extends State<MyHomePage> {
           centerTitle: true,
           actions: <Widget>[
             IconButton(
+              tooltip: 'Date Picker',
               onPressed: () {
                 selectDate(context);
               },
@@ -190,9 +191,9 @@ class _MyHomePage extends State<MyHomePage> {
           ],
         ),
         search((value) => _runFilter(value), editingController),
-        Text("Current Time and Date: $_timeString"),
-        Text("You have selected: $newDate"),
-        Text("Results: $foundUsers/$allUsers"),
+        Text('Current Time and Date: $_timeString'),
+        Text('You have selected: $newDate'),
+        Text('Results: $foundUsers/$allUsers'),
         Expanded(
           child: Column(
             children: [
@@ -210,10 +211,10 @@ class _MyHomePage extends State<MyHomePage> {
                     Expanded(
                       child: ListTile(
                         leading: Image.asset(
-                          "assets/GIF_Test.gif",
+                          'assets/GIF_Test.gif',
                         ),
                         title: const Text(
-                          "Sample Text",
+                          'Sample Text',
                           style: TextStyle(
                               fontWeight: FontWeight.w700, color: Colors.black),
                         ),
@@ -228,18 +229,18 @@ class _MyHomePage extends State<MyHomePage> {
                         controller: listScrollController,
                         itemCount: _foundUsers.length,
                         itemBuilder: (context, index) => Card(
-                          key: ValueKey(_foundUsers[index]["id"]),
+                          key: ValueKey(_foundUsers[index]['id']),
                           color: Colors.amberAccent,
                           elevation: 20,
                           margin: const EdgeInsets.symmetric(vertical: 10),
                           child: ListTile(
                             leading: Text(
-                              _foundUsers[index]["id"].toString(),
+                              _foundUsers[index]['id'].toString(),
                               style: const TextStyle(fontSize: 24),
                             ),
                             title: Text(_foundUsers[index]['name']),
                             subtitle: Text(
-                                '${_foundUsers[index]["age"].toString()} years old'),
+                                '${_foundUsers[index]['age'].toString()} years old'),
                           ),
                         ),
                       )
