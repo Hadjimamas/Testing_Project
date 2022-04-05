@@ -9,12 +9,12 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/network.dart';
 import 'package:testing/widget.dart';
 
-/// String _formatDateTime(DateTime dateTime) {
+/// String formatDateTime(DateTime dateTime) {
 ///     return DateFormat('dd/MM/yyyy').format(dateTime);
 ///     }
 ///
 ///
-/// String newDate = _formatDateTime(selectedDate);
+/// String newDate = formatDateTime(selectedDate);
 ///
 ///
 
@@ -106,6 +106,7 @@ class _MyHomePage extends State<MyHomePage> {
   }
 
   Future<void> selectDate(BuildContext context) async {
+    print(DateFormat('dd/MM/yyyy').format(DateTime(DateTime.now().year + 1)));
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
