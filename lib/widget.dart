@@ -14,8 +14,8 @@ Widget search(
       onChanged: onChanged,
       controller: editingController,
       decoration: const InputDecoration(
-        labelText: "Search",
-        hintText: "Search Name",
+        labelText: 'Search',
+        hintText: 'Search Name',
         prefixIcon: Icon(Icons.search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
@@ -104,6 +104,9 @@ Future checkNetworkConnection() async {
   } else if (result == ConnectivityResult.wifi) {
     connectionType = 'Wi-Fi';
     connectivityIcon = const Icon(Icons.wifi);
+  } else if (result == ConnectivityResult.ethernet) {
+    connectionType = 'Ethernet Connection';
+    connectivityIcon = const Icon(Icons.settings_ethernet);
   } else {
     connectionType = 'Unknown Type';
     connectivityIcon = const Icon(Icons.signal_wifi_off);

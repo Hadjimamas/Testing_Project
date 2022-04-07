@@ -15,7 +15,6 @@ class Troubleshoot extends StatefulWidget {
 
 late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 ConnectivityResult result = ConnectivityResult.none;
-bool hasInternet = false;
 Color color = Colors.red;
 Icon networkIcon = const Icon(
   Icons.wifi_off,
@@ -37,6 +36,7 @@ class _TroubleshootState extends State<Troubleshoot> {
       platformType = 'Windows';
       print('Windows');
     } else {
+      platformType = 'Other Platform';
       print('Other Platform');
     }
     Connectivity().onConnectivityChanged.listen((newResult) {
@@ -55,6 +55,13 @@ class _TroubleshootState extends State<Troubleshoot> {
           Icons.settings_ethernet,
           color: color,
         );
+      } else {
+        msg = 'No Internet Connection';
+        color = Colors.red;
+        networkIcon = Icon(
+          Icons.wifi_off,
+          color: color,
+        );
       }
     });
     super.initState();
@@ -71,7 +78,7 @@ class _TroubleshootState extends State<Troubleshoot> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Network Status"),
+        title: const Text('Network Status'),
       ),
       body: Center(
         child: Column(
