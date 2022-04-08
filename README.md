@@ -19,6 +19,7 @@ A flutter project that I will test new features and interesting packages
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
 - ## **[AdMob Tutorial](https://resocoder.com/2021/09/04/flutter-admob-monetization-banner-and-interstitial-ads/)**
+-  ## **[AdMob Youtube Video](https://www.youtube.com/watch?v=4oLBxuBjGfI)**
 - ## **[GIF Icons](https://lordicon.com/)**
 - ## **[Search Bar](https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**

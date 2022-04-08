@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 Widget search(
@@ -25,7 +26,23 @@ Widget search(
   );
 }
 
+DateTime now = DateTime.now();
+final DateFormat formatterDate = DateFormat('dd/MM/yyyy');
 Future<void> modalBottomSheet(BuildContext context) {
+  Future<void> selectDate(DateTime selectedDate) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      String date = formatterDate.format(picked);
+      selectedDate = picked;
+      print('Formatted Date: $date');
+      print('Picked Date: $picked');
+    }
+  }
+
   String platformType = 'Other Platform';
   if (defaultTargetPlatform == TargetPlatform.android) {
     platformType = 'Android';
@@ -56,28 +73,33 @@ Future<void> modalBottomSheet(BuildContext context) {
               Padding(
                 padding: const EdgeInsets.only(
                     left: 30, top: 0, right: 30, bottom: 20),
-                child: ElevatedButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      //Text('Close BottomSheet'),
-                      Icon(
-                        Icons.close,
-                        color: Colors.red,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          //Text('Close BottomSheet'),
+                          Icon(
+                            Icons.close,
+                            color: Colors.red,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  onPressed: () => Navigator.pop(context),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(50, 50),
-                    shape: const CircleBorder(),
-                    primary: Colors.black38,
-                    //Below is the colour of the button when you press it
-                    onPrimary: Colors.red,
-                    side: const BorderSide(color: Colors.red, width: 2),
-                    alignment: Alignment.center,
-                    elevation: 2,
-                  ),
+                      onPressed: () => selectDate(now),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(50, 50),
+                        shape: const CircleBorder(),
+                        primary: Colors.black38,
+                        //Below is the colour of the button when you press it
+                        onPrimary: Colors.red,
+                        side: const BorderSide(color: Colors.red, width: 2),
+                        alignment: Alignment.center,
+                        elevation: 2,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
