@@ -22,6 +22,7 @@ dependencies:
   overlay_support: ^1.2.1
   connectivity_plus: ^2.2.1
   dcdg: ^4.0.1
+  google_mobile_ads: ^1.2.0
 
 dev_dependencies:
   flutter_test:

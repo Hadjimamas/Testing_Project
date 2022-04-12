@@ -28,21 +28,8 @@ Widget search(
 
 DateTime now = DateTime.now();
 final DateFormat formatterDate = DateFormat('dd/MM/yyyy');
-Future<void> modalBottomSheet(BuildContext context) {
-  Future<void> selectDate(DateTime selectedDate) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate) {
-      String date = formatterDate.format(picked);
-      selectedDate = picked;
-      print('Formatted Date: $date');
-      print('Picked Date: $picked');
-    }
-  }
 
+Future<void> modalBottomSheet(BuildContext context) {
   String platformType = 'Other Platform';
   if (defaultTargetPlatform == TargetPlatform.android) {
     platformType = 'Android';
@@ -87,7 +74,7 @@ Future<void> modalBottomSheet(BuildContext context) {
                           ),
                         ],
                       ),
-                      onPressed: () => selectDate(now),
+                      onPressed: () => Navigator.pop(context),
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(50, 50),
                         shape: const CircleBorder(),

@@ -106,8 +106,6 @@ class _MyHomePage extends State<MyHomePage> {
   }
 
   Future<void> selectDate(BuildContext context) async {
-    print(
-        'Current Year + 1 is: ${DateFormat('yyyy').format(DateTime(DateTime.now().year + 1))}');
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
