@@ -9,15 +9,6 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/network.dart';
 import 'package:testing/widget.dart';
 
-/// String formatDateTime(DateTime dateTime) {
-///     return DateFormat('dd/MM/yyyy').format(dateTime);
-///     }
-///
-///
-/// String newDate = formatDateTime(selectedDate);
-///
-///
-
 void main() {
   runApp(const MyApp());
 }
@@ -41,12 +32,13 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePage createState() => _MyHomePage();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePage extends State<MyHomePage> {
+DateTime selectedDate = DateTime.now();
+class MyHomePageState extends State<MyHomePage> {
+
   late String _timeString;
-  DateTime selectedDate = DateTime.now();
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Andy", "age": 29},
@@ -62,7 +54,7 @@ class _MyHomePage extends State<MyHomePage> {
   ];
   List<Map<String, dynamic>> _foundUsers = [];
 
-  void _runFilter(String enteredKeyword) {
+  void runFilter(String enteredKeyword) {
     List<Map<String, dynamic>> results = [];
     if (enteredKeyword.isEmpty) {
       // if the search field is empty or only contains white-space, we'll display all users
@@ -102,7 +94,8 @@ class _MyHomePage extends State<MyHomePage> {
   }
 
   String _formatDateTime(DateTime dateTime) {
-    return DateFormat('dd/MM/yyyy hh:mm:ss').format(dateTime);
+    return DateFormat('dd/MM/yyyy').format(dateTime);
+    //hh:mm:ss
   }
 
   Future<void> selectDate(BuildContext context) async {
@@ -190,7 +183,7 @@ class _MyHomePage extends State<MyHomePage> {
             ),
           ],
         ),
-        search((value) => _runFilter(value), editingController),
+        search((value) => runFilter(value), editingController),
         Text('Current Time and Date: $_timeString'),
         Text('You have selected: $newDate'),
         Text('Results: $foundUsers/$allUsers'),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:testing/main.dart';
 
 Widget search(
     void Function(String) onChanged, TextEditingController editingController) {
@@ -30,7 +31,7 @@ DateTime now = DateTime.now();
 final DateFormat formatterDate = DateFormat('dd/MM/yyyy');
 
 Future<void> modalBottomSheet(BuildContext context) {
-  String platformType = 'Other Platform';
+  String? platformType;
   if (defaultTargetPlatform == TargetPlatform.android) {
     platformType = 'Android';
     print('Android');
@@ -55,7 +56,7 @@ Future<void> modalBottomSheet(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                '$platformType Platform',
+                '$platformType Platform \n $selectedDate',
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -74,7 +75,7 @@ Future<void> modalBottomSheet(BuildContext context) {
                           ),
                         ],
                       ),
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () => {Navigator.pop(context)},
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(50, 50),
                         shape: const CircleBorder(),

@@ -8,8 +8,7 @@ A flutter project that I will test new features and interesting packages
 2. All Matches for a specific team
 3. Organize more the Standing, Scorers and Teams screens
 4. Implement the statistics for a match from the API and find a way to implement them
-5. Check how it looks to implement GIFs instead of icons at some points
-6. Create a search bar to search into the List
+5. Create a search bar to search into the List
 
 - **Bold Example**
 - _Italian_
@@ -30,3 +29,10 @@ A flutter project that I will test new features and interesting packages
 | Division 2 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
 | Division 3 | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :x:                |
 | Cup        | :white_check_mark: | :white_check_mark: |
+
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a>
+<a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a>
+<a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a>
+<a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a></p>
