@@ -20,7 +20,6 @@ A flutter project that I will test new features and interesting packages
 - ## **[AdMob Tutorial](https://resocoder.com/2021/09/04/flutter-admob-monetization-banner-and-interstitial-ads/)**
 -  ## **[AdMob Youtube Video](https://www.youtube.com/watch?v=4oLBxuBjGfI)**
 - ## **[GIF Icons](https://lordicon.com/)**
-- ## **[Search Bar](https://karthikponnam.medium.com/flutter-search-in-listview-1ffa40956685)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
 
 | **League** | **All Matches**    | **Live Matches**   | **Standings**      | **Teams**          | **Scorers**        |
@@ -29,7 +28,6 @@ A flutter project that I will test new features and interesting packages
 | Division 2 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
 | Division 3 | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :x:                |
 | Cup        | :white_check_mark: | :white_check_mark: |
-
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a>
