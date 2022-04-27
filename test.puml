@@ -8,18 +8,17 @@ class "testing::main.dart::MyApp" {
 "flutter::src::widgets::framework.dart::StatelessWidget" <|-- "testing::main.dart::MyApp"
 
 class "testing::main.dart::MyHomePage" {
-  +_MyHomePage createState()
+  +MyHomePageState createState()
 }
 
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
 
-class "testing::main.dart::_MyHomePage" {
+class "testing::main.dart::MyHomePageState" {
   -String _timeString
-  +DateTime selectedDate
   +TextEditingController editingController
   -List<Map<String, dynamic>> _allUsers
   -List<Map<String, dynamic>> _foundUsers
-  -void _runFilter()
+  +void runFilter()
   +void initState()
   -void _getTime()
   -String _formatDateTime()
@@ -27,8 +26,8 @@ class "testing::main.dart::_MyHomePage" {
   +Widget build()
 }
 
-"testing::main.dart::_MyHomePage" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
-"flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::_MyHomePage"
+"testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
 
 class "testing::network.dart::Troubleshoot" {
   +_TroubleshootState createState()
@@ -37,22 +36,11 @@ class "testing::network.dart::Troubleshoot" {
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::network.dart::Troubleshoot"
 
 class "testing::network.dart::_TroubleshootState" {
-  -StreamSubscription<ConnectivityResult> _connectivitySubscription
-  +ConnectivityResult result
-  +bool hasInternet
-  +Color color
-  +Icon networkIcon
-  +String platformType
-  +String msg
   +void initState()
   +void dispose()
   +Widget build()
 }
 
-"testing::network.dart::_TroubleshootState" o-- "dart::async::StreamSubscription<ConnectivityResult>"
-"testing::network.dart::_TroubleshootState" o-- "connectivity_plus_platform_interface::src::enums.dart::ConnectivityResult"
-"testing::network.dart::_TroubleshootState" o-- "dart::ui::Color"
-"testing::network.dart::_TroubleshootState" o-- "flutter::src::widgets::icon.dart::Icon"
 "flutter::src::widgets::framework.dart::State" <|-- "testing::network.dart::_TroubleshootState"
 
 
