@@ -57,7 +57,7 @@ class MyHomePageState extends State<MyHomePage> {
   void runFilter(String enteredKeyword) {
     List<Map<String, dynamic>> results = [];
     if (enteredKeyword.isEmpty) {
-      // if the search field is empty or only contains white-space, we'll display all users
+      // if the search field is empty we'll display all users
       results = _allUsers;
     } else {
       results = _allUsers
@@ -79,23 +79,11 @@ class MyHomePageState extends State<MyHomePage> {
   void initState() {
     _foundUsers = _allUsers;
     _timeString = _formatDateTime(DateTime.now());
-    Timer.periodic(
-        const Duration(seconds: 1), (Timer t) => _getTime(DateTime.now()));
     super.initState();
-  }
-
-  void _getTime(DateTime now) {
-    final String formattedDateTime = _formatDateTime(now);
-    setState(
-      () {
-        _timeString = formattedDateTime;
-      },
-    );
   }
 
   String _formatDateTime(DateTime dateTime) {
     return DateFormat('dd/MM/yyyy').format(dateTime);
-    //hh:mm:ss
   }
 
   Future<void> selectDate(BuildContext context) async {
