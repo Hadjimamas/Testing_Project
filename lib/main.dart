@@ -97,7 +97,7 @@ class MyHomePageState extends State<MyHomePage> {
         selectedDate = picked;
         modalBottomSheet(context);
       });
-    } else {
+    } else if (picked != null) {
       modalBottomSheet(context);
     }
   }
