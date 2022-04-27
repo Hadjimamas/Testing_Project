@@ -36,9 +36,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 DateTime selectedDate = DateTime.now();
+
 class MyHomePageState extends State<MyHomePage> {
-
-
   late String _timeString;
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
@@ -110,6 +109,8 @@ class MyHomePageState extends State<MyHomePage> {
         selectedDate = picked;
         modalBottomSheet(context);
       });
+    } else {
+      modalBottomSheet(context);
     }
   }
 
@@ -167,6 +168,7 @@ class MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
               ),
               onPressed: () {
+                selectedDate = DateTime.now();
                 modalBottomSheet(context);
               },
             ),
