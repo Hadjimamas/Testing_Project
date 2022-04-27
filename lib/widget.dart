@@ -45,6 +45,7 @@ Future<void> modalBottomSheet(BuildContext context) {
     print('Other Platform');
   }
   return showModalBottomSheet<void>(
+    enableDrag: false,
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -75,7 +76,10 @@ Future<void> modalBottomSheet(BuildContext context) {
                           ),
                         ],
                       ),
-                      onPressed: () => {Navigator.pop(context)},
+                      onPressed: () => {
+                        selectedDate = DateTime.now(),
+                        Navigator.pop(context)
+                      },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(50, 50),
                         shape: const CircleBorder(),
