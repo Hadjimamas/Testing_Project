@@ -38,6 +38,7 @@ class MyHomePage extends StatefulWidget {
 DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
+  int month = DateTime.now().month;
   late String _timeString;
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
@@ -142,6 +143,7 @@ class MyHomePageState extends State<MyHomePage> {
             IconButton(
               tooltip: 'Date Picker',
               onPressed: () {
+                print('The Month is: $month');
                 selectDate(context);
               },
               icon: const Icon(
