@@ -274,9 +274,9 @@ class MyHomePageState extends State<MyHomePage> {
                             a.fixture.timestamp.compareTo(b.fixture.timestamp));
                         return matchTile(allMatches[index]);
                       },
-   // itemComparator: (a,b) =>  a.fixture.timestamp.compareTo(b.fixture.timestamp), // optional
-    //useStickyGroupSeparators: true, // optional
+      //itemComparator: (a,b) =>  a.fixture.timestamp.compareTo(b.fixture.timestamp), // optional
+     //useStickyGroupSeparators: true, // optional
     //floatingHeader: true, // optional
-    //order: GroupedListOrder.ASC, // optional
+   //order: GroupedListOrder.ASC, // optional
   ),
  */
