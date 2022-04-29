@@ -169,6 +169,10 @@ class MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
               ),
               onPressed: () {
+                print('Year');
+                print(DateTime.now().year);
+                print('Month');
+                print(DateTime.now().month);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const Troubleshoot()),
@@ -246,3 +250,33 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+/*
+  GroupedListView<dynamic, String>(
+    elements: allMatches,
+    groupBy: (element) => allMatches.league.round,
+    groupSeparatorBuilder: (context, index) {
+                        if (allMatches[index].league.round !=
+                            allMatches[index + 1].league.round) {
+                          return const Divider(
+                            thickness: 10,
+                            color: Color(0xFFE3790F),
+                          );
+                        } else {
+                          return const Divider(
+                            thickness: 1,
+                            color: Color(0xFF00BFFF),
+                          );
+                        }
+                      },
+     itemBuilder: (context, index) {
+                        // Sorting the matches by timestamp
+                        allMatches.sort((a, b) =>
+                            a.fixture.timestamp.compareTo(b.fixture.timestamp));
+                        return matchTile(allMatches[index]);
+                      },
+   // itemComparator: (a,b) =>  a.fixture.timestamp.compareTo(b.fixture.timestamp), // optional
+    //useStickyGroupSeparators: true, // optional
+    //floatingHeader: true, // optional
+    //order: GroupedListOrder.ASC, // optional
+  ),
+ */
