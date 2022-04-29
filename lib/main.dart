@@ -222,7 +222,8 @@ class MyHomePageState extends State<MyHomePage> {
                           margin: const EdgeInsets.symmetric(vertical: 10),
                           child: ListTile(
                             leading: Text(
-                              _foundUsers[index]['id'].toString(),
+                              '${index + 1}',
+                              //_foundUsers[index]['id'].toString(),
                               style: const TextStyle(fontSize: 24),
                             ),
                             title: Text(_foundUsers[index]['name']),
