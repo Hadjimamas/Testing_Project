@@ -39,7 +39,6 @@ DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
   int month = DateTime.now().month;
-  late String _timeString;
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Andy", "age": 29},
@@ -79,7 +78,6 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     _foundUsers = _allUsers;
-    _timeString = _formatDateTime(DateTime.now());
     super.initState();
   }
 
@@ -99,7 +97,7 @@ class MyHomePageState extends State<MyHomePage> {
         modalBottomSheet(context);
       });
     } else {
-      toast('No date selected');
+      toast('No Date Selected');
     }
   }
 
@@ -169,10 +167,6 @@ class MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
               ),
               onPressed: () {
-                print('Year');
-                print(DateTime.now().year);
-                print('Month');
-                print(DateTime.now().month);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const Troubleshoot()),
@@ -182,7 +176,6 @@ class MyHomePageState extends State<MyHomePage> {
           ],
         ),
         search((value) => runFilter(value), editingController),
-        Text('Current Time and Date: $_timeString'),
         Text('You have selected: $newDate'),
         Text('Results: $foundUsers/$allUsers'),
         Expanded(
