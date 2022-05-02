@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -141,7 +139,6 @@ class MyHomePageState extends State<MyHomePage> {
             IconButton(
               tooltip: 'Date Picker',
               onPressed: () {
-                print('The Month is: $month');
                 selectDate(context);
               },
               icon: const Icon(

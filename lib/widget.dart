@@ -76,10 +76,7 @@ Future<void> modalBottomSheet(BuildContext context) {
                           ),
                         ],
                       ),
-                      onPressed: () => {
-                        //selectedDate = DateTime.now(),
-                        Navigator.pop(context)
-                      },
+                      onPressed: () => {Navigator.pop(context)},
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(50, 50),
                         shape: const CircleBorder(),
