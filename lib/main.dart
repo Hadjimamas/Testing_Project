@@ -93,13 +93,13 @@ class MyHomePageState extends State<MyHomePage> {
         initialDate: selectedDate,
         firstDate: DateTime(DateTime.now().year - 1),
         lastDate: DateTime(DateTime.now().year + 1));
-    if (picked != null && picked != selectedDate) {
+    if (picked != null) {
       setState(() {
         selectedDate = picked;
         modalBottomSheet(context);
       });
-    } else if (picked != null) {
-      modalBottomSheet(context);
+    } else {
+      toast('No date selected');
     }
   }
 
@@ -250,33 +250,3 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-/*
-  GroupedListView<dynamic, String>(
-    elements: allMatches,
-    groupBy: (element) => allMatches.league.round,
-    groupSeparatorBuilder: (context, index) {
-                        if (allMatches[index].league.round !=
-                            allMatches[index + 1].league.round) {
-                          return const Divider(
-                            thickness: 10,
-                            color: Color(0xFFE3790F),
-                          );
-                        } else {
-                          return const Divider(
-                            thickness: 1,
-                            color: Color(0xFF00BFFF),
-                          );
-                        }
-                      },
-     itemBuilder: (context, index) {
-                        // Sorting the matches by timestamp
-                        allMatches.sort((a, b) =>
-                            a.fixture.timestamp.compareTo(b.fixture.timestamp));
-                        return matchTile(allMatches[index]);
-                      },
-      //itemComparator: (a,b) =>  a.fixture.timestamp.compareTo(b.fixture.timestamp), // optional
-     //useStickyGroupSeparators: true, // optional
-    //floatingHeader: true, // optional
-   //order: GroupedListOrder.ASC, // optional
-  ),
- */
