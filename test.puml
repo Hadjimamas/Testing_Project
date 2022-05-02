@@ -14,13 +14,12 @@ class "testing::main.dart::MyHomePage" {
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
 
 class "testing::main.dart::MyHomePageState" {
-  -String _timeString
+  +int month
   +TextEditingController editingController
   -List<Map<String, dynamic>> _allUsers
   -List<Map<String, dynamic>> _foundUsers
   +void runFilter()
   +void initState()
-  -void _getTime()
   -String _formatDateTime()
   +Future<void> selectDate()
   +Widget build()
