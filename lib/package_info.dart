@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProjectInfo extends StatefulWidget {
   const ProjectInfo({Key? key}) : super(key: key);
@@ -18,21 +19,35 @@ class ProjectInfoState extends State<ProjectInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       persistentFooterButtons: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              alignment: Alignment.center,
-              tooltip: 'Project Info',
-              onPressed: () {
-                toast('Footer');
-              },
-              icon: const Icon(
-                Icons.info_outline,
-                color: Colors.blue,
+        Container(
+          color: Colors.amberAccent,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                alignment: Alignment.center,
+                tooltip: 'GitHub',
+                onPressed: () {
+                  launchUrlString('https://github.com/Hadjimamas');
+                },
+                icon: const Icon(
+                  Icons.web,
+                  color: Colors.blue,
+                ),
               ),
-            ),
-          ],
+              IconButton(
+                alignment: Alignment.center,
+                tooltip: 'Project Info',
+                onPressed: () {
+                  toast('Footer');
+                },
+                icon: const Icon(
+                  Icons.info_outline,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
       appBar: AppBar(

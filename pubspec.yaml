@@ -25,6 +25,7 @@ dependencies:
   google_mobile_ads: ^1.2.0
   line_icons: ^2.0.1
   package_info_plus: ^1.4.2
+  url_launcher: ^6.1.0
 
 dev_dependencies:
   flutter_test:
