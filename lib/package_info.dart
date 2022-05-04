@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:overlay_support/overlay_support.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -11,7 +10,7 @@ class ProjectInfo extends StatefulWidget {
 }
 
 class ProjectInfoState extends State<ProjectInfo> {
-  Future<PackageInfo> _getPackageInfo() {
+  Future<PackageInfo> getPackageInfo() {
     return PackageInfo.fromPlatform();
   }
 
@@ -19,35 +18,35 @@ class ProjectInfoState extends State<ProjectInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       persistentFooterButtons: [
-        Container(
-          color: Colors.amberAccent,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                alignment: Alignment.center,
-                tooltip: 'GitHub',
-                onPressed: () {
-                  launchUrlString('https://github.com/Hadjimamas');
-                },
-                icon: const Icon(
-                  Icons.web,
-                  color: Colors.blue,
-                ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Copyright ©2020, All Rights Reserved.',
+              style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 12.0,
+                  color: Color(0xFF162A49)),
+            ),
+            const Text(
+              'Powered by:',
+              style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 12.0,
+                  color: Color(0xFF162A49)),
+            ),
+            IconButton(
+              alignment: Alignment.center,
+              tooltip: 'GitHub',
+              onPressed: () {
+                launchUrlString('https://github.com/Hadjimamas');
+              },
+              icon: const Icon(
+                Icons.sports_soccer,
+                color: Colors.blue,
               ),
-              IconButton(
-                alignment: Alignment.center,
-                tooltip: 'Project Info',
-                onPressed: () {
-                  toast('Footer');
-                },
-                icon: const Icon(
-                  Icons.info_outline,
-                  color: Colors.blue,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
       appBar: AppBar(
@@ -56,7 +55,7 @@ class ProjectInfoState extends State<ProjectInfo> {
       ),
       body: Center(
         child: FutureBuilder<PackageInfo>(
-          future: _getPackageInfo(),
+          future: getPackageInfo(),
           builder: (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
             if (snapshot.hasError) {
               return const Text('ERROR');
