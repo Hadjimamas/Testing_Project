@@ -1,25 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-class ProjectInfo extends StatelessWidget {
+class ProjectInfo extends StatefulWidget {
   const ProjectInfo({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ProjectInfoPage(),
-    );
-  }
+  ProjectInfoState createState() => ProjectInfoState();
 }
 
-class ProjectInfoPage extends StatelessWidget {
-  const ProjectInfoPage({Key? key}) : super(key: key);
-
+class ProjectInfoState extends State<ProjectInfo> {
   Future<PackageInfo> _getPackageInfo() {
     return PackageInfo.fromPlatform();
   }
@@ -27,6 +17,24 @@ class ProjectInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      persistentFooterButtons: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              alignment: Alignment.center,
+              tooltip: 'Project Info',
+              onPressed: () {
+                toast('Footer');
+              },
+              icon: const Icon(
+                Icons.info_outline,
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        ),
+      ],
       appBar: AppBar(
         title: const Text('Project Info'),
         centerTitle: true,

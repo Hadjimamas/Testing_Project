@@ -2,13 +2,12 @@
 
 A flutter project that I will test new features and interesting packages
 
-## What should I Include to my LiveScore App
+## What should I include next to my LiveScore App
 
 1. AdMobs - Google Ads
-2. All Matches for a specific team
+2. **All Matches for a specific team**
 3. Organize more the Standing, Scorers and Teams screens
 4. Implement the statistics for a match from the API and find a way to implement them
-5. Create a search bar to search into the List
 
 - **Bold Example**
 - _Italian_
