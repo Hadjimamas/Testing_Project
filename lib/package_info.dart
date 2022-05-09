@@ -10,72 +10,98 @@ class ProjectInfo extends StatefulWidget {
 }
 
 class ProjectInfoState extends State<ProjectInfo> {
-  Future<PackageInfo> getPackageInfo() {
-    return PackageInfo.fromPlatform();
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+    buildSignature: 'Unknown',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
   }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
+
+  Widget _infoTile(String title, String subtitle) {
+    return ListTile(
+      title: Text(title),
+      subtitle: Text(subtitle.isEmpty ? 'Not set' : subtitle),
+    );
+  }
+
+  int year = DateTime.now().year;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF334753),
       persistentFooterButtons: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Copyright ©2020, All Rights Reserved.',
-              style: TextStyle(
+            Text(
+              'Copyright ©$year, All Rights Reserved.Powered by:',
+              style: const TextStyle(
                   fontWeight: FontWeight.w300,
                   fontSize: 12.0,
-                  color: Color(0xFF162A49)),
+                  color: Colors.white),
             ),
-            const Text(
-              'Powered by:',
-              style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 12.0,
-                  color: Color(0xFF162A49)),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              tooltip: 'Facebook',
+              onPressed: () {
+                launchUrlString('https://www.facebook.com/andreas.hadjimamas/');
+              },
+              icon: const Icon(Icons.facebook, color: Colors.blue, size: 20.0),
             ),
             IconButton(
-              alignment: Alignment.center,
+              tooltip: 'Instagram',
+              onPressed: () {
+                launchUrlString(
+                    'https://www.instagram.com/andreas_hadjimamas/');
+              },
+              icon: const Icon(Icons.install_desktop,
+                  color: Colors.pinkAccent, size: 20.0),
+            ),
+            IconButton(
               tooltip: 'GitHub',
               onPressed: () {
-                launchUrlString('https://github.com/Hadjimamas');
+                launchUrlString(
+                    'https://www.instagram.com/andreas_hadjimamas/');
               },
-              icon: const Icon(
-                Icons.sports_soccer,
-                color: Colors.blue,
-              ),
+              icon: const Icon(Icons.gite_outlined,
+                  color: Colors.black, size: 20.0),
             ),
           ],
         ),
       ],
       appBar: AppBar(
-        title: const Text('Project Info'),
+        title: Text(_packageInfo.appName),
         centerTitle: true,
+        backgroundColor: const Color(0xFF001A2A),
       ),
-      body: Center(
-        child: FutureBuilder<PackageInfo>(
-          future: getPackageInfo(),
-          builder: (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
-            if (snapshot.hasError) {
-              return const Text('ERROR');
-            } else if (!snapshot.hasData) {
-              return const Text('Loading...');
-            }
-
-            final data = snapshot.data!;
-
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'App Name: ${data.appName} \n Package Name: ${data.packageName} \n Version: ${data.version} \n Build Number: ${data.buildNumber}',
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            );
-          },
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _infoTile('App name', _packageInfo.appName),
+          _infoTile('Package name', _packageInfo.packageName),
+          _infoTile('App version', _packageInfo.version),
+          _infoTile('Build number', _packageInfo.buildNumber),
+          _infoTile('Build signature', _packageInfo.buildSignature),
+        ],
       ),
     );
   }
