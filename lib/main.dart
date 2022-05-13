@@ -45,10 +45,18 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => const OverlaySupport.global(
+  Widget build(BuildContext context) => OverlaySupport.global(
         child: MaterialApp(
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.grey,
+            appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF001A2A)),
+            textTheme: Theme.of(context).textTheme.apply(
+                  bodyColor: const Color(0xff22215B),
+                  displayColor: const Color(0xff22215B),
+                ),
+          ),
           debugShowCheckedModeBanner: false,
-          home: Scaffold(
+          home: const Scaffold(
             body: MyHomePage(),
           ),
         ),

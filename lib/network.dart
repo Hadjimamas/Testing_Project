@@ -76,7 +76,6 @@ class _TroubleshootState extends State<Troubleshoot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Network Status'),
       ),

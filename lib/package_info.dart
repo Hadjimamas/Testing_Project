@@ -43,7 +43,6 @@ class ProjectInfoState extends State<ProjectInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF334753),
       persistentFooterButtons: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +90,6 @@ class ProjectInfoState extends State<ProjectInfo> {
       appBar: AppBar(
         title: Text(_packageInfo.appName),
         centerTitle: true,
-        backgroundColor: const Color(0xFF001A2A),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
