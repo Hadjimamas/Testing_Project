@@ -12,6 +12,12 @@ void main() {
   runApp(const MyApp());
 }
 
+String formatDateTime(DateTime dateTime) {
+  return DateFormat('dd/MM/yyyy').format(dateTime);
+}
+
+ScrollController listScrollController = ScrollController();
+
 //flutter pub global run dcdg
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -28,8 +34,25 @@ class MyApp extends StatelessWidget {
                 ),
           ),
           debugShowCheckedModeBanner: false,
-          home: const Scaffold(
-            body: MyHomePage(),
+          home: Scaffold(
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: const Color(0xE2334753),
+              onPressed: () {
+                if (listScrollController.hasClients) {
+                  final position =
+                      listScrollController.position.maxScrollExtent;
+                  listScrollController.animateTo(
+                    position,
+                    duration: const Duration(seconds: 3),
+                    curve: Curves.easeOut,
+                  );
+                }
+              },
+              isExtended: true,
+              tooltip: 'Scroll to Bottom',
+              child: const Icon(Icons.arrow_downward),
+            ),
+            body: const MyHomePage(),
           ),
         ),
       );
@@ -88,10 +111,6 @@ class MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  String _formatDateTime(DateTime dateTime) {
-    return DateFormat('dd/MM/yyyy').format(dateTime);
-  }
-
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
@@ -110,28 +129,11 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    ScrollController listScrollController = ScrollController();
-    String newDate = _formatDateTime(selectedDate);
+    String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
     return Column(
       children: [
-        FloatingActionButton(
-          backgroundColor: const Color(0xE2334753),
-          onPressed: () {
-            if (listScrollController.hasClients) {
-              final position = listScrollController.position.maxScrollExtent;
-              listScrollController.animateTo(
-                position,
-                duration: const Duration(seconds: 3),
-                curve: Curves.easeOut,
-              );
-            }
-          },
-          isExtended: true,
-          tooltip: 'Scroll to Bottom',
-          child: const Icon(Icons.arrow_downward),
-        ),
         AppBar(
           title: Text(
             'Example Project',

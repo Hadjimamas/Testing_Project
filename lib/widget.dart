@@ -57,7 +57,7 @@ Future<void> modalBottomSheet(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                '$platformType Platform \n $selectedDate',
+                '$platformType Platform\n${formatDateTime(selectedDate)}',
               ),
               Padding(
                 padding: const EdgeInsets.only(
