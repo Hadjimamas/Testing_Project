@@ -61,7 +61,7 @@ Future<void> modalBottomSheet(BuildContext context) {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 30, top: 0, right: 30, bottom: 20),
+                    left: 30, top: 10, right: 30, bottom: 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -79,13 +79,18 @@ Future<void> modalBottomSheet(BuildContext context) {
                       onPressed: () => {Navigator.pop(context)},
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(50, 50),
-                        shape: const CircleBorder(),
+                        shape: const CircleBorder(
+                          side: BorderSide(
+                              color: Colors.black,
+                              width: 5,
+                              style: BorderStyle.solid),
+                        ),
                         primary: Colors.black38,
                         //Below is the colour of the button when you press it
                         onPrimary: Colors.red,
-                        side: const BorderSide(color: Colors.red, width: 2),
+                        //side: const BorderSide(color: Colors.red, width: 2),
                         alignment: Alignment.center,
-                        elevation: 2,
+                        elevation: 10,
                       ),
                     ),
                   ],
