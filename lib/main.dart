@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => OverlaySupport.global(
         child: MaterialApp(
           theme: ThemeData(
-            scaffoldBackgroundColor: Colors.grey,
+            scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF001A2A)),
             textTheme: Theme.of(context).textTheme.apply(
                   bodyColor: const Color(0xff22215B),
