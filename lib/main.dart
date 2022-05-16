@@ -12,34 +12,6 @@ void main() {
   runApp(const MyApp());
 }
 
-///To add matches of the day to a new list
-/*
-// Main function
-main() {
-
-  // Creating lists
-  List gfg1 = ['Welcome','to'];
-  List gfg2 = ['GeeksForGeeks'];
-  List list3 = [];
-
-
-
-   if(gfg1[0] == 'Welcome' ){
-     list3.add(gfg1[0]);
-   } else{
-     print('Not match');
-   }
-  // Combining lists
-
-    if(list3.isNotEmpty){
-      print('List is not Empty');
-    }else{
-      print('List is Empty');
-    }
-  // Printing combined list
-  print(list3);
-}
- */
 //flutter pub global run dcdg
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
