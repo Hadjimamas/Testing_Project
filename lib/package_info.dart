@@ -10,7 +10,7 @@ class ProjectInfo extends StatefulWidget {
 }
 
 class ProjectInfoState extends State<ProjectInfo> {
-  PackageInfo _packageInfo = PackageInfo(
+  PackageInfo packageInfo = PackageInfo(
     appName: 'Unknown',
     packageName: 'Unknown',
     version: 'Unknown',
@@ -21,17 +21,17 @@ class ProjectInfoState extends State<ProjectInfo> {
   @override
   void initState() {
     super.initState();
-    _initPackageInfo();
+    initPackageInfo();
   }
 
-  Future<void> _initPackageInfo() async {
+  Future<void> initPackageInfo() async {
     final info = await PackageInfo.fromPlatform();
     setState(() {
-      _packageInfo = info;
+      packageInfo = info;
     });
   }
 
-  Widget _infoTile(String title, String subtitle) {
+  Widget infoTile(String title, String subtitle) {
     return ListTile(
       title: Text(title),
       subtitle: Text(subtitle.isEmpty ? 'Not set' : subtitle),
@@ -88,17 +88,17 @@ class ProjectInfoState extends State<ProjectInfo> {
         ),
       ],
       appBar: AppBar(
-        title: Text(_packageInfo.appName),
+        title: Text(packageInfo.appName),
         centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _infoTile('App name', _packageInfo.appName),
-          _infoTile('Package name', _packageInfo.packageName),
-          _infoTile('App version', _packageInfo.version),
-          _infoTile('Build number', _packageInfo.buildNumber),
-          _infoTile('Build signature', _packageInfo.buildSignature),
+          infoTile('App name', packageInfo.appName),
+          infoTile('Package name', packageInfo.packageName),
+          infoTile('App version', packageInfo.version),
+          infoTile('Build number', packageInfo.buildNumber),
+          infoTile('Build signature', packageInfo.buildSignature),
         ],
       ),
     );

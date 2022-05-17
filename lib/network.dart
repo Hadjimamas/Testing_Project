@@ -10,7 +10,7 @@ class Troubleshoot extends StatefulWidget {
   const Troubleshoot({Key? key}) : super(key: key);
 
   @override
-  _TroubleshootState createState() => _TroubleshootState();
+  TroubleshootState createState() => TroubleshootState();
 }
 
 late StreamSubscription<ConnectivityResult> _connectivitySubscription;
@@ -23,7 +23,7 @@ Icon networkIcon = const Icon(
 String platformType = 'Other Platform';
 String msg = 'No Internet Connection';
 
-class _TroubleshootState extends State<Troubleshoot> {
+class TroubleshootState extends State<Troubleshoot> {
   @override
   void initState() {
     if (defaultTargetPlatform == TargetPlatform.android) {

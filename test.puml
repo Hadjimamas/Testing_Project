@@ -14,13 +14,11 @@ class "testing::main.dart::MyHomePage" {
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
 
 class "testing::main.dart::MyHomePageState" {
-  +int month
   +TextEditingController editingController
   -List<Map<String, dynamic>> _allUsers
   -List<Map<String, dynamic>> _foundUsers
   +void runFilter()
   +void initState()
-  -String _formatDateTime()
   +Future<void> selectDate()
   +Widget build()
 }
@@ -29,18 +27,66 @@ class "testing::main.dart::MyHomePageState" {
 "flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
 
 class "testing::network.dart::Troubleshoot" {
-  +_TroubleshootState createState()
+PS C:\Users\AH185273\OneDrive - NCR Corporation\Documents\Flutter Projects\testing> flutter pub global run dcdg
+@startuml
+set namespaceSeparator ::
+
+class "testing::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "testing::main.dart::MyApp"
+
+class "testing::main.dart::MyHomePage" {
+  +MyHomePageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
+
+class "testing::main.dart::MyHomePageState" {
+  +TextEditingController editingController
+  -List<Map<String, dynamic>> _allUsers
+  -List<Map<String, dynamic>> _foundUsers
+  +void runFilter()
+  +void initState()
+  +Future<void> selectDate()
+  +Widget build()
+}
+
+"testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
+
+class "testing::network.dart::Troubleshoot" {
+  +TroubleshootState createState()
 }
 
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::network.dart::Troubleshoot"
 
-class "testing::network.dart::_TroubleshootState" {
+class "testing::network.dart::TroubleshootState" {
   +void initState()
   +void dispose()
   +Widget build()
 }
 
-"flutter::src::widgets::framework.dart::State" <|-- "testing::network.dart::_TroubleshootState"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::network.dart::TroubleshootState"
+
+class "testing::package_info.dart::ProjectInfo" {
+  +ProjectInfoState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::package_info.dart::ProjectInfo"
+
+class "testing::package_info.dart::ProjectInfoState" {
+  +PackageInfo packageInfo
+  +int year
+  +void initState()
+  +Future<void> initPackageInfo()
+  +Widget infoTile()
+  +Widget build()
+}
+
+"testing::package_info.dart::ProjectInfoState" o-- "package_info_plus::package_info_plus.dart::PackageInfo"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::package_info.dart::ProjectInfoState"
 
 
 @enduml
