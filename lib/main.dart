@@ -70,7 +70,6 @@ class MyHomePage extends StatefulWidget {
 DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
-  int month = DateTime.now().month;
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Andy", "age": 29},
