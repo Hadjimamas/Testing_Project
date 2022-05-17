@@ -40,14 +40,17 @@ class _EmailSenderState extends State<EmailSender> {
 
     String platformResponse;
     Color response;
+    Icon responseIcon;
     try {
       await FlutterEmailSender.send(email);
       platformResponse = 'Thank you for your e-mail';
       response = Colors.green;
+      responseIcon = const Icon(Icons.done);
     } catch (error) {
       print(error);
       platformResponse = "An error occurred --> ${error.toString()}";
       response = Colors.red;
+      responseIcon = const Icon(Icons.error_outline_outlined);
     }
 
     if (!mounted) return;
@@ -55,7 +58,7 @@ class _EmailSenderState extends State<EmailSender> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: response,
-        content: Text(platformResponse),
+        content: ListTile(title: Text(platformResponse), leading: responseIcon),
       ),
     );
   }
