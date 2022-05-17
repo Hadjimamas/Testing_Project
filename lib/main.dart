@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:testing/email.dart';
 import 'package:testing/network.dart';
 import 'package:testing/package_info.dart';
 import 'package:testing/widget.dart';
@@ -203,7 +204,7 @@ class MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Troubleshoot()),
+                  MaterialPageRoute(builder: (context) => const EmailSender()),
                 );
               },
             ),
