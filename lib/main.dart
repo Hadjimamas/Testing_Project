@@ -1,5 +1,7 @@
+// ignore_for_file: avoid_print
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -79,7 +81,7 @@ class MyHomePageState extends State<MyHomePage> {
     {"id": 6, "name": "Colin", "age": 55},
     {"id": 7, "name": "Audra", "age": 30},
     {"id": 8, "name": "Banana", "age": 14},
-    {"id": 9, "name": "Caver-sky", "age": 100},
+    {"id": 9, "name": "Caver-sky", "age": 47},
     {"id": 10, "name": "Becky", "age": 32},
   ];
   List<Map<String, dynamic>> _foundUsers = [];
@@ -132,6 +134,18 @@ class MyHomePageState extends State<MyHomePage> {
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
+
+    ///Check the type of the device to add the correct adUnit for every OS(ex.android,iOS)
+    String adUnit = '';
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      adUnit = 'Android';
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      adUnit = 'iOS';
+    } else if (defaultTargetPlatform == TargetPlatform.windows) {
+      adUnit = 'Windows';
+    }
+    print('The ad must be type of: $adUnit');
+
     return Column(
       children: [
         AppBar(
@@ -207,11 +221,15 @@ class MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    ElevatedButton(
+                    IconButton(
                       onPressed: () {
                         checkNetworkConnection();
                       },
-                      child: const Text('Check Internet Connection'),
+                      icon: const Icon(
+                        Icons.network_check,
+                        color: Colors.black,
+                      ),
+                      //child: const Text('Check Internet Connection'),
                     ),
                     Expanded(
                       child: ListTile(

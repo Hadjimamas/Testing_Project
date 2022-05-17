@@ -85,8 +85,9 @@ class _TroubleshootState extends State<Troubleshoot> {
           children: [
             Text('$platformType Platform'),
             ListTile(
-              leading: networkIcon,
-              title: Text(msg),
+              leading:
+                  Tooltip(message: 'Connection Status', child: networkIcon),
+              title: Tooltip(message: 'Connection Type', child: Text(msg)),
             ),
           ],
         ),
