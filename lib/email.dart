@@ -17,21 +17,21 @@ class _EmailSenderState extends State<EmailSender> {
   List<String> attachments = [];
   bool isHTML = false;
 
-  final _recipientController = TextEditingController(
-    text: 'hadjimamasandreas@gmail.com',
+  final _senderController = TextEditingController(
+    text: '',
   );
 
-  final _subjectController = TextEditingController(text: 'The subject');
+  final _subjectController = TextEditingController(text: '');
 
   final _bodyController = TextEditingController(
-    text: 'Mail body.',
+    text: '',
   );
 
   Future<void> send() async {
     final Email email = Email(
-      body: _bodyController.text,
+      body: 'Email from ${_senderController.text} \n ${_bodyController.text}',
       subject: _subjectController.text,
-      recipients: [_recipientController.text],
+      recipients: ['hadjimamasandreas@gmail.com'],
       attachmentPaths: attachments,
       isHTML: isHTML,
     );
@@ -77,10 +77,12 @@ class _EmailSenderState extends State<EmailSender> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
-                controller: _recipientController,
+                keyboardType: TextInputType.emailAddress,
+                controller: _senderController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Recipient',
+                  hintText: 'Email',
+                  labelText: 'Sender',
                 ),
               ),
             ),
@@ -90,6 +92,7 @@ class _EmailSenderState extends State<EmailSender> {
                 controller: _subjectController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
+                  hintText: 'Subject',
                   labelText: 'Subject',
                 ),
               ),
@@ -103,7 +106,9 @@ class _EmailSenderState extends State<EmailSender> {
                   expands: true,
                   textAlignVertical: TextAlignVertical.top,
                   decoration: InputDecoration(
-                      labelText: 'Body', border: OutlineInputBorder()),
+                      hintText: 'Enter text here',
+                      labelText: 'Body',
+                      border: OutlineInputBorder()),
                 ),
               ),
             ),

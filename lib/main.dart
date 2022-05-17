@@ -115,6 +115,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
+        keyboardType: TextInputType.datetime,
         context: context,
         initialDate: selectedDate,
         firstDate: DateTime(DateTime.now().year - 1),
