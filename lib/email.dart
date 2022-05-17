@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:io';
 
@@ -37,19 +39,22 @@ class _EmailSenderState extends State<EmailSender> {
     );
 
     String platformResponse;
-
+    Color response;
     try {
       await FlutterEmailSender.send(email);
-      platformResponse = 'success';
+      platformResponse = 'Thank you for your e-mail';
+      response = Colors.green;
     } catch (error) {
       print(error);
-      platformResponse = error.toString();
+      platformResponse = "An error occurred --> ${error.toString()}";
+      response = Colors.red;
     }
 
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        backgroundColor: response,
         content: Text(platformResponse),
       ),
     );
@@ -59,38 +64,38 @@ class _EmailSenderState extends State<EmailSender> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Plugin example app'),
+        title: const Text('Plugin example app'),
         actions: <Widget>[
           IconButton(
             onPressed: send,
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
           )
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 keyboardType: TextInputType.emailAddress,
                 controller: _senderController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Email',
-                  labelText: 'Sender',
+                  labelText: 'Sender E-mail',
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: _subjectController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Subject',
                   labelText: 'Subject',
@@ -99,13 +104,13 @@ class _EmailSenderState extends State<EmailSender> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: _bodyController,
                   maxLines: null,
                   expands: true,
                   textAlignVertical: TextAlignVertical.top,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: 'Enter text here',
                       labelText: 'Body',
                       border: OutlineInputBorder()),
@@ -114,8 +119,8 @@ class _EmailSenderState extends State<EmailSender> {
             ),
             CheckboxListTile(
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
-              title: Text('HTML'),
+                  const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
+              title: const Text('HTML'),
               onChanged: (bool? value) {
                 if (value != null) {
                   setState(() {
@@ -126,7 +131,7 @@ class _EmailSenderState extends State<EmailSender> {
               value: isHTML,
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: <Widget>[
                   for (var i = 0; i < attachments.length; i++)
@@ -140,7 +145,7 @@ class _EmailSenderState extends State<EmailSender> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.remove_circle),
+                          icon: const Icon(Icons.remove_circle),
                           onPressed: () => {_removeAttachment(i)},
                         )
                       ],
@@ -148,13 +153,13 @@ class _EmailSenderState extends State<EmailSender> {
                   Align(
                     alignment: Alignment.centerRight,
                     child: IconButton(
-                      icon: Icon(Icons.attach_file),
+                      icon: const Icon(Icons.attach_file),
                       onPressed: _openImagePicker,
                     ),
                   ),
                   TextButton(
-                    child: Text('Attach file in app documents directory'),
-                    onPressed: () => _attachFileFromAppDocumentsDirectoy(),
+                    child: const Text('Attach file in app documents directory'),
+                    onPressed: () => _attachFileFromAppDocumentsDirectory(),
                   ),
                 ],
               ),
@@ -181,7 +186,7 @@ class _EmailSenderState extends State<EmailSender> {
     });
   }
 
-  Future<void> _attachFileFromAppDocumentsDirectoy() async {
+  Future<void> _attachFileFromAppDocumentsDirectory() async {
     try {
       final appDocumentDir = await getApplicationDocumentsDirectory();
       final filePath = appDocumentDir.path + '/file.txt';
@@ -193,8 +198,8 @@ class _EmailSenderState extends State<EmailSender> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Failed to create file in applicion directory'),
+        const SnackBar(
+          content: Text('Failed to create file in application directory'),
         ),
       );
     }
