@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
-            appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF001A2A)),
+            appBarTheme: const AppBarTheme(
+                backgroundColor: Color(0xFF001A2A), centerTitle: true),
             textTheme: Theme.of(context).textTheme.apply(
                   bodyColor: const Color(0xff22215B),
                   displayColor: const Color(0xff22215B),
@@ -126,7 +127,12 @@ class MyHomePageState extends State<MyHomePage> {
         modalBottomSheet(context);
       });
     } else {
-      toast('No Date Selected');
+      showSimpleNotification(const Text('No Date Selected'),
+          leading: const Icon(Icons.error_outline_outlined),
+          background: Colors.red,
+          position: NotificationPosition.bottom,
+          slideDismissDirection: DismissDirection.up);
+      //toast('No Date Selected');
     }
   }
 
@@ -160,7 +166,6 @@ class MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          centerTitle: true,
           actions: <Widget>[
             IconButton(
               tooltip: 'Project Info',
@@ -205,6 +210,19 @@ class MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
+                  MaterialPageRoute(builder: (context) => const Troubleshoot()),
+                );
+              },
+            ),
+            IconButton(
+              tooltip: 'Contact Developer',
+              icon: const Icon(
+                Icons.contact_mail_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => const EmailSender()),
                 );
               },
@@ -226,11 +244,11 @@ class MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         checkNetworkConnection();
                       },
+                      tooltip: 'Check Internet Connection',
                       icon: const Icon(
                         Icons.network_check,
                         color: Colors.black,
                       ),
-                      //child: const Text('Check Internet Connection'),
                     ),
                     Expanded(
                       child: ListTile(

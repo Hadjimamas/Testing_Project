@@ -89,7 +89,6 @@ class ProjectInfoState extends State<ProjectInfo> {
       ],
       appBar: AppBar(
         title: Text(packageInfo.appName),
-        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

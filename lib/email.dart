@@ -19,15 +19,11 @@ class _EmailSenderState extends State<EmailSender> {
   List<String> attachments = [];
   bool isHTML = false;
 
-  final _senderController = TextEditingController(
-    text: '',
-  );
+  final _senderController = TextEditingController();
 
-  final _subjectController = TextEditingController(text: '');
+  final _subjectController = TextEditingController();
 
-  final _bodyController = TextEditingController(
-    text: '',
-  );
+  final _bodyController = TextEditingController();
 
   Future<void> send() async {
     final Email email = Email(
@@ -66,6 +62,15 @@ class _EmailSenderState extends State<EmailSender> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      persistentFooterButtons: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+                '*You will be prompted to your email account to finish the process!'),
+          ],
+        )
+      ],
       appBar: AppBar(
         title: const Text('Plugin example app'),
         actions: <Widget>[
@@ -111,7 +116,7 @@ class _EmailSenderState extends State<EmailSender> {
                 child: TextField(
                   controller: _bodyController,
                   maxLines: null,
-                  expands: true,
+                  //expands: true,
                   textAlignVertical: TextAlignVertical.top,
                   decoration: const InputDecoration(
                       hintText: 'Enter text here',
@@ -121,6 +126,8 @@ class _EmailSenderState extends State<EmailSender> {
               ),
             ),
             CheckboxListTile(
+              checkboxShape: const CircleBorder(),
+              //checkColor: Colors.green,
               contentPadding:
                   const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
               title: const Text('HTML'),
