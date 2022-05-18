@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 import 'dart:async';
+import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -13,6 +13,19 @@ import 'package:testing/widget.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+///Check the type of the device to add the correct adUnit for every OS(ex.android,iOS);
+class AdHelper {
+  static String get bannerAdUnitId {
+    if (Platform.isAndroid) {
+      return "ca-app-pub-3940256099942544/6300978111";
+    } else if (Platform.isIOS) {
+      return "ca-app-pub-3940256099942544/2934735716";
+    } else {
+      throw UnsupportedError("Unsupported platform");
+    }
+  }
 }
 
 String formatDateTime(DateTime dateTime) {
@@ -126,13 +139,17 @@ class MyHomePageState extends State<MyHomePage> {
         selectedDate = picked;
         modalBottomSheet(context);
       });
+      showSimpleNotification(Text('Date Selected ${formatDateTime(picked)}'),
+          leading: const Icon(Icons.event_available_outlined),
+          background: Colors.green,
+          position: NotificationPosition.top,
+          slideDismissDirection: DismissDirection.up);
     } else {
       showSimpleNotification(const Text('No Date Selected'),
-          leading: const Icon(Icons.error_outline_outlined),
+          leading: const Icon(Icons.event_busy_outlined),
           background: Colors.red,
           position: NotificationPosition.bottom,
           slideDismissDirection: DismissDirection.up);
-      //toast('No Date Selected');
     }
   }
 
@@ -141,18 +158,6 @@ class MyHomePageState extends State<MyHomePage> {
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
-
-    ///Check the type of the device to add the correct adUnit for every OS(ex.android,iOS)
-    String adUnit = '';
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      adUnit = 'Android';
-    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
-      adUnit = 'iOS';
-    } else if (defaultTargetPlatform == TargetPlatform.windows) {
-      adUnit = 'Windows';
-    }
-    print('The ad must be type of: $adUnit');
-
     return Column(
       children: [
         AppBar(
@@ -184,6 +189,7 @@ class MyHomePageState extends State<MyHomePage> {
               tooltip: 'Date Picker',
               onPressed: () {
                 selectDate(context);
+                print(AdHelper.bannerAdUnitId);
               },
               icon: const Icon(
                 Icons.date_range,
