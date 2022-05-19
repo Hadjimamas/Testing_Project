@@ -35,17 +35,17 @@ class _EmailSenderState extends State<EmailSender> {
     );
 
     String platformResponse;
-    Color response;
+    Color responseColor;
     Icon responseIcon;
     try {
       await FlutterEmailSender.send(email);
       platformResponse = 'Thank you for your e-mail';
-      response = Colors.green;
+      responseColor = Colors.green;
       responseIcon = const Icon(Icons.done);
     } catch (error) {
       print(error);
-      platformResponse = "An error occurred --> ${error.toString()}";
-      response = Colors.red;
+      platformResponse = 'An error occurred --> ${error.toString()}';
+      responseColor = Colors.red;
       responseIcon = const Icon(Icons.error_outline_outlined);
     }
 
@@ -53,8 +53,8 @@ class _EmailSenderState extends State<EmailSender> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: response,
-        content: ListTile(title: Text(platformResponse), leading: responseIcon),
+        backgroundColor: responseColor,
+        content: ListTile(leading: responseIcon, title: Text(platformResponse)),
       ),
     );
   }
@@ -72,7 +72,7 @@ class _EmailSenderState extends State<EmailSender> {
         )
       ],
       appBar: AppBar(
-        title: const Text('Plugin example app'),
+        title: const Text('Contact Developer'),
         actions: <Widget>[
           IconButton(
             onPressed: send,
@@ -94,8 +94,8 @@ class _EmailSenderState extends State<EmailSender> {
                 controller: _senderController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Email',
-                  labelText: 'Sender E-mail',
+                  hintText: 'E-mail',
+                  labelText: 'E-mail',
                 ),
               ),
             ),
@@ -167,9 +167,15 @@ class _EmailSenderState extends State<EmailSender> {
                       onPressed: _openImagePicker,
                     ),
                   ),
-                  TextButton(
-                    child: const Text('Attach file in app documents directory'),
-                    onPressed: () => _attachFileFromAppDocumentsDirectory(),
+                  TextButton.icon(
+                    icon: const Icon(Icons.attach_email_outlined),
+                    label: const Text('Attach file in app documents directory'),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.white70,
+                      side: const BorderSide(color: Colors.teal),
+                      primary: Colors.teal,
+                    ),
+                    onPressed: () => {_attachFileFromAppDocumentsDirectory()},
                   ),
                 ],
               ),
