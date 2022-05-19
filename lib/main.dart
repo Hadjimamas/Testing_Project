@@ -134,17 +134,16 @@ class MyHomePageState extends State<MyHomePage> {
           return Theme(
             data: Theme.of(context).copyWith(
               colorScheme: const ColorScheme.light(
-                primary: Colors.lightBlueAccent, // header background color
-                onPrimary: Colors.black, // header text color
-                onSurface: Colors.green, // body text color
+                primary: Color(0xff014975), //Header background color
+                onPrimary: Colors.white, //Header text color
+                onSurface: Colors.black, //Text color of the dates
               ),
               textTheme: Theme.of(context).textTheme.apply(
-                    bodyColor: Colors.black,
-                    displayColor: const Color(0xff22215B),
+                    bodyColor: Colors.black, //Text color of the input date
                   ),
               textButtonTheme: TextButtonThemeData(
                 style: TextButton.styleFrom(
-                  primary: Colors.red, // button text color
+                  primary: const Color(0xff014975), //Button text color
                 ),
               ),
             ),
@@ -211,7 +210,6 @@ class MyHomePageState extends State<MyHomePage> {
               tooltip: 'Date Picker',
               onPressed: () {
                 selectDate(context);
-                print(AdHelper.bannerAdUnitId);
               },
               icon: const Icon(
                 Icons.date_range,
