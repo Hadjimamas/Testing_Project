@@ -129,6 +129,28 @@ class MyHomePageState extends State<MyHomePage> {
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
+        builder: (context, child) {
+          ///Change the design of the date
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: Colors.lightBlueAccent, // header background color
+                onPrimary: Colors.black, // header text color
+                onSurface: Colors.green, // body text color
+              ),
+              textTheme: Theme.of(context).textTheme.apply(
+                    bodyColor: Colors.black,
+                    displayColor: const Color(0xff22215B),
+                  ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: Colors.red, // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        },
         keyboardType: TextInputType.datetime,
         context: context,
         initialDate: selectedDate,
