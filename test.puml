@@ -1,35 +1,31 @@
 @startuml
 set namespaceSeparator ::
 
-class "testing::main.dart::MyApp" {
+class "testing::email.dart::EmailSender" {
+  +_EmailSenderState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::email.dart::EmailSender"
+
+class "testing::email.dart::_EmailSenderState" {
+  +List<String> attachments
+  +bool isHTML
+  -TextEditingController _senderController
+  -TextEditingController _subjectController
+  -TextEditingController _bodyController
+  +Future<void> send()
   +Widget build()
+  -void _openImagePicker()
+  -void _removeAttachment()
+  -Future<void> _attachFileFromAppDocumentsDirectory()
 }
 
-"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "testing::main.dart::MyApp"
+"testing::email.dart::_EmailSenderState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::email.dart::_EmailSenderState"
 
-class "testing::main.dart::MyHomePage" {
-  +MyHomePageState createState()
+class "testing::main.dart::AdHelper" {
+  {static} +String bannerAdUnitId
 }
-
-"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
-
-class "testing::main.dart::MyHomePageState" {
-  +TextEditingController editingController
-  -List<Map<String, dynamic>> _allUsers
-  -List<Map<String, dynamic>> _foundUsers
-  +void runFilter()
-  +void initState()
-  +Future<void> selectDate()
-  +Widget build()
-}
-
-"testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
-"flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
-
-class "testing::network.dart::Troubleshoot" {
-PS C:\Users\AH185273\OneDrive - NCR Corporation\Documents\Flutter Projects\testing> flutter pub global run dcdg
-@startuml
-set namespaceSeparator ::
 
 class "testing::main.dart::MyApp" {
   +Widget build()
