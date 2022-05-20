@@ -1,13 +1,12 @@
-// ignore_for_file: avoid_print
 import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/email.dart';
-import 'package:testing/network.dart';
 import 'package:testing/package_info.dart';
 import 'package:testing/widget.dart';
 
@@ -55,6 +54,14 @@ class MyApp extends StatelessWidget {
             floatingActionButton: FloatingActionButton(
               backgroundColor: const Color(0xE2334753),
               onPressed: () {
+                Clipboard.setData(
+                        const ClipboardData(text: "Text you want to copy here"))
+                    .then((_) {
+                  toast('Text Copied');
+                  // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  //     content: Text('Copied to your clipboard !')));
+                });
+                // Clipboard.setData(const ClipboardData(text: "your text"));
                 if (listScrollController.hasClients) {
                   final position =
                       listScrollController.position.maxScrollExtent;
@@ -129,32 +136,33 @@ class MyHomePageState extends State<MyHomePage> {
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-        builder: (context, child) {
-          ///Change the design of the date
-          return Theme(
-            data: Theme.of(context).copyWith(
-              colorScheme: const ColorScheme.light(
-                primary: Color(0xff014975), //Header background color
-                onPrimary: Colors.white, //Header text color
-                onSurface: Colors.black, //Text color of the dates
-              ),
-              textTheme: Theme.of(context).textTheme.apply(
-                    bodyColor: Colors.black, //Text color of the input date
-                  ),
-              textButtonTheme: TextButtonThemeData(
-                style: TextButton.styleFrom(
-                  primary: const Color(0xff014975), //Button text color
+      keyboardType: TextInputType.datetime,
+      builder: (context, child) {
+        ///Change the design of the date
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xff014975), //Header background color
+              onPrimary: Colors.white, //Header text color
+              onSurface: Colors.black, //Text color of the dates
+            ),
+            textTheme: Theme.of(context).textTheme.apply(
+                  bodyColor: Colors.black, //Text color of the input date
                 ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                primary: const Color(0xff014975), //Button text color
               ),
             ),
-            child: child!,
-          );
-        },
-        keyboardType: TextInputType.datetime,
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(DateTime.now().year - 1),
-        lastDate: DateTime(DateTime.now().year + 1));
+          ),
+          child: child!,
+        );
+      },
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(DateTime.now().year - 1),
+      lastDate: DateTime(DateTime.now().year + 1),
+    );
     if (picked != null) {
       setState(() {
         selectedDate = picked;
@@ -225,19 +233,6 @@ class MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 selectedDate = DateTime.now();
                 modalBottomSheet(context);
-              },
-            ),
-            IconButton(
-              tooltip: 'Troubleshot',
-              icon: const Icon(
-                Icons.perm_data_setting,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Troubleshoot()),
-                );
               },
             ),
             IconButton(

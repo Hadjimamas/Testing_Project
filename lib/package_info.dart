@@ -1,5 +1,12 @@
+// ignore_for_file: avoid_print
+
+import 'dart:async';
+import 'dart:io';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:testing/widget.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ProjectInfo extends StatefulWidget {
@@ -8,6 +15,15 @@ class ProjectInfo extends StatefulWidget {
   @override
   ProjectInfoState createState() => ProjectInfoState();
 }
+
+ConnectivityResult result = ConnectivityResult.none;
+Color color = Colors.red;
+Icon networkIcon = const Icon(
+  Icons.wifi_off,
+  color: Colors.red,
+);
+String platformType = 'Other Platform';
+String msg = 'No Internet Connection';
 
 class ProjectInfoState extends State<ProjectInfo> {
   PackageInfo packageInfo = PackageInfo(
@@ -20,8 +36,51 @@ class ProjectInfoState extends State<ProjectInfo> {
 
   @override
   void initState() {
+    if (Platform.isAndroid) {
+      platformType = 'Android';
+      print('Android');
+    } else if (Platform.isIOS) {
+      platformType = 'iOS';
+      print('iOS');
+    } else if (Platform.isWindows) {
+      platformType = 'Windows';
+      print('Windows');
+    } else {
+      platformType = 'Other Platform';
+      print('Other Platform');
+    }
+    Connectivity().onConnectivityChanged.listen((newResult) {
+      setState(() => result = newResult);
+      if (newResult == ConnectivityResult.wifi) {
+        msg = 'Wi-Fi Connection';
+        color = Colors.green;
+        networkIcon = Icon(
+          Icons.wifi,
+          color: color,
+        );
+      } else if (newResult == ConnectivityResult.ethernet) {
+        msg = 'Ethernet Connection';
+        color = Colors.green;
+        networkIcon = Icon(
+          Icons.settings_ethernet,
+          color: color,
+        );
+      } else {
+        msg = 'No Internet Connection';
+        color = Colors.red;
+        networkIcon = Icon(
+          Icons.wifi_off,
+          color: color,
+        );
+      }
+    });
     super.initState();
     initPackageInfo();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   Future<void> initPackageInfo() async {
@@ -48,11 +107,11 @@ class ProjectInfoState extends State<ProjectInfo> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Copyright ©$year, All Rights Reserved.Powered by:',
+              'Copyright ©$year, All Rights Reserved. Powered by:',
               style: const TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 12.0,
-                  color: Colors.white),
+                fontWeight: FontWeight.w300,
+                fontSize: 12.0,
+              ),
             ),
           ],
         ),
@@ -88,11 +147,28 @@ class ProjectInfoState extends State<ProjectInfo> {
         ),
       ],
       appBar: AppBar(
-        title: Text(packageInfo.appName),
+        title: Text('${packageInfo.appName} Project'.toUpperCase()),
+        actions: [
+          IconButton(
+            onPressed: () {
+              checkNetworkConnection();
+            },
+            tooltip: 'Check Internet Connection',
+            icon: const Icon(
+              Icons.network_check,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          Text('$platformType Platform'),
+          ListTile(
+            leading: Tooltip(message: 'Connection Status', child: networkIcon),
+            title: Tooltip(message: 'Connection Type', child: Text(msg)),
+          ),
           infoTile('App name', packageInfo.appName),
           infoTile('Package name', packageInfo.packageName),
           infoTile('App version', packageInfo.version),
