@@ -57,9 +57,11 @@ class MyApp extends StatelessWidget {
                 Clipboard.setData(
                         const ClipboardData(text: "Text you want to copy here"))
                     .then((_) {
-                  toast('Text Copied');
-                  // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  //     content: Text('Copied to your clipboard !')));
+                  showSimpleNotification(const Text('Copied to Clipboard'),
+                      leading: const Icon(Icons.copy_rounded),
+                      background: Colors.blueGrey,
+                      position: NotificationPosition.top,
+                      slideDismissDirection: DismissDirection.up);
                 });
                 // Clipboard.setData(const ClipboardData(text: "your text"));
                 if (listScrollController.hasClients) {

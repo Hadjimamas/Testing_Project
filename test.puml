@@ -52,20 +52,6 @@ class "testing::main.dart::MyHomePageState" {
 "testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
 "flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
 
-class "testing::network.dart::Troubleshoot" {
-  +TroubleshootState createState()
-}
-
-"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::network.dart::Troubleshoot"
-
-class "testing::network.dart::TroubleshootState" {
-  +void initState()
-  +void dispose()
-  +Widget build()
-}
-
-"flutter::src::widgets::framework.dart::State" <|-- "testing::network.dart::TroubleshootState"
-
 class "testing::package_info.dart::ProjectInfo" {
   +ProjectInfoState createState()
 }
@@ -76,6 +62,7 @@ class "testing::package_info.dart::ProjectInfoState" {
   +PackageInfo packageInfo
   +int year
   +void initState()
+  +void dispose()
   +Future<void> initPackageInfo()
   +Widget infoTile()
   +Widget build()
