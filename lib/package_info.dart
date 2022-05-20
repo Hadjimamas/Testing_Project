@@ -144,6 +144,11 @@ class ProjectInfoState extends State<ProjectInfo> {
               icon: const Icon(Icons.email_outlined,
                   color: Colors.teal, size: 20.0),
             ),
+            const FlutterLogo(
+              textColor: Colors.blue,
+              style: FlutterLogoStyle.horizontal,
+              size: 50,
+            ),
           ],
         ),
       ],
