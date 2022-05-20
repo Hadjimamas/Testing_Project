@@ -5,6 +5,8 @@ import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:testing/widget.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -126,22 +128,21 @@ class ProjectInfoState extends State<ProjectInfo> {
               icon: const Icon(Icons.facebook, color: Colors.blue, size: 20.0),
             ),
             IconButton(
-              tooltip: 'Instagram',
+              tooltip: 'E-mail',
               onPressed: () {
-                launchUrlString(
-                    'https://www.instagram.com/andreas_hadjimamas/');
+                Clipboard.setData(const ClipboardData(
+                        text: "andreashadjimama@hotmail.com"))
+                    .then((_) {
+                  showSimpleNotification(
+                      const Text('E-mail Copied to Clipboard'),
+                      leading: const Icon(Icons.copy_rounded),
+                      background: Colors.blueGrey,
+                      position: NotificationPosition.top,
+                      slideDismissDirection: DismissDirection.up);
+                });
               },
-              icon: const Icon(Icons.install_desktop,
-                  color: Colors.pinkAccent, size: 20.0),
-            ),
-            IconButton(
-              tooltip: 'GitHub',
-              onPressed: () {
-                launchUrlString(
-                    'https://www.instagram.com/andreas_hadjimamas/');
-              },
-              icon: const Icon(Icons.gite_outlined,
-                  color: Colors.black, size: 20.0),
+              icon: const Icon(Icons.email_outlined,
+                  color: Colors.teal, size: 20.0),
             ),
           ],
         ),

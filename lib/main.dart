@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
@@ -54,16 +53,6 @@ class MyApp extends StatelessWidget {
             floatingActionButton: FloatingActionButton(
               backgroundColor: const Color(0xE2334753),
               onPressed: () {
-                Clipboard.setData(
-                        const ClipboardData(text: "Text you want to copy here"))
-                    .then((_) {
-                  showSimpleNotification(const Text('Copied to Clipboard'),
-                      leading: const Icon(Icons.copy_rounded),
-                      background: Colors.blueGrey,
-                      position: NotificationPosition.top,
-                      slideDismissDirection: DismissDirection.up);
-                });
-                // Clipboard.setData(const ClipboardData(text: "your text"));
                 if (listScrollController.hasClients) {
                   final position =
                       listScrollController.position.maxScrollExtent;
