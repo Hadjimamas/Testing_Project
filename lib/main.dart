@@ -292,22 +292,26 @@ class MyHomePageState extends State<MyHomePage> {
               ),
               Expanded(
                 child: _foundUsers.isNotEmpty
-                    ? ListView.builder(
+                    ? Scrollbar(
+                        thumbVisibility: true,
                         controller: listScrollController,
-                        itemCount: _foundUsers.length,
-                        itemBuilder: (context, index) => Card(
-                          key: ValueKey(_foundUsers[index]['id']),
-                          color: Colors.amberAccent,
-                          elevation: 20,
-                          margin: const EdgeInsets.symmetric(vertical: 10),
-                          child: ListTile(
-                            leading: Text(
-                              '${index + 1}',
-                              style: const TextStyle(fontSize: 24),
+                        child: ListView.builder(
+                          controller: listScrollController,
+                          itemCount: _foundUsers.length,
+                          itemBuilder: (context, index) => Card(
+                            key: ValueKey(_foundUsers[index]['id']),
+                            color: Colors.amberAccent,
+                            elevation: 20,
+                            margin: const EdgeInsets.symmetric(vertical: 10),
+                            child: ListTile(
+                              leading: Text(
+                                '${index + 1}',
+                                style: const TextStyle(fontSize: 24),
+                              ),
+                              title: Text(_foundUsers[index]['name']),
+                              subtitle: Text(
+                                  '${_foundUsers[index]['age'].toString()} years old'),
                             ),
-                            title: Text(_foundUsers[index]['name']),
-                            subtitle: Text(
-                                '${_foundUsers[index]['age'].toString()} years old'),
                           ),
                         ),
                       )
