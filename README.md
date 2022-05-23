@@ -15,6 +15,7 @@ A flutter project that I will test new features and interesting packages
 ![alt-text](assets/Markdown_Table_Guide.png "Markdown Table Cheat Sheet")
 
 - ## **[Logo Creator](https://logomakr.com/app/)**
+- ## **[Icons for Events](https://www.flaticon.com/search?word=football&order_by=4)**
 - ## **[Alternative Score API](https://www.thesports.com/coverage)**
 - ## **[Page View](https://karthikponnam.medium.com/flutter-pageview-withbottomnavigationbar-fb4c87580f6a)**
 - ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
