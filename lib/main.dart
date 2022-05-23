@@ -262,15 +262,36 @@ class MyHomePageState extends State<MyHomePage> {
                         color: Colors.black,
                       ),
                     ),
+                    const CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.teal,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 15,
+                        child: Text(
+                          " 9'",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, color: Colors.black),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: ListTile(
                         leading: Image.asset(
-                          'assets/GIF_Test.gif',
+                          'assets/sub.png',
+                          height: 40,
                         ),
                         title: const Text(
-                          'Sample Text',
+                          'Player-in',
                           style: TextStyle(
                               fontWeight: FontWeight.w700, color: Colors.black),
+                        ),
+                        subtitle: const Text(
+                          'Player-out',
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black),
                         ),
                       ),
                     ),
