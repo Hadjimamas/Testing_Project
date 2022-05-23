@@ -40,7 +40,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => OverlaySupport.global(
         child: MaterialApp(
           theme: ThemeData(
-            scaffoldBackgroundColor: Colors.white,
+            scaffoldBackgroundColor: const Color(0x84FFFFFF),
+            //scaffoldBackgroundColor:const Color(0xFF334753),
             appBarTheme: const AppBarTheme(
                 backgroundColor: Color(0xFF001A2A), centerTitle: true),
             textTheme: Theme.of(context).textTheme.apply(
@@ -248,20 +249,10 @@ class MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 8.0),
+                padding: const EdgeInsets.only(top: 10.0, left: 10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    IconButton(
-                      onPressed: () {
-                        checkNetworkConnection();
-                      },
-                      tooltip: 'Check Internet Connection',
-                      icon: const Icon(
-                        Icons.network_check,
-                        color: Colors.black,
-                      ),
-                    ),
                     const CircleAvatar(
                       radius: 20,
                       backgroundColor: Colors.teal,
@@ -277,6 +268,7 @@ class MyHomePageState extends State<MyHomePage> {
                     ),
                     Expanded(
                       child: ListTile(
+                        textColor: Colors.black,
                         leading: Image.asset(
                           'assets/sub.png',
                           height: 40,
@@ -284,14 +276,14 @@ class MyHomePageState extends State<MyHomePage> {
                         title: const Text(
                           'Player-in',
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, color: Colors.black),
+                              fontWeight: FontWeight.w700, color: Colors.white),
                         ),
                         subtitle: const Text(
                           'Player-out',
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
-                              color: Colors.black),
+                              color: Colors.white),
                         ),
                       ),
                     ),
