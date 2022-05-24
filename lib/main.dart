@@ -270,7 +270,7 @@ class MyHomePageState extends State<MyHomePage> {
                       child: ListTile(
                         textColor: Colors.black,
                         leading: Image.asset(
-                          'assets/sub.png',
+                          'event_icons/sub.png',
                           height: 40,
                         ),
                         title: const Text(
