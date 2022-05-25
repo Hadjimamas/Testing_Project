@@ -7,13 +7,12 @@ class AccountStatus {
 
   AccountStatus.fromJson(Map<String, dynamic> json) {
     account =
-    json['account'] != null ? Account.fromJson(json['account']) : null;
+        json['account'] != null ? Account.fromJson(json['account']) : null;
     subscription = json['subscription'] != null
         ? Subscription.fromJson(json['subscription'])
         : null;
-    requests = json['requests'] != null
-        ? Requests.fromJson(json['requests'])
-        : null;
+    requests =
+        json['requests'] != null ? Requests.fromJson(json['requests']) : null;
   }
 
   Map<String, dynamic> toJson() {
