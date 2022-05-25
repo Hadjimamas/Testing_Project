@@ -48,37 +48,38 @@ class AccountState extends State<Account> {
       ],
     );
   }
-}
-
-Widget accountTile(AccountStatus accountStatus) {
-  var account = accountStatus.account?.email;
-  return Container(
-    decoration: BoxDecoration(
-      border: Border.all(color: Colors.lightBlueAccent),
-      color: const Color(0xFF44484A),
-      borderRadius: const BorderRadius.all(Radius.circular(24.0)),
-    ),
-    margin: const EdgeInsets.symmetric(vertical: 10.0),
-    padding: const EdgeInsets.all(10.0),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: ListTile(
-                textColor: Colors.black,
-                title: Text(
-                  account!,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w700, color: Colors.white),
+  Widget accountTile(AccountStatus accountStatus) {
+    var account = accountStatus.account?.email;
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.lightBlueAccent),
+        color: const Color(0xFF44484A),
+        borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: ListTile(
+                  textColor: Colors.black,
+                  title: Text(
+                    account!,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w700, color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-          ],
-        )
-      ],
-    ),
-  );
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }
+
+

@@ -4,11 +4,11 @@ import 'package:http/http.dart';
 import 'package:testing/models/account_model.dart';
 
 class SoccerApi {
- static const headers = {
+  static const headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
 
     //Email: livescoreflutter@gmail.com
-    'x-rapidapi-key': "1f94e4deb89e2668b9094aad2f453244",
+    'x-rapidapi-key': "",
 
     //To refresh the data from the api
     'x-rapidapi-refresh': "15",
