@@ -9,9 +9,8 @@ class HeadToHead {
 
   HeadToHead.fromJson(Map<String, dynamic> json) {
     fixture =
-    json['fixture'] != null ? Fixture.fromJson(json['fixture']) : null;
-    league =
-    json['league'] != null ? League.fromJson(json['league']) : null;
+        json['fixture'] != null ? Fixture.fromJson(json['fixture']) : null;
+    league = json['league'] != null ? League.fromJson(json['league']) : null;
     teams = json['teams'] != null ? Teams.fromJson(json['teams']) : null;
     goals = json['goals'] != null ? Goals.fromJson(json['goals']) : null;
     score = json['score'] != null ? Score.fromJson(json['score']) : null;
@@ -50,13 +49,13 @@ class Fixture {
 
   Fixture(
       {this.id,
-        this.referee,
-        this.timezone,
-        this.date,
-        this.timestamp,
-        this.periods,
-        this.venue,
-        this.status});
+      this.referee,
+      this.timezone,
+      this.date,
+      this.timestamp,
+      this.periods,
+      this.venue,
+      this.status});
 
   Fixture.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -65,10 +64,9 @@ class Fixture {
     date = json['date'];
     timestamp = json['timestamp'];
     periods =
-    json['periods'] != null ? Periods.fromJson(json['periods']) : null;
+        json['periods'] != null ? Periods.fromJson(json['periods']) : null;
     venue = json['venue'] != null ? Venue.fromJson(json['venue']) : null;
-    status =
-    json['status'] != null ? Status.fromJson(json['status']) : null;
+    status = json['status'] != null ? Status.fromJson(json['status']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -165,12 +163,12 @@ class League {
 
   League(
       {this.id,
-        this.name,
-        this.country,
-        this.logo,
-        this.flag,
-        this.season,
-        this.round});
+      this.name,
+      this.country,
+      this.logo,
+      this.flag,
+      this.season,
+      this.round});
 
   League.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -272,14 +270,12 @@ class Score {
 
   Score.fromJson(Map<String, dynamic> json) {
     halftime =
-    json['halftime'] != null ? Goals.fromJson(json['halftime']) : null;
+        json['halftime'] != null ? Goals.fromJson(json['halftime']) : null;
     fulltime =
-    json['fulltime'] != null ? Goals.fromJson(json['fulltime']) : null;
-    extratime = json['extratime'] != null
-        ? Goals.fromJson(json['extratime'])
-        : null;
-    penalty =
-    json['penalty'] != null ? Goals.fromJson(json['penalty']) : null;
+        json['fulltime'] != null ? Goals.fromJson(json['fulltime']) : null;
+    extratime =
+        json['extratime'] != null ? Goals.fromJson(json['extratime']) : null;
+    penalty = json['penalty'] != null ? Goals.fromJson(json['penalty']) : null;
   }
 
   Map<String, dynamic> toJson() {

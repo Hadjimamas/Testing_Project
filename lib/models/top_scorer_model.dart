@@ -3,18 +3,21 @@ class Scorers {
     required this.player,
     required this.statistics,
   });
+
   late final Player player;
   late final List<Statistics> statistics;
 
-  Scorers.fromJson(Map<String, dynamic> json){
+  Scorers.fromJson(Map<String, dynamic> json) {
     player = Player.fromJson(json['player']);
-    statistics = List.from(json['statistics']).map((e)=>Statistics.fromJson(e)).toList();
+    statistics = List.from(json['statistics'])
+        .map((e) => Statistics.fromJson(e))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
     _data['player'] = player.toJson();
-    _data['statistics'] = statistics.map((e)=>e.toJson()).toList();
+    _data['statistics'] = statistics.map((e) => e.toJson()).toList();
     return _data;
   }
 }
@@ -33,6 +36,7 @@ class Player {
     required this.injured,
     required this.photo,
   });
+
   late final int id;
   late final String name;
   late final String firstname;
@@ -45,7 +49,7 @@ class Player {
   late final bool injured;
   late final String photo;
 
-  Player.fromJson(Map<String, dynamic> json){
+  Player.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     firstname = json['firstname'];
@@ -82,11 +86,12 @@ class Birth {
     required this.place,
     required this.country,
   });
+
   late final String date;
   late final String place;
   late final String country;
 
-  Birth.fromJson(Map<String, dynamic> json){
+  Birth.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     place = json['place'];
     country = json['country'];
@@ -117,6 +122,7 @@ class Statistics {
     required this.cards,
     required this.penalty,
   });
+
   late final Team team;
   late final League league;
   late final Games games;
@@ -131,7 +137,7 @@ class Statistics {
   late final Cards cards;
   late final Penalty penalty;
 
-  Statistics.fromJson(Map<String, dynamic> json){
+  Statistics.fromJson(Map<String, dynamic> json) {
     team = Team.fromJson(json['team']);
     league = League.fromJson(json['league']);
     games = Games.fromJson(json['games']);
@@ -172,11 +178,12 @@ class Team {
     required this.name,
     required this.logo,
   });
+
   late final int id;
   late final String name;
   late final String logo;
 
-  Team.fromJson(Map<String, dynamic> json){
+  Team.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     logo = json['logo'];
@@ -200,6 +207,7 @@ class League {
     required this.flag,
     required this.season,
   });
+
   late final int id;
   late final String name;
   late final String country;
@@ -207,7 +215,7 @@ class League {
   late final String flag;
   late final int season;
 
-  League.fromJson(Map<String, dynamic> json){
+  League.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     country = json['country'];
@@ -238,6 +246,7 @@ class Games {
     required this.rating,
     required this.captain,
   });
+
   late final int appearences;
   late final int lineups;
   late final int minutes;
@@ -246,7 +255,7 @@ class Games {
   late final String rating;
   late final bool captain;
 
-  Games.fromJson(Map<String, dynamic> json){
+  Games.fromJson(Map<String, dynamic> json) {
     appearences = json['appearences'];
     lineups = json['lineups'];
     minutes = json['minutes'];
@@ -271,27 +280,28 @@ class Games {
 
 class Substitutes {
   Substitutes({
-  //required this.in,
-  required this.out,
-  required this.bench,
-});
+    //required this.in,
+    required this.out,
+    required this.bench,
+  });
+
 //late final int in;
-late final int out;
-late final int bench;
+  late final int out;
+  late final int bench;
 
-Substitutes.fromJson(Map<String, dynamic> json){
+  Substitutes.fromJson(Map<String, dynamic> json) {
 //in = json['in'];
-out = json['out'];
-bench = json['bench'];
-}
+    out = json['out'];
+    bench = json['bench'];
+  }
 
-Map<String, dynamic> toJson() {
-  final _data = <String, dynamic>{};
-  //_data['in'] = in;
-  _data['out'] = out;
-  _data['bench'] = bench;
-  return _data;
-}
+  Map<String, dynamic> toJson() {
+    final _data = <String, dynamic>{};
+    //_data['in'] = in;
+    _data['out'] = out;
+    _data['bench'] = bench;
+    return _data;
+  }
 }
 
 class Shots {
@@ -299,10 +309,11 @@ class Shots {
     required this.total,
     required this.on,
   });
+
   late final int total;
   late final int on;
 
-  Shots.fromJson(Map<String, dynamic> json){
+  Shots.fromJson(Map<String, dynamic> json) {
     total = json['total'];
     on = json['on'];
   }
@@ -322,12 +333,13 @@ class Goals {
     required this.assists,
     required this.saves,
   });
+
   late final int total;
   late final int conceded;
   late final int assists;
   late final int saves;
 
-  Goals.fromJson(Map<String, dynamic> json){
+  Goals.fromJson(Map<String, dynamic> json) {
     total = json['total'];
     conceded = json['conceded'];
     assists = json['assists'];
@@ -350,11 +362,12 @@ class Passes {
     required this.key,
     required this.accuracy,
   });
+
   late final int total;
   late final int key;
   late final int accuracy;
 
-  Passes.fromJson(Map<String, dynamic> json){
+  Passes.fromJson(Map<String, dynamic> json) {
     total = json['total'];
     key = json['key'];
     accuracy = json['accuracy'];
@@ -375,11 +388,12 @@ class Tackles {
     required this.blocks,
     required this.interceptions,
   });
+
   late final int total;
   late final int blocks;
   late final int interceptions;
 
-  Tackles.fromJson(Map<String, dynamic> json){
+  Tackles.fromJson(Map<String, dynamic> json) {
     total = json['total'];
     blocks = json['blocks'];
     interceptions = json['interceptions'];
@@ -399,10 +413,11 @@ class Duels {
     required this.total,
     required this.won,
   });
+
   late final int total;
   late final int won;
 
-  Duels.fromJson(Map<String, dynamic> json){
+  Duels.fromJson(Map<String, dynamic> json) {
     total = json['total'];
     won = json['won'];
   }
@@ -421,11 +436,12 @@ class Dribbles {
     required this.success,
     required this.past,
   });
+
   late final int attempts;
   late final int success;
   late final int past;
 
-  Dribbles.fromJson(Map<String, dynamic> json){
+  Dribbles.fromJson(Map<String, dynamic> json) {
     attempts = json['attempts'];
     success = json['success'];
     past = json['past'];
@@ -445,10 +461,11 @@ class Fouls {
     required this.drawn,
     required this.committed,
   });
+
   late final int drawn;
   late final int committed;
 
-  Fouls.fromJson(Map<String, dynamic> json){
+  Fouls.fromJson(Map<String, dynamic> json) {
     drawn = json['drawn'];
     committed = json['committed'];
   }
@@ -467,11 +484,12 @@ class Cards {
     required this.yellowred,
     required this.red,
   });
+
   late final int yellow;
   late final int yellowred;
   late final int red;
 
-  Cards.fromJson(Map<String, dynamic> json){
+  Cards.fromJson(Map<String, dynamic> json) {
     yellow = json['yellow'];
     yellowred = json['yellowred'];
     red = json['red'];
@@ -494,13 +512,14 @@ class Penalty {
     required this.missed,
     required this.saved,
   });
+
   late final int won;
   late final int commited;
   late final int scored;
   late final int missed;
   late final int saved;
 
-  Penalty.fromJson(Map<String, dynamic> json){
+  Penalty.fromJson(Map<String, dynamic> json) {
     won = json['won'];
     commited = json['commited'];
     scored = json['scored'];

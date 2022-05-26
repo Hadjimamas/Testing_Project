@@ -1,11 +1,30 @@
-class AccountStatus {
+class AccountDetails {
+  Response? response;
+
+  AccountDetails({this.response});
+
+  AccountDetails.fromJson(Map<String, dynamic> json) {
+    response =
+        json['response'] != null ? Response.fromJson(json['response']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (response != null) {
+      data['response'] = response!.toJson();
+    }
+    return data;
+  }
+}
+
+class Response {
   Account? account;
   Subscription? subscription;
   Requests? requests;
 
-  AccountStatus({this.account, this.subscription, this.requests});
+  Response({this.account, this.subscription, this.requests});
 
-  AccountStatus.fromJson(Map<String, dynamic> json) {
+  Response.fromJson(Map<String, dynamic> json) {
     account =
         json['account'] != null ? Account.fromJson(json['account']) : null;
     subscription = json['subscription'] != null

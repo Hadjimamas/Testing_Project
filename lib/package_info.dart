@@ -40,16 +40,12 @@ class ProjectInfoState extends State<ProjectInfo> {
   void initState() {
     if (Platform.isAndroid) {
       platformType = 'Android';
-      print('Android');
     } else if (Platform.isIOS) {
       platformType = 'iOS';
-      print('iOS');
     } else if (Platform.isWindows) {
       platformType = 'Windows';
-      print('Windows');
     } else {
       platformType = 'Other Platform';
-      print('Other Platform');
     }
     Connectivity().onConnectivityChanged.listen((newResult) {
       setState(() => result = newResult);

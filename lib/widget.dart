@@ -1,12 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:testing/main.dart';
 
 Widget search(
     void Function(String) onChanged, TextEditingController editingController) {
@@ -31,19 +29,6 @@ DateTime now = DateTime.now();
 final DateFormat formatterDate = DateFormat('dd/MM/yyyy');
 
 Future<void> modalBottomSheet(BuildContext context) {
-  String? platformType;
-  if (defaultTargetPlatform == TargetPlatform.android) {
-    platformType = 'Android';
-    print('Android');
-  } else if (defaultTargetPlatform == TargetPlatform.iOS) {
-    platformType = 'iOS';
-    print('iOS');
-  } else if (defaultTargetPlatform == TargetPlatform.windows) {
-    platformType = 'Windows';
-    print('Windows');
-  } else {
-    print('Other Platform');
-  }
   return showModalBottomSheet<void>(
     //enableDrag: false,
     context: context,
@@ -56,9 +41,6 @@ Future<void> modalBottomSheet(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text(
-                '$platformType Platform\n${formatDateTime(selectedDate)}',
-              ),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 30, top: 10, right: 30, bottom: 0),
