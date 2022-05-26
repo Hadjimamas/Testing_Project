@@ -39,6 +39,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => OverlaySupport.global(
         child: MaterialApp(
+          themeMode: ThemeMode.system,
+          darkTheme: ThemeData.dark(),
           theme: ThemeData(
             scaffoldBackgroundColor: const Color(0x84FFFFFF),
             //scaffoldBackgroundColor:const Color(0xFF334753),

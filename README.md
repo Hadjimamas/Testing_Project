@@ -4,16 +4,21 @@ A flutter project that I will test new features and interesting packages
 
 ## What should I include next to my LiveScore App
 
-1. AdMobs - Google Ads (Implementation Not included in this project) :white_check_mark:
-2. **All Matches for a specific team**
+# Below requirements are not included in this project
+
+1. AdMobs - Google Ads :white_check_mark:
+2. **All Matches for a specific team** :white_check_mark:
 3. Organize more the Standing, Scorers and Teams screens
-4. Request the events for a match from the API server and find a way to implement them
+4. Request the events for a match from the API server and find a way to implement them :white_check_mark:
 
 - **Bold Example**
 - _Italian_
 
 ![alt-text](assets/Markdown_Table_Guide.png "Markdown Table Cheat Sheet")
 
+# <p style="text-align: center;">Useful Tutorials</p>
+
+- ## **[Swipe Between Themes](https://www.flutterant.com/switching-themes-in-flutter-apps/)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/search?word=football&order_by=4)**
 - ## **[Alternative Score API](https://www.thesports.com/coverage)**
