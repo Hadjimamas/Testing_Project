@@ -3,7 +3,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 Widget search(
@@ -25,12 +24,8 @@ Widget search(
   );
 }
 
-DateTime now = DateTime.now();
-final DateFormat formatterDate = DateFormat('dd/MM/yyyy');
-
 Future<void> modalBottomSheet(BuildContext context) {
   return showModalBottomSheet<void>(
-    //enableDrag: false,
     context: context,
     builder: (BuildContext context) {
       return Container(
