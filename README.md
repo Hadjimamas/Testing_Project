@@ -30,12 +30,12 @@ A flutter project that I will test new features and interesting packages
 - ## **[Social Preview](https://socialify.git.ci/)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
 
-| **League** | **All Matches**    | **Live Matches**   | **Standings**      | **Teams**          | **Scorers**        |
-|------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| Division 1 | :white_check_mark: | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
-| Division 2 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
-| Division 3 | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :x:                |
-| Cup        | :white_check_mark: | :white_check_mark: |
+| **League** | **All Matches**    | **Live Matches**   | **Standings**      | **Teams**          | **Scorers**        | **Events**         |
+|------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| Division 1 | :white_check_mark: | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Division 2 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: |
+| Division 3 | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
+| Cup        | :white_check_mark: | :white_check_mark: |                    |                    |                    | :white_check_mark: |
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a>
