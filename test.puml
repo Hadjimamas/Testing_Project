@@ -52,6 +52,479 @@ class "testing::main.dart::MyHomePageState" {
 "testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
 "flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
 
+class "testing::models::account_model.dart::AccountStatus" {
+  +Response? response
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::account_model.dart::AccountStatus" o-- "testing::models::account_model.dart::Response"
+
+class "testing::models::account_model.dart::Response" {
+  +Account? account
+  +Subscription? subscription
+  +Requests? requests
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::account_model.dart::Response" o-- "testing::models::account_model.dart::Account"
+"testing::models::account_model.dart::Response" o-- "testing::models::account_model.dart::Subscription"
+"testing::models::account_model.dart::Response" o-- "testing::models::account_model.dart::Requests"
+
+class "testing::models::account_model.dart::Account" {
+  +String? firstname
+  +String? lastname
+  +String? email
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::account_model.dart::Subscription" {
+  +String? plan
+  +String? end
+  +bool? active
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::account_model.dart::Requests" {
+  +int? current
+  +int? limitDay
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::HeadToHead" {
+  +Fixture? fixture
+  +League? league
+  +Teams? teams
+  +Goals? goals
+  +Score? score
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::h2h_model.dart::HeadToHead" o-- "testing::models::h2h_model.dart::Fixture"
+"testing::models::h2h_model.dart::HeadToHead" o-- "testing::models::h2h_model.dart::League"
+"testing::models::h2h_model.dart::HeadToHead" o-- "testing::models::h2h_model.dart::Teams"
+"testing::models::h2h_model.dart::HeadToHead" o-- "testing::models::h2h_model.dart::Goals"
+"testing::models::h2h_model.dart::HeadToHead" o-- "testing::models::h2h_model.dart::Score"
+
+class "testing::models::h2h_model.dart::Fixture" {
+  +int? id
+  +String? referee
+  +String? timezone
+  +String? date
+  +int? timestamp
+  +Periods? periods
+  +Venue? venue
+  +Status? status
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::h2h_model.dart::Fixture" o-- "testing::models::h2h_model.dart::Periods"
+"testing::models::h2h_model.dart::Fixture" o-- "testing::models::h2h_model.dart::Venue"
+"testing::models::h2h_model.dart::Fixture" o-- "testing::models::h2h_model.dart::Status"
+
+class "testing::models::h2h_model.dart::Periods" {
+  +int? first
+  +int? second
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::Venue" {
+  +int? id
+  +String? name
+  +String? city
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::Status" {
+  +String? long
+  +String? short
+  +int? elapsed
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::League" {
+  +int? id
+  +String? name
+  +String? country
+  +String? logo
+  +String? flag
+  +int? season
+  +String? round
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::Teams" {
+  +Home? home
+  +Home? away
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::h2h_model.dart::Teams" o-- "testing::models::h2h_model.dart::Home"
+
+class "testing::models::h2h_model.dart::Home" {
+  +int? id
+  +String? name
+  +String? logo
+  +bool? winner
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::Goals" {
+  +int? home
+  +int? away
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::h2h_model.dart::Score" {
+  +Goals? halftime
+  +Goals? fulltime
+  +Goals? extratime
+  +Goals? penalty
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::h2h_model.dart::Score" o-- "testing::models::h2h_model.dart::Goals"
+
+class "testing::models::player_statistics_model.dart::AutoGenerate" {
+  +Player player
+  +List<Statistics> statistics
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::player_statistics_model.dart::AutoGenerate" o-- "testing::models::player_statistics_model.dart::Player"
+
+class "testing::models::player_statistics_model.dart::Player" {
+  +int id
+  +String name
+  +String firstname
+  +String lastname
+  +int age
+  +Birth birth
+  +String nationality
+  +String height
+  +String weight
+  +bool injured
+  +String photo
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::player_statistics_model.dart::Player" o-- "testing::models::player_statistics_model.dart::Birth"
+
+class "testing::models::player_statistics_model.dart::Birth" {
+  +String date
+  +String place
+  +String country
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Statistics" {
+  +Team team
+  +League league
+  +Games games
+  +Substitutes substitutes
+  +Shots shots
+  +Goals goals
+  +Passes passes
+  +Tackles tackles
+  +Duels duels
+  +Dribbles dribbles
+  +Fouls fouls
+  +Cards cards
+  +Penalty penalty
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Team"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::League"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Games"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Substitutes"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Shots"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Goals"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Passes"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Tackles"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Duels"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Dribbles"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Fouls"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Cards"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Penalty"
+
+class "testing::models::player_statistics_model.dart::Team" {
+  +int id
+  +String name
+  +String logo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::League" {
+  +int id
+  +String name
+  +String country
+  +String logo
+  +String flag
+  +int season
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Games" {
+  +int appearences
+  +int lineups
+  +int minutes
+  +int number
+  +String position
+  +String rating
+  +bool captain
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Substitutes" {
+  +int out
+  +int bench
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Shots" {
+  +int total
+  +int on
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Goals" {
+  +int total
+  +int conceded
+  +int assists
+  +int saves
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Passes" {
+  +int total
+  +int key
+  +int accuracy
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Tackles" {
+  +int total
+  +int blocks
+  +int interceptions
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Duels" {
+  +int total
+  +int won
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Dribbles" {
+  +int attempts
+  +int success
+  +int past
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Fouls" {
+  +int drawn
+  +int committed
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Cards" {
+  +int yellow
+  +int yellowred
+  +int red
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Penalty" {
+  +int won
+  +int commited
+  +int scored
+  +int missed
+  +int saved
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::statistics_model.dart::Statistic" {
+  +Team? team
+  +List<Statistics>? statistics
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::statistics_model.dart::Statistic" o-- "testing::models::statistics_model.dart::Team"
+
+class "testing::models::statistics_model.dart::Team" {
+  +int? id
+  +String? name
+  +String? logo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::statistics_model.dart::Statistics" {
+  +String? type
+  +int? value
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Scorers" {
+  +Player player
+  +List<Statistics> statistics
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::top_scorer_model.dart::Scorers" o-- "testing::models::top_scorer_model.dart::Player"
+
+class "testing::models::top_scorer_model.dart::Player" {
+  +int id
+  +String name
+  +String firstname
+  +String lastname
+  +int age
+  +Birth birth
+  +String nationality
+  +String height
+  +String weight
+  +bool injured
+  +String photo
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::top_scorer_model.dart::Player" o-- "testing::models::top_scorer_model.dart::Birth"
+
+class "testing::models::top_scorer_model.dart::Birth" {
+  +String date
+  +String place
+  +String country
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Statistics" {
+  +Team team
+  +League league
+  +Games games
+  +Substitutes substitutes
+  +Shots shots
+  +Goals goals
+  +Passes passes
+  +Tackles tackles
+  +Duels duels
+  +Dribbles dribbles
+  +Fouls fouls
+  +Cards cards
+  +Penalty penalty
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Team"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::League"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Games"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Substitutes"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Shots"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Goals"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Passes"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Tackles"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Duels"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Dribbles"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Fouls"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Cards"
+"testing::models::top_scorer_model.dart::Statistics" o-- "testing::models::top_scorer_model.dart::Penalty"
+
+class "testing::models::top_scorer_model.dart::Team" {
+  +int id
+  +String name
+  +String logo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::League" {
+  +int id
+  +String name
+  +String country
+  +String logo
+  +String flag
+  +int season
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Games" {
+  +int appearences
+  +int lineups
+  +int minutes
+  +int number
+  +String position
+  +String rating
+  +bool captain
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Substitutes" {
+  +int out
+  +int bench
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Shots" {
+  +int total
+  +int on
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Goals" {
+  +int total
+  +int conceded
+  +int assists
+  +int saves
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Passes" {
+  +int total
+  +int key
+  +int accuracy
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Tackles" {
+  +int total
+  +int blocks
+  +int interceptions
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Duels" {
+  +int total
+  +int won
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Dribbles" {
+  +int attempts
+  +int success
+  +int past
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Fouls" {
+  +int drawn
+  +int committed
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Cards" {
+  +int yellow
+  +int yellowred
+  +int red
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::top_scorer_model.dart::Penalty" {
+  +int won
+  +int commited
+  +int scored
+  +int missed
+  +int saved
+  +Map<String, dynamic> toJson()
+}
+
 class "testing::package_info.dart::ProjectInfo" {
   +ProjectInfoState createState()
 }
