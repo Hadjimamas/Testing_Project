@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -294,8 +295,8 @@ class MyHomePageState extends State<MyHomePage> {
               ),
               Expanded(
                 child: _foundUsers.isNotEmpty
-                    ? Scrollbar(
-                        thumbVisibility: true,
+                    ? DraggableScrollbar.semicircle(
+                        alwaysVisibleScrollThumb: true,
                         controller: listScrollController,
                         child: ListView.builder(
                           controller: listScrollController,

@@ -1,9 +1,9 @@
-class AccountDetails {
+class AccountStatus {
   Response? response;
 
-  AccountDetails({this.response});
+  AccountStatus({this.response});
 
-  AccountDetails.fromJson(Map<String, dynamic> json) {
+  AccountStatus.fromJson(Map<String, dynamic> json) {
     response =
         json['response'] != null ? Response.fromJson(json['response']) : null;
   }
