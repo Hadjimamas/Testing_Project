@@ -68,18 +68,10 @@ class MyHomePage extends StatefulWidget {
 DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
-  int bottomSelectedIndex = 0;
-
   PageController pageController = PageController(
     initialPage: 0,
     keepPage: true,
   );
-
-  void pageChanged(int index) {
-    setState(() {
-      bottomSelectedIndex = index;
-    });
-  }
 
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
@@ -257,9 +249,6 @@ class MyHomePageState extends State<MyHomePage> {
       body: PageView(
         scrollDirection: Axis.vertical,
         controller: pageController,
-        onPageChanged: (index) {
-          pageChanged(index);
-        },
         children: [
           Column(
             children: [
