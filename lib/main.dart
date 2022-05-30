@@ -263,7 +263,7 @@ class MyHomePageState extends State<MyHomePage> {
           );
        **/
       body: PageView(
-        scrollDirection: Axis.vertical,
+        scrollDirection: Axis.vertical, //change to horizontal
         controller: pageController,
         children: [
           Column(
