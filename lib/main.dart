@@ -53,26 +53,7 @@ class MyApp extends StatelessWidget {
                 ),
           ),
           debugShowCheckedModeBanner: false,
-          home: Scaffold(
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: const Color(0xE2334753),
-              onPressed: () {
-                if (listScrollController.hasClients) {
-                  final position =
-                      listScrollController.position.maxScrollExtent;
-                  listScrollController.animateTo(
-                    position,
-                    duration: const Duration(seconds: 3),
-                    curve: Curves.easeOut,
-                  );
-                }
-              },
-              isExtended: true,
-              tooltip: 'Scroll to Bottom',
-              child: const Icon(Icons.arrow_downward),
-            ),
-            body: const MyHomePage(),
-          ),
+          home: const MyHomePage(),
         ),
       );
 }
@@ -87,6 +68,19 @@ class MyHomePage extends StatefulWidget {
 DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
+  int bottomSelectedIndex = 0;
+
+  PageController pageController = PageController(
+    initialPage: 0,
+    keepPage: true,
+  );
+
+  void pageChanged(int index) {
+    setState(() {
+      bottomSelectedIndex = index;
+    });
+  }
+
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Andy", "age": 29},
@@ -182,117 +176,96 @@ class MyHomePageState extends State<MyHomePage> {
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
-    return Column(
-      children: [
-        AppBar(
-          title: Text(
-            'Example Project',
-            style: GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                color: Colors.white,
-                letterSpacing: .5,
-                fontSize: 30,
-              ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xE2334753),
+        onPressed: () {
+          if (listScrollController.hasClients) {
+            final position = listScrollController.position.maxScrollExtent;
+            listScrollController.animateTo(
+              position,
+              duration: const Duration(seconds: 3),
+              curve: Curves.easeOut,
+            );
+          }
+        },
+        isExtended: true,
+        tooltip: 'Scroll to Bottom',
+        child: const Icon(Icons.arrow_downward),
+      ),
+      appBar: AppBar(
+        title: Text(
+          'Example Project',
+          style: GoogleFonts.dancingScript(
+            textStyle: const TextStyle(
+              color: Colors.white,
+              letterSpacing: .5,
+              fontSize: 30,
             ),
           ),
-          actions: <Widget>[
-            IconButton(
-              tooltip: 'Project Info',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProjectInfo()),
-                );
-              },
-              icon: const Icon(
-                Icons.info_outline,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              tooltip: 'Date Picker',
-              onPressed: () {
-                selectDate(context);
-              },
-              icon: const Icon(
-                Icons.date_range,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              tooltip: 'Bottom Sheet',
-              icon: const Icon(
-                Icons.stadium_outlined,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                selectedDate = DateTime.now();
-                modalBottomSheet(context);
-              },
-            ),
-            IconButton(
-              tooltip: 'Contact Developer',
-              icon: const Icon(
-                Icons.contact_mail_outlined,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const EmailSender()),
-                );
-              },
-            ),
-          ],
         ),
-        search((value) => runFilter(value), editingController),
-        Text('You have selected: $newDate'),
-        Text('Results: $foundUsers/$allUsers'),
-        Expanded(
-          child: Column(
+        actions: <Widget>[
+          IconButton(
+            tooltip: 'Project Info',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProjectInfo()),
+              );
+            },
+            icon: const Icon(
+              Icons.info_outline,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            tooltip: 'Date Picker',
+            onPressed: () {
+              selectDate(context);
+            },
+            icon: const Icon(
+              Icons.date_range,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            tooltip: 'Bottom Sheet',
+            icon: const Icon(
+              Icons.stadium_outlined,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              selectedDate = DateTime.now();
+              modalBottomSheet(context);
+            },
+          ),
+          IconButton(
+            tooltip: 'Contact Developer',
+            icon: const Icon(
+              Icons.contact_mail_outlined,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const EmailSender()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: PageView(
+        scrollDirection: Axis.vertical,
+        controller: pageController,
+        onPageChanged: (index) {
+          pageChanged(index);
+        },
+        children: [
+          Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.teal,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 15,
-                        child: Text(
-                          " 9'",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: ListTile(
-                        textColor: Colors.black,
-                        leading: Image.asset(
-                          'event_icons/sub.png',
-                          height: 40,
-                        ),
-                        title: const Text(
-                          'Player-in',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, color: Colors.white),
-                        ),
-                        subtitle: const Text(
-                          'Player-out',
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              search((value) => runFilter(value), editingController),
+              Text('You have selected: $newDate'),
+              Text('Results: $foundUsers/$allUsers'),
               Expanded(
                 child: _foundUsers.isNotEmpty
                     ? DraggableScrollbar.semicircle(
@@ -327,8 +300,9 @@ class MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-        ),
-      ],
+          const EmailSender(),
+        ],
+      ),
     );
   }
 }

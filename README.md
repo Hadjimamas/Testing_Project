@@ -5,11 +5,8 @@ A flutter project that I will test new features and interesting packages
 ## What should I include next to my LiveScore App
 
 # Below requirements are not included in this project
+- [ ] Check the RapidApi if is possible to get data
 
-1. AdMobs - Google Ads :white_check_mark:
-2. **All Matches for a specific team** :white_check_mark:
-3. Organize more the Standing, Scorers and Teams screens
-4. Request the events for a match from the API server and find a way to implement them :white_check_mark:
 
 - **Bold Example**
 - _Italian_
@@ -17,16 +14,12 @@ A flutter project that I will test new features and interesting packages
 ![alt-text](assets/Markdown_Table_Guide.png "Markdown Table Cheat Sheet")
 
 # <p style="text-align: center;">Useful Tutorials</p>
-
+- ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/pricing)**
 - ## **[Swipe Between Themes](https://www.flutterant.com/switching-themes-in-flutter-apps/)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
-- ## **[Alternative Score API](https://www.thesports.com/coverage)**
 - ## **[Page View](https://karthikponnam.medium.com/flutter-pageview-withbottomnavigationbar-fb4c87580f6a)**
-- ## **[Add Ads to your project](https://www.youtube.com/watch?v=IYHEG-9gTMU)**
-- ## **[AdMob Tutorial](https://resocoder.com/2021/09/04/flutter-admob-monetization-banner-and-interstitial-ads/)**
 - ## **[AdMob Youtube Video](https://www.youtube.com/watch?v=4oLBxuBjGfI)**
-- ## **[GIF Icons](https://lordicon.com/)**
 - ## **[Social Preview](https://socialify.git.ci/)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
 
