@@ -5,15 +5,21 @@ A flutter project that I will test new features and interesting packages
 ## What should I include next to my LiveScore App
 
 # Below requirements are not included in this project
+
 - [ ] Check the RapidApi if is possible to get data
+- [ ] **Create new screen MatchFixture to display in a Row the fixtureTile match and below the PageView Widget**
 
+## Requirements for the above screen
 
-- **Bold Example**
-- _Italian_
+1. String time
+2. String homeName & awayName = match.home.name & match.away.name
+3. String homeLogo & awayLogo = match.home.logoUrl & match.away.logoUrl
+4. String score
 
 ![alt-text](assets/Markdown_Table_Guide.png "Markdown Table Cheat Sheet")
 
 # <p style="text-align: center;">Useful Tutorials</p>
+
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/pricing)**
 - ## **[Swipe Between Themes](https://www.flutterant.com/switching-themes-in-flutter-apps/)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
