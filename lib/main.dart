@@ -246,6 +246,22 @@ class MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      /**
+          return Column(
+          children: [
+          //From fixtureTile
+          Row(
+          children: [],
+          ),
+          PageView(
+          children: [
+          MatchEvents(),
+          const ProjectInfo(),
+          ],
+          )
+          ],
+          );
+       **/
       body: PageView(
         scrollDirection: Axis.vertical,
         controller: pageController,
