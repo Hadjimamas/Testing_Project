@@ -40,6 +40,7 @@ class "testing::main.dart::MyHomePage" {
 "flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::main.dart::MyHomePage"
 
 class "testing::main.dart::MyHomePageState" {
+  +PageController pageController
   +TextEditingController editingController
   -List<Map<String, dynamic>> _allUsers
   -List<Map<String, dynamic>> _foundUsers
@@ -49,26 +50,20 @@ class "testing::main.dart::MyHomePageState" {
   +Widget build()
 }
 
+"testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::page_view.dart::PageController"
 "testing::main.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
 "flutter::src::widgets::framework.dart::State" <|-- "testing::main.dart::MyHomePageState"
 
-class "testing::models::account_model.dart::AccountStatus" {
-  +Response? response
-  +Map<String, dynamic> toJson()
-}
-
-"testing::models::account_model.dart::AccountStatus" o-- "testing::models::account_model.dart::Response"
-
-class "testing::models::account_model.dart::Response" {
+class "testing::models::account_model.dart::AccountDetails" {
   +Account? account
   +Subscription? subscription
   +Requests? requests
   +Map<String, dynamic> toJson()
 }
 
-"testing::models::account_model.dart::Response" o-- "testing::models::account_model.dart::Account"
-"testing::models::account_model.dart::Response" o-- "testing::models::account_model.dart::Subscription"
-"testing::models::account_model.dart::Response" o-- "testing::models::account_model.dart::Requests"
+"testing::models::account_model.dart::AccountDetails" o-- "testing::models::account_model.dart::Account"
+"testing::models::account_model.dart::AccountDetails" o-- "testing::models::account_model.dart::Subscription"
+"testing::models::account_model.dart::AccountDetails" o-- "testing::models::account_model.dart::Requests"
 
 class "testing::models::account_model.dart::Account" {
   +String? firstname

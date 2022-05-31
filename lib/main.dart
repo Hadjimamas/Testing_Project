@@ -246,22 +246,6 @@ class MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      /**
-          return Column(
-          children: [
-          //From fixtureTile
-          Row(
-          children: [],
-          ),
-          PageView(
-          children: [
-          MatchEvents(),
-          const ProjectInfo(),
-          ],
-          )
-          ],
-          );
-       **/
       body: PageView(
         scrollDirection: Axis.vertical, //change to horizontal
         controller: pageController,
@@ -271,6 +255,21 @@ class MyHomePageState extends State<MyHomePage> {
               search((value) => runFilter(value), editingController),
               Text('You have selected: $newDate'),
               Text('Results: $foundUsers/$allUsers'),
+              ListTile(
+                textColor: Colors.black,
+                title: Image.asset(
+                  'event_icons/sub.png',
+                  height: 40,
+                ),
+                subtitle: const Text(
+                  'Player-out',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white),
+                ),
+              ),
               Expanded(
                 child: _foundUsers.isNotEmpty
                     ? DraggableScrollbar.semicircle(
