@@ -148,24 +148,43 @@ class ProjectInfoState extends State<ProjectInfo> {
           ],
         ),
       ],
-      appBar: AppBar(
-        title: Text('${packageInfo.appName} Project'.toUpperCase()),
-        actions: [
-          IconButton(
-            onPressed: () {
-              checkNetworkConnection();
-            },
-            tooltip: 'Check Internet Connection',
-            icon: const Icon(
-              Icons.network_check,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: Text('${packageInfo.appName} Project'.toUpperCase()),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         checkNetworkConnection();
+      //       },
+      //       tooltip: 'Check Internet Connection',
+      //       icon: const Icon(
+      //         Icons.network_check,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //   ],
+      // ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.orange),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              IconButton(
+                onPressed: () {
+                  checkNetworkConnection();
+                },
+                tooltip: 'Check Internet Connection',
+                icon: const Icon(
+                  Icons.network_check,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
           Text('$platformType Platform'),
           ListTile(
             leading: Tooltip(message: 'Connection Status', child: networkIcon),

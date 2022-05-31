@@ -9,14 +9,6 @@ A flutter project that I will test new features and interesting packages
 - [ ] Check the RapidApi if is possible to get data
 - [ ] **Create new screen MatchFixture to display in a Row the fixtureTile match and below the PageView Widget**
 
-## Requirements for the above screen
-
-1. String time
-2. String homeName & awayName = match.home.name & match.away.name
-3. String homeLogo & awayLogo = match.home.logoUrl & match.away.logoUrl
-4. String score
-5. int fixtureId
-
 ![alt-text](assets/Markdown_Table_Guide.png "Markdown Table Cheat Sheet")
 
 # <p style="text-align: center;">Useful Tutorials</p>
