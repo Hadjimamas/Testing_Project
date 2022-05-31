@@ -38,24 +38,26 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => OverlaySupport.global(
-        child: MaterialApp(
-          themeMode: ThemeMode.system,
-          darkTheme: ThemeData.dark(),
-          theme: ThemeData(
-            scaffoldBackgroundColor: const Color(0x84FFFFFF),
-            //scaffoldBackgroundColor:const Color(0xFF334753),
-            appBarTheme: const AppBarTheme(
-                backgroundColor: Color(0xFF001A2A), centerTitle: true),
-            textTheme: Theme.of(context).textTheme.apply(
-                  bodyColor: const Color(0xff22215B),
-                  displayColor: const Color(0xff22215B),
-                ),
-          ),
-          debugShowCheckedModeBanner: false,
-          home: const MyHomePage(),
+  Widget build(BuildContext context) {
+    return OverlaySupport.global(
+      child: MaterialApp(
+        themeMode: ThemeMode.system,
+        darkTheme: ThemeData.dark(),
+        theme: ThemeData(
+          scaffoldBackgroundColor: const Color(0x84FFFFFF),
+          //scaffoldBackgroundColor:const Color(0xFF334753),
+          appBarTheme: const AppBarTheme(
+              backgroundColor: Color(0xFF001A2A), centerTitle: true),
+          textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: const Color(0xff22215B),
+                displayColor: const Color(0xff22215B),
+              ),
         ),
-      );
+        debugShowCheckedModeBanner: false,
+        home: const MyHomePage(),
+      ),
+    );
+  }
 }
 
 class MyHomePage extends StatefulWidget {

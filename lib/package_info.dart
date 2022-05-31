@@ -148,21 +148,6 @@ class ProjectInfoState extends State<ProjectInfo> {
           ],
         ),
       ],
-      // appBar: AppBar(
-      //   title: Text('${packageInfo.appName} Project'.toUpperCase()),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         checkNetworkConnection();
-      //       },
-      //       tooltip: 'Check Internet Connection',
-      //       icon: const Icon(
-      //         Icons.network_check,
-      //         color: Colors.white,
-      //       ),
-      //     ),
-      //   ],
-      // ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -170,6 +155,7 @@ class ProjectInfoState extends State<ProjectInfo> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
+                tooltip: 'Back',
                 icon: const Icon(Icons.arrow_back, color: Colors.orange),
                 onPressed: () => Navigator.of(context).pop(),
               ),
@@ -177,7 +163,7 @@ class ProjectInfoState extends State<ProjectInfo> {
                 onPressed: () {
                   checkNetworkConnection();
                 },
-                tooltip: 'Check Internet Connection',
+                tooltip: 'Connectivity Test',
                 icon: const Icon(
                   Icons.network_check,
                   color: Colors.white,
@@ -185,7 +171,7 @@ class ProjectInfoState extends State<ProjectInfo> {
               ),
             ],
           ),
-          Text('$platformType Platform'),
+          //Text('$platformType Platform'),
           ListTile(
             leading: Tooltip(message: 'Connection Status', child: networkIcon),
             title: Tooltip(message: 'Connection Type', child: Text(msg)),
