@@ -22,9 +22,6 @@ dependencies:
   line_icons: ^2.0.1
   package_info_plus: ^1.4.2
   url_launcher: ^6.1.0
-  flutter_email_sender: ^5.1.0
-  path_provider: ^2.0.10
-  image_picker: ^0.8.5+3
   provider: ^6.0.3
   shared_preferences: ^2.0.15
   draggable_scrollbar: ^0.1.0

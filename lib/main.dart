@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:testing/email.dart';
 import 'package:testing/package_info.dart';
 import 'package:testing/widget.dart';
 
@@ -47,10 +46,10 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0x84FFFFFF),
           //scaffoldBackgroundColor:const Color(0xFF334753),
           appBarTheme: const AppBarTheme(
-              backgroundColor: Color(0xFF001A2A), centerTitle: true),
+              backgroundColor: Color(0xff014975), centerTitle: true),
           textTheme: Theme.of(context).textTheme.apply(
-                bodyColor: const Color(0xff22215B),
-                displayColor: const Color(0xff22215B),
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
               ),
         ),
         debugShowCheckedModeBanner: false,
@@ -233,19 +232,6 @@ class MyHomePageState extends State<MyHomePage> {
               modalBottomSheet(context);
             },
           ),
-          IconButton(
-            tooltip: 'Contact Developer',
-            icon: const Icon(
-              Icons.contact_mail_outlined,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const EmailSender()),
-              );
-            },
-          ),
         ],
       ),
       body: PageView(
@@ -282,7 +268,7 @@ class MyHomePageState extends State<MyHomePage> {
                           itemCount: _foundUsers.length,
                           itemBuilder: (context, index) => Card(
                             key: ValueKey(_foundUsers[index]['id']),
-                            color: Colors.amberAccent,
+                            color: const Color(0xFF001A2A),
                             elevation: 20,
                             margin: const EdgeInsets.symmetric(vertical: 10),
                             child: ListTile(
@@ -306,7 +292,6 @@ class MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          const EmailSender(),
         ],
       ),
     );

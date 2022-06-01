@@ -7,7 +7,7 @@ A flutter project that I will test new features and interesting packages
 # Below requirements are not included in this project
 
 - [ ] Check the RapidApi if is possible to get data
-- [ ] **Create new screen MatchFixture to display in a Row the fixtureTile match and below the PageView Widget**
+- [x] **Create new screen MatchFixture to display in a Row the fixtureTile match and below the PageView Widget**
 
 ![alt-text](assets/Markdown_Table_Guide.png "Markdown Table Cheat Sheet")
 
@@ -17,7 +17,6 @@ A flutter project that I will test new features and interesting packages
 - ## **[Swipe Between Themes](https://www.flutterant.com/switching-themes-in-flutter-apps/)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
-- ## **[Page View](https://karthikponnam.medium.com/flutter-pageview-withbottomnavigationbar-fb4c87580f6a)**
 - ## **[AdMob Youtube Video](https://www.youtube.com/watch?v=4oLBxuBjGfI)**
 - ## **[Social Preview](https://socialify.git.ci/)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
