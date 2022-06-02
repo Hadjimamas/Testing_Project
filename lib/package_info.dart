@@ -155,11 +155,6 @@ class ProjectInfoState extends State<ProjectInfo> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                tooltip: 'Back',
-                icon: const Icon(Icons.arrow_back, color: Colors.orange),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              IconButton(
                 onPressed: () {
                   checkNetworkConnection();
                 },
