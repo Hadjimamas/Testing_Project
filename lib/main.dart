@@ -169,130 +169,142 @@ class MyHomePageState extends State<MyHomePage> {
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xE2334753),
-        onPressed: () {
-          if (listScrollController.hasClients) {
-            final position = listScrollController.position.maxScrollExtent;
-            listScrollController.animateTo(
-              position,
-              duration: const Duration(seconds: 3),
-              curve: Curves.easeOut,
-            );
-          }
-        },
-        isExtended: true,
-        tooltip: 'Scroll to Bottom',
-        child: const Icon(Icons.arrow_downward),
-      ),
-      appBar: AppBar(
-        title: Text(
-          'Example Project',
-          style: GoogleFonts.dancingScript(
-            textStyle: const TextStyle(
-              color: Colors.white,
-              letterSpacing: .5,
-              fontSize: 30,
-            ),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            tooltip: 'Project Info',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProjectInfo()),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: const Color(0xE2334753),
+          onPressed: () {
+            if (listScrollController.hasClients) {
+              final position = listScrollController.position.maxScrollExtent;
+              listScrollController.animateTo(
+                position,
+                duration: const Duration(seconds: 3),
+                curve: Curves.easeOut,
               );
-            },
-            icon: const Icon(
-              Icons.info_outline,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            tooltip: 'Date Picker',
-            onPressed: () {
-              selectDate(context);
-            },
-            icon: const Icon(
-              Icons.date_range,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            tooltip: 'Bottom Sheet',
-            icon: const Icon(
-              Icons.stadium_outlined,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              selectedDate = DateTime.now();
-              modalBottomSheet(context);
-            },
-          ),
-        ],
-      ),
-      body: PageView(
-        scrollDirection: Axis.vertical, //change to horizontal
-        controller: pageController,
-        children: [
-          Column(
-            children: [
-              search((value) => runFilter(value), editingController),
-              Text('You have selected: $newDate'),
-              Text('Results: $foundUsers/$allUsers'),
-              ListTile(
-                textColor: Colors.black,
-                title: Image.asset(
-                  'event_icons/sub.png',
-                  height: 40,
-                ),
-                subtitle: const Text(
-                  'Player-out',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
-                ),
-              ),
-              Expanded(
-                child: _foundUsers.isNotEmpty
-                    ? DraggableScrollbar.semicircle(
-                        alwaysVisibleScrollThumb: true,
-                        controller: listScrollController,
-                        child: ListView.builder(
-                          controller: listScrollController,
-                          itemCount: _foundUsers.length,
-                          itemBuilder: (context, index) => Card(
-                            key: ValueKey(_foundUsers[index]['id']),
-                            color: const Color(0xFF001A2A),
-                            elevation: 20,
-                            margin: const EdgeInsets.symmetric(vertical: 10),
-                            child: ListTile(
-                              leading: Text(
-                                '${index + 1}',
-                                style: const TextStyle(fontSize: 24),
-                              ),
-                              title: Text(_foundUsers[index]['name']),
-                              subtitle: Text(
-                                  '${_foundUsers[index]['age'].toString()} years old'),
-                            ),
-                          ),
-                        ),
-                      )
-                    : const Center(
-                        child: Text(
-                          'No results found!',
-                          style: TextStyle(fontSize: 24, color: Colors.red),
-                        ),
-                      ),
-              ),
+            }
+          },
+          isExtended: true,
+          tooltip: 'Scroll to Bottom',
+          child: const Icon(Icons.arrow_downward),
+        ),
+        appBar: AppBar(
+          bottom: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.home_outlined)),
+              Tab(icon: Icon(Icons.info_outline)),
+              Tab(icon: Icon(Icons.directions_bike)),
             ],
           ),
-        ],
+          title: Text(
+            'Example Project',
+            style: GoogleFonts.dancingScript(
+              textStyle: const TextStyle(
+                color: Colors.white,
+                letterSpacing: .5,
+                fontSize: 30,
+              ),
+            ),
+          ),
+          actions: <Widget>[
+            IconButton(
+              tooltip: 'Project Info',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProjectInfo()),
+                );
+              },
+              icon: const Icon(
+                Icons.info_outline,
+                color: Colors.white,
+              ),
+            ),
+            IconButton(
+              tooltip: 'Date Picker',
+              onPressed: () {
+                selectDate(context);
+              },
+              icon: const Icon(
+                Icons.date_range,
+                color: Colors.white,
+              ),
+            ),
+            IconButton(
+              tooltip: 'Bottom Sheet',
+              icon: const Icon(
+                Icons.stadium_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                selectedDate = DateTime.now();
+                modalBottomSheet(context);
+              },
+            ),
+          ],
+        ),
+        body: TabBarView(
+          children: [
+            Column(
+              children: [
+                search((value) => runFilter(value), editingController),
+                Text('You have selected: $newDate'),
+                Text('Results: $foundUsers/$allUsers'),
+                ListTile(
+                  textColor: Colors.black,
+                  title: Image.asset(
+                    'event_icons/sub.png',
+                    height: 40,
+                  ),
+                  subtitle: const Text(
+                    'Player-out',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                  ),
+                ),
+                Expanded(
+                  child: _foundUsers.isNotEmpty
+                      ? DraggableScrollbar.semicircle(
+                          alwaysVisibleScrollThumb: true,
+                          controller: listScrollController,
+                          child: ListView.builder(
+                            controller: listScrollController,
+                            itemCount: _foundUsers.length,
+                            itemBuilder: (context, index) => Card(
+                              key: ValueKey(_foundUsers[index]['id']),
+                              color: const Color(0xFF001A2A),
+                              elevation: 20,
+                              margin: const EdgeInsets.symmetric(vertical: 10),
+                              child: ListTile(
+                                leading: Text(
+                                  '${index + 1}',
+                                  style: const TextStyle(fontSize: 24),
+                                ),
+                                title: Text(_foundUsers[index]['name']),
+                                subtitle: Text(
+                                    '${_foundUsers[index]['age'].toString()} years old'),
+                              ),
+                            ),
+                          ),
+                        )
+                      : const Center(
+                          child: Text(
+                            'No results found!',
+                            style: TextStyle(fontSize: 24, color: Colors.red),
+                          ),
+                        ),
+                ),
+              ],
+            ),
+            const ProjectInfo(),
+            const Center(
+              child: Text('This is the 3rd Page'),
+            ),
+          ],
+        ),
       ),
     );
   }
