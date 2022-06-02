@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:io';
 
+
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
@@ -43,10 +45,9 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         darkTheme: ThemeData.dark(),
         theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0x84FFFFFF),
-          //scaffoldBackgroundColor:const Color(0xFF334753),
+          scaffoldBackgroundColor: const Color(0xff014975),
           appBarTheme: const AppBarTheme(
-              backgroundColor: Color(0xff014975), centerTitle: true),
+              backgroundColor: Color(0xFF001A2A), centerTitle: true),
           textTheme: Theme.of(context).textTheme.apply(
                 bodyColor: Colors.white,
                 displayColor: Colors.white,
@@ -190,6 +191,7 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         appBar: AppBar(
           bottom: const TabBar(
+            indicatorColor: Colors.white,
             tabs: [
               Tab(icon: Icon(Icons.home_outlined)),
               Tab(icon: Icon(Icons.info_outline)),
@@ -208,21 +210,9 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           actions: <Widget>[
             IconButton(
-              tooltip: 'Project Info',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProjectInfo()),
-                );
-              },
-              icon: const Icon(
-                Icons.info_outline,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
               tooltip: 'Date Picker',
               onPressed: () {
+                HapticFeedback.vibrate();
                 selectDate(context);
               },
               icon: const Icon(
