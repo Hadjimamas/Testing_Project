@@ -26,9 +26,9 @@ A flutter project that I will test new features and interesting packages
 | Division 1           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:         | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Division 2           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:         | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Division 3           | :x:                | :x:                | :x:                | :x:                | :x:         | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Cup                  | :white_check_mark: | :white_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :x:         | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                |
+| Cup                  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:         | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                |
 | Super Cup            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:         | :white_check_mark: | :x:                | :x:                | :x:                | :x:                |
-| Cyprus National Team | :white_check_mark: | :white_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :x:         | :white_check_mark: |                    |                    |                    |                    |
+| Cyprus National Team | :white_check_mark: | :white_check_mark: |                    |                    | :x:         | :white_check_mark: |                    |                    |                    |                    |
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a>
