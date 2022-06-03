@@ -14,8 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return OverlaySupport.global(
       child: MaterialApp(
-        themeMode: ThemeMode.system,
-        darkTheme: ThemeData.dark(),
         theme: ThemeData(
           primaryColor: Colors.white,
           inputDecorationTheme: const InputDecorationTheme(
