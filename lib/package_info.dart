@@ -88,8 +88,6 @@ class ProjectInfoState extends State<ProjectInfo> {
     );
   }
 
-  int year = DateTime.now().year;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +96,7 @@ class ProjectInfoState extends State<ProjectInfo> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Copyright ©$year, All Rights Reserved. Powered by:',
+              'Copyright ©${DateTime.now().year}, All Rights Reserved. Powered by:',
               style: const TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 12.0,
