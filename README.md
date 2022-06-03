@@ -5,9 +5,13 @@ A flutter project that I will test new features and interesting packages
 ## What should I include next to my LiveScore App
 
 - [ ] Check the RapidApi if is possible to get data
-- [ ] Add TabBar on the bottom of the AppBar in MatchFixture screen
 
 ![alt-text](assets/architecture.png "Markdown Table Cheat Sheet")
+<p align = "center">
+<img src=assets/API_Logo.png>
+</p>
+<p align = "center">
+<strong>API Data Provider</strong></p>
 
 # <p style="text-align: center;">Useful Tutorials</p>
 

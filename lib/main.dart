@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -47,7 +46,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: const Color(0xff014975),
           appBarTheme: const AppBarTheme(
-              backgroundColor: Color(0xFF001A2A), centerTitle: true),
+            backgroundColor: Color(0xFF001A2A),
+            centerTitle: true,
+          ),
           textTheme: Theme.of(context).textTheme.apply(
                 bodyColor: Colors.white,
                 displayColor: Colors.white,
@@ -70,11 +71,6 @@ class MyHomePage extends StatefulWidget {
 DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
-  PageController pageController = PageController(
-    initialPage: 0,
-    keepPage: true,
-  );
-
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Andy", "age": 29},
