@@ -7,11 +7,8 @@ A flutter project that I will test new features and interesting packages
 - [ ] Check the RapidApi if is possible to get data
 
 ![alt-text](assets/architecture.png "Markdown Table Cheat Sheet")
-<p align = "center">
-<img src=assets/API_Logo.png>
-</p>
-<p align = "center">
-<strong>API Data Provider</strong></p>
+<p align="center"><a href="https://www.api-football.com/"> <img src=assets/API_Logo.png alt="API-Data Provider" /></a>
+<p align="center"><strong>API Data Provider</strong></p>
 
 # <p style="text-align: center;">Useful Tutorials</p>
 
