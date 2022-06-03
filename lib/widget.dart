@@ -2,7 +2,6 @@
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 Widget search(
@@ -83,15 +82,17 @@ Future<void> modalBottomSheet(BuildContext context) {
 }
 
 Future checkNetworkConnection() async {
-  bool hasInternet = false;
   ConnectivityResult result = ConnectivityResult.none;
-  hasInternet = await InternetConnectionChecker().hasConnection;
   result = await Connectivity().checkConnectivity();
-  Icon connectivityIcon;
-  final color = hasInternet ? Colors.green : Colors.red;
-  String connectionType;
-  final connectionMsg =
-      hasInternet ? 'Internet Connection Success' : 'No Internet Connection';
+  Icon connectivityIcon = const Icon(Icons.signal_wifi_off);
+  Color color = Colors.red;
+  String connectionType = 'No Connection';
+  String connectionMsg = 'No Internet Connection';
+  if (result != ConnectivityResult.none) {
+    color = Colors.green;
+    connectionMsg = 'Internet Connection Success';
+  }
+
   if (result == ConnectivityResult.mobile) {
     connectionType = 'Mobile Data';
     connectivityIcon = const Icon(Icons.swap_vert);
@@ -101,9 +102,6 @@ Future checkNetworkConnection() async {
   } else if (result == ConnectivityResult.ethernet) {
     connectionType = 'Ethernet Connection';
     connectivityIcon = const Icon(Icons.settings_ethernet);
-  } else {
-    connectionType = 'No Connection';
-    connectivityIcon = const Icon(Icons.signal_wifi_off);
   }
   showSimpleNotification(
     ListTile(
@@ -115,5 +113,4 @@ Future checkNetworkConnection() async {
     slideDismissDirection: DismissDirection.up,
     background: color,
   );
-  print('Internet Connection: $hasInternet\nConnection Type: $result');
 }

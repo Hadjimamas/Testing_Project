@@ -63,13 +63,6 @@ class ProjectInfoState extends State<ProjectInfo> {
           Icons.settings_ethernet,
           color: color,
         );
-      } else {
-        msg = 'No Internet Connection';
-        color = Colors.red;
-        networkIcon = Icon(
-          Icons.wifi_off,
-          color: color,
-        );
       }
     });
     super.initState();
