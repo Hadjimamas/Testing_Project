@@ -16,7 +16,10 @@ Widget search(
       decoration: const InputDecoration(
         labelText: 'Search',
         hintText: 'Search Name',
-        prefixIcon: Icon(Icons.search,color: Colors.white,),
+        prefixIcon: Icon(
+          Icons.search,
+          color: Colors.white,
+        ),
       ),
     ),
   );
@@ -99,7 +102,7 @@ Future checkNetworkConnection() async {
     connectionType = 'Ethernet Connection';
     connectivityIcon = const Icon(Icons.settings_ethernet);
   } else {
-    connectionType = 'Unknown Type';
+    connectionType = 'No Connection';
     connectivityIcon = const Icon(Icons.signal_wifi_off);
   }
   showSimpleNotification(
