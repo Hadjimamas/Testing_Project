@@ -6,7 +6,7 @@ A flutter project that I will test new features and interesting packages
 
 - [ ] Check the RapidApi if is possible to get data
 - [ ] Add Ads to MatchFixture under Info data of the Match and also inside the events listview
-- [ ] Try to implement h2h data between two teams from fixtures. The apiLink will be "fixtures/headtohead?h2h=33-34";
+- [ ] Try to implement h2h data between two teams from fixtures. The apiLink will be "fixtures/headtohead?h2h=33-34";(apiLink: 'homeId-awayId')
 - [ ] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
 - [ ] Request from the API my account and subscription details and implement them on a screen
 
