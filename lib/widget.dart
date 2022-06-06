@@ -13,8 +13,18 @@ Widget search(
       onChanged: onChanged,
       controller: editingController,
       decoration: const InputDecoration(
+        enabledBorder: OutlineInputBorder(
+          //This is the color of the TextField before you click it to search
+          borderSide: BorderSide(width: 3, color: Colors.white),
+        ),
+        focusedBorder: OutlineInputBorder(
+          //Color of the TextField when you search
+          borderSide: BorderSide(width: 3, color: Colors.white),
+        ),
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
         labelText: 'Search',
-        hintText: 'Search Name',
+        hintText: 'Search by Name',
         prefixIcon: Icon(
           Icons.search,
           color: Colors.white,
@@ -84,7 +94,7 @@ Future<void> modalBottomSheet(BuildContext context) {
 Future checkNetworkConnection() async {
   ConnectivityResult result = ConnectivityResult.none;
   result = await Connectivity().checkConnectivity();
-  Icon connectivityIcon = const Icon(Icons.signal_wifi_off);
+  Icon connectivityIcon = const Icon(Icons.wifi_off);
   Color color = Colors.red;
   String connectionType = 'No Connection';
   String connectionMsg = 'No Internet Connection';

@@ -143,18 +143,27 @@ class MyHomePageState extends State<MyHomePage> {
             tabs: [
               Tab(icon: Icon(Icons.home_outlined), text: 'Home'),
               Tab(icon: Icon(Icons.info_outline), text: 'About'),
-              Tab(icon: Icon(Icons.directions_bike)),
+              Tab(icon: Icon(Icons.directions_bike), text: 'Other'),
             ],
           ),
-          title: Text(
-            'Example Project',
-            style: GoogleFonts.dancingScript(
-              textStyle: const TextStyle(
-                color: Colors.white,
-                letterSpacing: .5,
-                fontSize: 30,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'event_icons/sub.png',
+                height: 40,
               ),
-            ),
+              Text(
+                'Example Project',
+                style: GoogleFonts.dancingScript(
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    letterSpacing: .5,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+            ],
           ),
           actions: <Widget>[
             IconButton(

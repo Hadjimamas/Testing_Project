@@ -132,7 +132,7 @@ class ProjectInfoState extends State<ProjectInfo> {
                   color: Colors.teal, size: 20.0),
             ),
             const FlutterLogo(
-              textColor: Colors.blue,
+              textColor: Colors.white,
               style: FlutterLogoStyle.horizontal,
               size: 50,
             ),
@@ -159,8 +159,12 @@ class ProjectInfoState extends State<ProjectInfo> {
           ),
           //Text('$platformType Platform'),
           ListTile(
-            leading: Tooltip(message: 'Connection Status', child: networkIcon),
-            title: Tooltip(message: 'Connection Type', child: Text(msg)),
+            onTap: () {
+              checkNetworkConnection();
+            },
+            leading: networkIcon,
+            title: Text(msg),
+            subtitle: Text('$platformType Platform'),
           ),
           infoTile('App Name', packageInfo.appName),
           infoTile('Package Name', packageInfo.packageName),
