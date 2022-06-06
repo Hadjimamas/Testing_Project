@@ -56,7 +56,6 @@ Future<void> modalBottomSheet(BuildContext context) {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          //Text('Close BottomSheet'),
                           Icon(
                             Icons.close,
                             color: Colors.red,
