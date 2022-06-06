@@ -112,7 +112,6 @@ class MyHomePageState extends State<MyHomePage> {
     if (picked != null) {
       setState(() {
         selectedDate = picked;
-        modalBottomSheet(context);
       });
       showSimpleNotification(Text('Date Selected ${formatDateTime(picked)}'),
           leading: const Icon(Icons.event_available_outlined),
@@ -150,7 +149,7 @@ class MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'event_icons/sub.png',
+                'event_icons/round.png',
                 height: 40,
               ),
               Text(
