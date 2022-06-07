@@ -8,6 +8,7 @@ A flutter project that I will test new features and interesting packages
 - [ ] Add Ads to MatchFixture under Info data of the Match and also inside the events listview
 - [x] Try to implement h2h data between two teams from fixtures. The apiLink will be "fixtures/headtohead?h2h=33-34";(apiLink: 'homeId-awayId')
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
+- [ ] In DivisionTeams(teams_body) onLongPress on a team display a modalBottomSheet with the extra details I can print
 - [ ] Request from the API my account and subscription details and implement them on a screen
 
 ![alt-text](assets/architecture.png "API Architecture")
