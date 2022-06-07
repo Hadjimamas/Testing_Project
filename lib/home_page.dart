@@ -197,6 +197,10 @@ class MyHomePageState extends State<MyHomePage> {
                 Text('You have selected: $newDate'),
                 Text('Results: $foundUsers/$allUsers'),
                 ListTile(
+                  onLongPress: () {
+                    selectedDate = DateTime.now();
+                    modalBottomSheet(context);
+                  },
                   textColor: Colors.black,
                   title: Image.asset(
                     'event_icons/sub.png',
