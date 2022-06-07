@@ -149,7 +149,7 @@ class HeadToHeadState extends State<HeadToHead> {
 
 final DateFormat formatterDateTime = DateFormat('EEE HH:mm dd/MM/yyyy');
 
-/// For all the matches of the season
+/// Head to Head matches between two teams
 Widget headToHeadTile(FixturesData match, BuildContext context) {
   /* here you call some data from the api to print them */
   var round = match.league.round;

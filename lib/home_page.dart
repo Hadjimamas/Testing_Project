@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -223,20 +224,23 @@ class MyHomePageState extends State<MyHomePage> {
                           child: ListView.builder(
                             controller: listScrollController,
                             itemCount: _foundUsers.length,
-                            itemBuilder: (context, index) => Card(
-                              key: ValueKey(_foundUsers[index]['id']),
-                              elevation: 20,
-                              margin: const EdgeInsets.symmetric(vertical: 10),
-                              child: ListTile(
-                                leading: Text(
-                                  '${index + 1}',
-                                  style: const TextStyle(fontSize: 24),
+                            itemBuilder: (context, index) {
+                              return Card(
+                                key: ValueKey(_foundUsers[index]['id']),
+                                elevation: 20,
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: ListTile(
+                                  leading: Text(
+                                    '${index + 1}',
+                                    style: const TextStyle(fontSize: 24),
+                                  ),
+                                  title: Text(_foundUsers[index]['name']),
+                                  subtitle: Text(
+                                      '${_foundUsers[index]['age'].toString()} years old'),
                                 ),
-                                title: Text(_foundUsers[index]['name']),
-                                subtitle: Text(
-                                    '${_foundUsers[index]['age'].toString()} years old'),
-                              ),
-                            ),
+                              );
+                            },
                           ),
                         )
                       : const Center(
