@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 import 'dart:io';
 
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
@@ -17,7 +18,7 @@ class AdHelper {
     } else if (Platform.isIOS) {
       return "ca-app-pub-3940256099942544/2934735716";
     } else {
-      throw UnsupportedError("Unsupported platform");
+      return 'Unsupported Platform';
     }
   }
 }
@@ -129,6 +130,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print(AdHelper.bannerAdUnitId);
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
@@ -201,7 +203,6 @@ class MyHomePageState extends State<MyHomePage> {
                     selectedDate = DateTime.now();
                     modalBottomSheet(context);
                   },
-                  textColor: Colors.black,
                   title: Image.asset(
                     'event_icons/sub.png',
                     height: 40,

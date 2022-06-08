@@ -15,7 +15,6 @@ class AccountDetails {
         json['requests'] != null ? Requests.fromJson(json['requests']) : null;
   }
 
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     if (account != null) {
