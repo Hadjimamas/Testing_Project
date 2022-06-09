@@ -5,6 +5,7 @@ A flutter project that I will test new features and interesting packages
 ## What should I include next to my LiveScore App
 
 - [ ] Check the RapidApi if is possible to get data
+- [ ] Mark favourite team
 - [ ] Fixtures screen display league info static with saved png logo and text
 - [ ] Include Ads to the screens based on list below
 1. Home Page :white_check_mark:

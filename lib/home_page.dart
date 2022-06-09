@@ -52,7 +52,7 @@ class MyHomePageState extends State<MyHomePage> {
     {"id": 9, "name": "Caver-sky", "age": 47},
     {"id": 10, "name": "Becky", "age": 32},
   ];
-  List<String> favoriteDataList = [];
+  List<Map<String, dynamic>> favoriteDataList = [];
   List<Map<String, dynamic>> _foundUsers = [];
 
   void runFilter(String enteredKeyword) {
@@ -243,20 +243,14 @@ class MyHomePageState extends State<MyHomePage> {
                                             '${_foundUsers[index]['age'].toString()} years old'),
                                       ),
                                     ),
-                                    ElevatedButton(
+                                    IconButton(
                                       onPressed: () {
                                         setState(() {
-                                          favoriteDataList.add(
-                                              (_foundUsers[index]['name']));
+                                          favoriteDataList
+                                              .add((_foundUsers[index]));
                                         });
                                       },
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                          Colors.deepPurple,
-                                        ),
-                                      ),
-                                      child: const Icon(
+                                      icon: const Icon(
                                         Icons.favorite,
                                         color: Colors.white,
                                       ),
@@ -292,14 +286,16 @@ class MyHomePageState extends State<MyHomePage> {
                                   '${index + 1}',
                                   style: const TextStyle(fontSize: 24),
                                 ),
-                                title: Text(favoriteDataList[index]),
+                                title: Text(favoriteDataList[index]['name']),
+                                subtitle: Text(
+                                    '${favoriteDataList[index]['age'].toString()} years old'),
                               ),
                             ),
                           ],
                         ),
                       );
                     })
-                : const Center(child:  Text('No Favourite data')),
+                : const Center(child: Text('No Favourite data')),
           ],
         ),
       ),
