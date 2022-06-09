@@ -1,0 +1,314 @@
+@startuml
+set namespaceSeparator ::
+
+class "testing::home_page.dart::AdHelper" {
+  {static} +String bannerAdUnitId
+}
+
+class "testing::home_page.dart::MyHomePage" {
+  +MyHomePageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::home_page.dart::MyHomePage"
+
+class "testing::home_page.dart::MyHomePageState" {
+  +TextEditingController editingController
+  -List<Map<String, dynamic>> _allUsers
+  -List<Map<String, dynamic>> _foundUsers
+  +void runFilter()
+  +void initState()
+  +Future<void> selectDate()
+  +Widget build()
+}
+
+"testing::home_page.dart::MyHomePageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::home_page.dart::MyHomePageState"
+
+class "testing::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "testing::main.dart::MyApp"
+
+class "testing::models::account_model.dart::AccountDetails" {
+  +Account? account
+  +Subscription? subscription
+  +Requests? requests
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::account_model.dart::AccountDetails" o-- "testing::models::account_model.dart::Account"
+"testing::models::account_model.dart::AccountDetails" o-- "testing::models::account_model.dart::Subscription"
+"testing::models::account_model.dart::AccountDetails" o-- "testing::models::account_model.dart::Requests"
+
+class "testing::models::account_model.dart::Account" {
+  +String? firstname
+  +String? lastname
+  +String? email
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::account_model.dart::Subscription" {
+  +String? plan
+  +String? end
+  +bool? active
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::account_model.dart::Requests" {
+  +int? current
+  +int? limitDay
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::match_predictions_model.dart::MatchPredictions" {
+  +Predictions? predictions
+  +Comparison? comparison
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::match_predictions_model.dart::MatchPredictions" o-- "testing::models::match_predictions_model.dart::Predictions"
+"testing::models::match_predictions_model.dart::MatchPredictions" o-- "testing::models::match_predictions_model.dart::Comparison"
+
+class "testing::models::match_predictions_model.dart::Predictions" {
+  +Winner? winner
+  +bool? winOrDraw
+  +String? underOver
+  +Goals? goals
+  +String? advice
+  +Percent? percent
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::match_predictions_model.dart::Predictions" o-- "testing::models::match_predictions_model.dart::Winner"
+"testing::models::match_predictions_model.dart::Predictions" o-- "testing::models::match_predictions_model.dart::Goals"
+"testing::models::match_predictions_model.dart::Predictions" o-- "testing::models::match_predictions_model.dart::Percent"
+
+class "testing::models::match_predictions_model.dart::Winner" {
+  +int? id
+  +String? name
+  +String? comment
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::match_predictions_model.dart::Goals" {
+  +String? home
+  +String? away
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::match_predictions_model.dart::Percent" {
+  +String? home
+  +String? draw
+  +String? away
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::match_predictions_model.dart::Comparison" {
+  +Goals? form
+  +Goals? att
+  +Goals? def
+  +Goals? poissonDistribution
+  +Goals? h2h
+  +Goals? goals
+  +Goals? total
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::match_predictions_model.dart::Comparison" o-- "testing::models::match_predictions_model.dart::Goals"
+
+class "testing::models::match_statistics_model.dart::Statistic" {
+  +Team? team
+  +List<Statistics>? statistics
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::match_statistics_model.dart::Statistic" o-- "testing::models::match_statistics_model.dart::Team"
+
+class "testing::models::match_statistics_model.dart::Team" {
+  +int? id
+  +String? name
+  +String? logo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::match_statistics_model.dart::Statistics" {
+  +String? type
+  +int? value
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::PlayerStatistics" {
+  +Team? team
+  +List<Players>? players
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::player_statistics_model.dart::PlayerStatistics" o-- "testing::models::player_statistics_model.dart::Team"
+
+class "testing::models::player_statistics_model.dart::Team" {
+  +int? id
+  +String? name
+  +String? logo
+  +String? update
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Players" {
+  +Player? player
+  +List<Statistics>? statistics
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::player_statistics_model.dart::Players" o-- "testing::models::player_statistics_model.dart::Player"
+
+class "testing::models::player_statistics_model.dart::Player" {
+  +int? id
+  +String? name
+  +String? photo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Statistics" {
+  +Games? games
+  +int? offsides
+  +Shots? shots
+  +Goals? goals
+  +Passes? passes
+  +Tackles? tackles
+  +Duels? duels
+  +Dribbles? dribbles
+  +Fouls? fouls
+  +Cards? cards
+  +Penalty? penalty
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Games"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Shots"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Goals"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Passes"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Tackles"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Duels"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Dribbles"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Fouls"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Cards"
+"testing::models::player_statistics_model.dart::Statistics" o-- "testing::models::player_statistics_model.dart::Penalty"
+
+class "testing::models::player_statistics_model.dart::Games" {
+  +int? minutes
+  +int? number
+  +String? position
+  +String? rating
+  +bool? captain
+  +bool? substitute
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Shots" {
+  +int? total
+  +int? on
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Goals" {
+  +int? total
+  +int? conceded
+  +int? assists
+  +int? saves
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Passes" {
+  +int? total
+  +int? key
+  +String? accuracy
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Tackles" {
+  +int? total
+  +int? blocks
+  +int? interceptions
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Duels" {
+  +int? total
+  +int? won
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Dribbles" {
+  +int? attempts
+  +int? success
+  +int? past
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Fouls" {
+  +int? drawn
+  +int? committed
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Cards" {
+  +int? yellow
+  +int? red
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::player_statistics_model.dart::Penalty" {
+  +int? won
+  +int? commited
+  +int? scored
+  +int? missed
+  +int? saved
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::squad_model.dart::Squad" {
+  +Team? team
+  +List<Players>? players
+  +Map<String, dynamic> toJson()
+}
+
+"testing::models::squad_model.dart::Squad" o-- "testing::models::squad_model.dart::Team"
+
+class "testing::models::squad_model.dart::Team" {
+  +int? id
+  +String? name
+  +String? logo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::models::squad_model.dart::Players" {
+  +int? id
+  +String? name
+  +int? age
+  +int? number
+  +String? position
+  +String? photo
+  +Map<String, dynamic> toJson()
+}
+
+class "testing::package_info.dart::ProjectInfo" {
+  +ProjectInfoState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "testing::package_info.dart::ProjectInfo"
+
+class "testing::package_info.dart::ProjectInfoState" {
+  +PackageInfo packageInfo
+  +void initState()
+  +void dispose()
+  +Future<void> initPackageInfo()
+  +Widget infoTile()
+  +Widget build()
+}
+
+"testing::package_info.dart::ProjectInfoState" o-- "package_info_plus::package_info_plus.dart::PackageInfo"
+"flutter::src::widgets::framework.dart::State" <|-- "testing::package_info.dart::ProjectInfoState"
+
+
+@enduml

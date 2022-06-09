@@ -22,11 +22,12 @@ A flutter project that I will test new features and interesting packages
 # <p style="text-align: center;">Useful Tutorials</p>
 
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/pricing)**
+- ## **[Generate UML diagram](https://www.youtube.com/watch?v=PuA9XtazJUA)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
 - ## **[AdMob Youtube Video](https://www.youtube.com/watch?v=4oLBxuBjGfI)**
 - ## **[Social Preview](https://socialify.git.ci/)**
-- ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
+- ## **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
 
 | **Cyprus League**    | **Live Matches**   | **Match Events**   | **Lineups**        | **Match Statistics** | **Players** | **Predictions**    | **Odds**           | **Player Statistics** | **Top Scorers**    | **Standings**      |
 |----------------------|--------------------|--------------------|--------------------|----------------------|-------------|--------------------|--------------------|-----------------------|--------------------|--------------------|
