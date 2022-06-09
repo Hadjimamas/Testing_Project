@@ -35,21 +35,20 @@ class Predictions {
 
   Predictions(
       {this.winner,
-        this.winOrDraw,
-        this.underOver,
-        this.goals,
-        this.advice,
-        this.percent});
+      this.winOrDraw,
+      this.underOver,
+      this.goals,
+      this.advice,
+      this.percent});
 
   Predictions.fromJson(Map<String, dynamic> json) {
-    winner =
-    json['winner'] != null ? Winner.fromJson(json['winner']) : null;
+    winner = json['winner'] != null ? Winner.fromJson(json['winner']) : null;
     winOrDraw = json['win_or_draw'];
     underOver = json['under_over'];
     goals = json['goals'] != null ? Goals.fromJson(json['goals']) : null;
     advice = json['advice'];
     percent =
-    json['percent'] != null ? Percent.fromJson(json['percent']) : null;
+        json['percent'] != null ? Percent.fromJson(json['percent']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -144,12 +143,12 @@ class Comparison {
 
   Comparison(
       {this.form,
-        this.att,
-        this.def,
-        this.poissonDistribution,
-        this.h2h,
-        this.goals,
-        this.total});
+      this.att,
+      this.def,
+      this.poissonDistribution,
+      this.h2h,
+      this.goals,
+      this.total});
 
   Comparison.fromJson(Map<String, dynamic> json) {
     form = json['form'] != null ? Goals.fromJson(json['form']) : null;
