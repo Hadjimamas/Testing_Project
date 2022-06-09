@@ -52,6 +52,7 @@ class MyHomePageState extends State<MyHomePage> {
     {"id": 9, "name": "Caver-sky", "age": 47},
     {"id": 10, "name": "Becky", "age": 32},
   ];
+  List<String> favoriteDataList = [];
   List<Map<String, dynamic>> _foundUsers = [];
 
   void runFilter(String enteredKeyword) {
@@ -143,7 +144,7 @@ class MyHomePageState extends State<MyHomePage> {
             tabs: [
               Tab(icon: Icon(Icons.home_outlined), text: 'Home'),
               Tab(icon: Icon(Icons.info_outline), text: 'About'),
-              Tab(icon: Icon(Icons.directions_bike), text: 'Other'),
+              Tab(icon: Icon(Icons.favorite), text: 'Favorite'),
             ],
           ),
           title: Row(
@@ -229,14 +230,38 @@ class MyHomePageState extends State<MyHomePage> {
                                 elevation: 20,
                                 margin:
                                     const EdgeInsets.symmetric(vertical: 10),
-                                child: ListTile(
-                                  leading: Text(
-                                    '${index + 1}',
-                                    style: const TextStyle(fontSize: 24),
-                                  ),
-                                  title: Text(_foundUsers[index]['name']),
-                                  subtitle: Text(
-                                      '${_foundUsers[index]['age'].toString()} years old'),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: ListTile(
+                                        leading: Text(
+                                          '${index + 1}',
+                                          style: const TextStyle(fontSize: 24),
+                                        ),
+                                        title: Text(_foundUsers[index]['name']),
+                                        subtitle: Text(
+                                            '${_foundUsers[index]['age'].toString()} years old'),
+                                      ),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          favoriteDataList.add(
+                                              (_foundUsers[index]['name']));
+                                        });
+                                      },
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                          Colors.deepPurple,
+                                        ),
+                                      ),
+                                      child: const Icon(
+                                        Icons.favorite,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               );
                             },
@@ -252,9 +277,29 @@ class MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const ProjectInfo(),
-            Center(
-              child: Text(AdHelper.bannerAdUnitId),
-            ),
+            favoriteDataList.isNotEmpty
+                ? ListView.builder(
+                    itemCount: favoriteDataList.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 20,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: ListTile(
+                                leading: Text(
+                                  '${index + 1}',
+                                  style: const TextStyle(fontSize: 24),
+                                ),
+                                title: Text(favoriteDataList[index]),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    })
+                : const Center(child:  Text('No Favourite data')),
           ],
         ),
       ),
