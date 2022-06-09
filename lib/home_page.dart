@@ -18,7 +18,7 @@ class AdHelper {
     } else if (Platform.isIOS) {
       return "ca-app-pub-3940256099942544/2934735716";
     } else {
-      return 'Unsupported Platform';
+      return 'Unsupported Platform for google ads';
     }
   }
 }
@@ -204,7 +204,7 @@ class MyHomePageState extends State<MyHomePage> {
                     modalBottomSheet(context);
                   },
                   title: Image.asset(
-                    'event_icons/sub.png',
+                    'assets/event_icons/goal.png',
                     height: 40,
                   ),
                   subtitle: const Text(
