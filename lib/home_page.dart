@@ -130,7 +130,6 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(AdHelper.bannerAdUnitId);
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
@@ -253,8 +252,8 @@ class MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const ProjectInfo(),
-            const Center(
-              child: Text('This is the 3rd Page'),
+            Center(
+              child: Text(AdHelper.bannerAdUnitId),
             ),
           ],
         ),
