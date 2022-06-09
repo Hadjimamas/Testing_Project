@@ -5,21 +5,20 @@ A flutter project that I will test new features and interesting packages
 ## What should I include next to my LiveScore App
 
 - [ ] Check the RapidApi if is possible to get data
-- [ ] Add Ads to MatchFixture under Info data of the Match and also inside the events listview
-- [x] Try to implement h2h data between two teams from fixtures. The apiLink will be "fixtures/headtohead?h2h=33-34";(apiLink: 'homeId-awayId')
+- [ ] Fixtures screen display league info static with saved png logo and text
+- [ ] Include Ads to the screens based on list below
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
-- [x] In DivisionTeams(teams_body) onLongPress on a team display a modalBottomSheet with the extra details I can print
 - [ ] Request from the API my account and subscription details and implement them on a screen
 
-## Screens that have or will have ads
-1. Home Page
-2. Fixtures inside ListView
+##List of screens that have or will have ads
+1. Home Page :white_check_mark:
+2. Fixtures inside ListView :white_check_mark:
 3. Under match info
-4. Head to Head ListView
+4. Head to Head ListView :white_check_mark:
 5. Under Standings WebView
 
 ![alt-text](assets/architecture.png "API Architecture")
-<p align="center"><a href="https://www.api-football.com/"> <img src=assets/API_Logo.png alt="API-Data Provider" /></a>
+<p align="center"><a href="https://www.api-football.com/"><img src=assets/API_Logo.png alt="API-Data Provider" /></a>
 <p align="center"><strong>API Data Provider</strong></p>
 
 # <p style="text-align: center;">Useful Tutorials</p>
@@ -31,7 +30,7 @@ A flutter project that I will test new features and interesting packages
 - ## **[Social Preview](https://socialify.git.ci/)**
 - ### **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
 
-| **Cyprus League**    | **Live**           | **Events**         | **Lineups**        | **Match Statistics** | **Players** | **Predictions**    | **Odds**           | **Player Statistics** | **Top Scorers**    | **Standings**      |
+| **Cyprus League**    | **Live Matches**   | **Match Events**   | **Lineups**        | **Match Statistics** | **Players** | **Predictions**    | **Odds**           | **Player Statistics** | **Top Scorers**    | **Standings**      |
 |----------------------|--------------------|--------------------|--------------------|----------------------|-------------|--------------------|--------------------|-----------------------|--------------------|--------------------|
 | Division 1           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:   | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
 | Division 2           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:   | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |

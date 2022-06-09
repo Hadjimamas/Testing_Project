@@ -118,7 +118,7 @@ class ProjectInfoState extends State<ProjectInfo> {
               tooltip: 'E-mail',
               onPressed: () {
                 Clipboard.setData(const ClipboardData(
-                        text: "andreashadjimama@hotmail.com"))
+                        text: 'andreashadjimama@hotmail.com'))
                     .then((_) {
                   showSimpleNotification(
                       const Text('E-mail Copied to Clipboard'),
