@@ -7,15 +7,13 @@ A flutter project that I will test new features and interesting packages
 - [ ] Check the RapidApi if is possible to get data
 - [ ] Fixtures screen display league info static with saved png logo and text
 - [ ] Include Ads to the screens based on list below
-- [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
-- [ ] Request from the API my account and subscription details and implement them on a screen
-
-##List of screens that have or will have ads
 1. Home Page :white_check_mark:
 2. Fixtures inside ListView :white_check_mark:
 3. Under match info
 4. Head to Head ListView :white_check_mark:
 5. Under Standings WebView
+- [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
+- [ ] Request from the API my account and subscription details and implement them on a screen
 
 ![alt-text](assets/architecture.png "API Architecture")
 <p align="center"><a href="https://www.api-football.com/"><img src=assets/API_Logo.png alt="API-Data Provider" /></a>
