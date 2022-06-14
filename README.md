@@ -27,14 +27,14 @@ A flutter project that I will test new features and interesting packages
 - ## **[Social Preview](https://socialify.git.ci/)**
 - ## **[Markdown Guide Link](https://www.markdownguide.org/extended-syntax/)**
 
-| **Cyprus League**    | **Live Matches**   | **Match Events**   | **Lineups**        | **Match Statistics** | **Players** | **Predictions**    | **Odds**           | **Player Statistics** | **Top Scorers**    | **Standings**      |
-|----------------------|--------------------|--------------------|--------------------|----------------------|-------------|--------------------|--------------------|-----------------------|--------------------|--------------------|
-| Division 1           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:   | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
-| Division 2           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:   | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
-| Division 3           | :x:                | :x:                | :x:                | :x:                  | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
-| Cup                  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                  | :x:         | :white_check_mark: | :white_check_mark: | :x:                   | :x:                | :x:                |
-| Super Cup            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                  | :x:         | :white_check_mark: | :x:                | :x:                   | :x:                | :x:                |
-| Cyprus National Team | :white_check_mark: | :white_check_mark: |                    |                      | :x:         | :white_check_mark: |                    |                       |                    |                    |
+| **Cyprus League**             | **Live Matches**   | **Match Events**   | **Lineups**        | **Match Statistics** | **Players** | **Predictions**    | **Odds**           | **Player Statistics** | **Top Scorers**    | **Standings**      |
+|-------------------------------|--------------------|--------------------|--------------------|----------------------|-------------|--------------------|--------------------|-----------------------|--------------------|--------------------|
+| Division 1                    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:   | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
+| Division 2                    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:   | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
+| Division 3                    | :x:                | :x:                | :x:                | :x:                  | :x:         | :white_check_mark: | :x:                | :white_check_mark:    | :white_check_mark: | :white_check_mark: |
+| Cup                           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                  | :x:         | :white_check_mark: | :white_check_mark: | :x:                   | :x:                | :x:                |
+| Super Cup                     | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                  | :x:         | :white_check_mark: | :x:                | :x:                   | :x:                | :x:                |
+| Cyprus National Team :cyprus: | :white_check_mark: | :white_check_mark: |                    |                      | :x:         | :white_check_mark: |                    |                       |                    |                    |
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/2346px-Android_logo_2019_%28stacked%29.svg.png" alt="android" width="40" height="40"/> </a>
