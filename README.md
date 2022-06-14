@@ -11,7 +11,7 @@ A flutter project that I will test new features and interesting packages
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
 - [ ] Request from the API my account and subscription details and implement them on a screen
 
-**To check the Dart SDK directory File -> Settings -> Languages & Frameworks -> Dart**
+**To check the Dart SDK directory <mark>File -> Settings -> Languages & Frameworks -> Dart</mark>**
 
 ![alt-text](assets/architecture.png "API Architecture")
 <p align="center"><a href="https://www.api-football.com/"><img src=assets/API_Logo.png alt="API-Data Provider" /></a>
