@@ -247,7 +247,7 @@ class MyHomePageState extends State<MyHomePage> {
                                       onPressed: () {
                                         setState(() {
                                           favoriteDataList
-                                              .add((_foundUsers[index]));
+                                              .add(_foundUsers[index]);
                                         });
                                       },
                                       icon: const Icon(
