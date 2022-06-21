@@ -14,6 +14,7 @@ class "testing::home_page.dart::MyHomePage" {
 class "testing::home_page.dart::MyHomePageState" {
   +TextEditingController editingController
   -List<Map<String, dynamic>> _allUsers
+  +List<Map<String, dynamic>> favoriteDataList
   -List<Map<String, dynamic>> _foundUsers
   +void runFilter()
   +void initState()
