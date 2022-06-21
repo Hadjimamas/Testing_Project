@@ -17,6 +17,7 @@ A flutter project that I will test new features and interesting packages
 # <p style="text-align: center;">Useful Tutorials</p>
 
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/pricing)**
+- ## **[Flutter Mailer](https://pub.dev/packages/flutter_mailer)**
 - ## **[Generate UML diagram](https://www.youtube.com/watch?v=PuA9XtazJUA)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
