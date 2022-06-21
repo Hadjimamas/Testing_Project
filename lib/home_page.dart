@@ -84,6 +84,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
+      initialEntryMode: DatePickerEntryMode.calendarOnly,
       keyboardType: TextInputType.datetime,
       builder: (context, child) {
         ///Change the design of the date
