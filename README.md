@@ -15,7 +15,8 @@ A flutter project that I will test new features and interesting packages
 <p align="center"><strong>API Data Provider</strong></p>
 
 # <p style="text-align: center;">Useful Tutorials</p>
-
+- ## **[Kali Linux installation](https://www.youtube.com/watch?v=G-eZPZL56sA)**
+- ## **[Kali Linux ISO download](https://www.kali.org/get-kali/#kali-bare-metal)**
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/pricing)**
 - ## **[Flutter Mailer](https://pub.dev/packages/flutter_mailer)**
 - ## **[Generate UML diagram](https://www.youtube.com/watch?v=PuA9XtazJUA)**
