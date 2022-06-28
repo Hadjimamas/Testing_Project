@@ -269,28 +269,13 @@ class "testing::models::player_statistics_model.dart::Penalty" {
 }
 
 class "testing::models::squad_model.dart::Squad" {
-  +Team? team
-  +List<Players>? players
-  +Map<String, dynamic> toJson()
-}
-
-"testing::models::squad_model.dart::Squad" o-- "testing::models::squad_model.dart::Team"
-
-class "testing::models::squad_model.dart::Team" {
-  +int? id
-  +String? name
-  +String? logo
-  +Map<String, dynamic> toJson()
-}
-
-class "testing::models::squad_model.dart::Players" {
-  +int? id
-  +String? name
-  +int? age
-  +int? number
-  +String? position
-  +String? photo
-  +Map<String, dynamic> toJson()
+  +int id
+  +String name
+  +int age
+  +int number
+  +String position
+  +String photo
+  +String toString()
 }
 
 class "testing::package_info.dart::ProjectInfo" {
