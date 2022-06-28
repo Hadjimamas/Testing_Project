@@ -21,6 +21,7 @@ Widget search(
 
 Future<void> modalBottomSheet(BuildContext context) {
   return showModalBottomSheet<void>(
+    barrierColor: const Color(0x80014A75),
     context: context,
     builder: (BuildContext context) {
       return Container(

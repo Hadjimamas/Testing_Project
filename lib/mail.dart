@@ -17,7 +17,6 @@ class EmailSender extends StatefulWidget {
 
 class EmailSenderState extends State<EmailSender> {
   bool useTempDirectory = true;
-  List<String> attachment = <String>[];
   final TextEditingController _subjectController = TextEditingController();
   final TextEditingController _bodyController = TextEditingController();
 
@@ -37,11 +36,10 @@ class EmailSenderState extends State<EmailSender> {
     final MailOptions mailOptions = MailOptions(
       body: _bodyController.text,
       subject: _subjectController.text,
-      recipients: <String>['example@example.com'],
+      recipients: <String>['flutterlivescore@gmail.com'],
       isHTML: true,
       // bccRecipients: ['other@example.com'],
-      ccRecipients: <String>['third@example.com'],
-      attachments: attachment,
+      ccRecipients: <String>['andreashadjimama@hotmail.com'],
     );
 
     String platformResponse;

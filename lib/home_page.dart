@@ -40,6 +40,7 @@ class MyHomePage extends StatefulWidget {
 DateTime selectedDate = DateTime.now();
 
 class MyHomePageState extends State<MyHomePage> {
+  bool isChecked = false;
   TextEditingController editingController = TextEditingController();
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Andy", "age": 29},
@@ -116,6 +117,7 @@ class MyHomePageState extends State<MyHomePage> {
     if (picked != null) {
       setState(() {
         selectedDate = picked;
+        print('Picker Date: ${formatDateTime(selectedDate)}');
       });
       showSimpleNotification(Text('Date Selected ${formatDateTime(picked)}'),
           leading: const Icon(Icons.event_available_outlined),
@@ -133,6 +135,18 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.red;
+      }
+      return Colors.green;
+    }
+
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
@@ -198,6 +212,17 @@ class MyHomePageState extends State<MyHomePage> {
           children: [
             Column(
               children: [
+                Checkbox(
+                  checkColor: Colors.white,
+                  fillColor: MaterialStateProperty.resolveWith(getColor),
+                  value: isChecked,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked = value!;
+                      print('Checkbox value: $isChecked');
+                    });
+                  },
+                ),
                 search((value) => runFilter(value), editingController),
                 Text('You have selected: $newDate'),
                 Text('Results: $foundUsers/$allUsers'),
