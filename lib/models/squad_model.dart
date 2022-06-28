@@ -1,81 +1,20 @@
 class Squad {
-  Team? team;
-  List<Players>? players;
+  int id;
+  String name;
+  int age;
+  int number;
+  String position;
+  String photo;
 
-  Squad({this.team, this.players});
+  Squad(this.id, this.name, this.age, this.number, this.position, this.photo);
 
-  Squad.fromJson(Map<String, dynamic> json) {
-    team = json['team'] != null ? Team.fromJson(json['team']) : null;
-    if (json['players'] != null) {
-      players = <Players>[];
-      json['players'].forEach((v) {
-        players!.add(Players.fromJson(v));
-      });
-    }
+  factory Squad.fromJson(Map<String, dynamic> json) {
+    return Squad(json['id'], json['name'], json['age'], json['number'],
+        json['position'], json['photo']);
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (team != null) {
-      data['team'] = team!.toJson();
-    }
-    if (players != null) {
-      data['players'] = players!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Team {
-  int? id;
-  String? name;
-  String? logo;
-
-  Team({this.id, this.name, this.logo});
-
-  Team.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    logo = json['logo'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['logo'] = logo;
-    return data;
-  }
-}
-
-class Players {
-  int? id;
-  String? name;
-  int? age;
-  int? number;
-  String? position;
-  String? photo;
-
-  Players(
-      {this.id, this.name, this.age, this.number, this.position, this.photo});
-
-  Players.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    age = json['age'];
-    number = json['number'];
-    position = json['position'];
-    photo = json['photo'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['age'] = age;
-    data['number'] = number;
-    data['position'] = position;
-    data['photo'] = photo;
-    return data;
+  @override
+  String toString() {
+    return "{id: $id, name: $name, age: $age, number: $number, position: $position,photo: $photo}";
   }
 }
