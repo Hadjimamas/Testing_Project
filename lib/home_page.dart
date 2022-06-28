@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -227,10 +228,6 @@ class MyHomePageState extends State<MyHomePage> {
                 Text('You have selected: $newDate'),
                 Text('Results: $foundUsers/$allUsers'),
                 ListTile(
-                  onLongPress: () {
-                    selectedDate = DateTime.now();
-                    modalBottomSheet(context);
-                  },
                   title: Image.asset(
                     'assets/event_icons/goal.png',
                     height: 40,
@@ -279,7 +276,8 @@ class MyHomePageState extends State<MyHomePage> {
                                         });
                                       },
                                       icon: const Icon(
-                                        Icons.favorite,
+                                        CupertinoIcons.heart,
+                                        //Icons.favorite,
                                         color: Colors.white,
                                       ),
                                     ),
