@@ -4,8 +4,10 @@ A flutter project that I will test new features and interesting packages
 
 ## What should I include next to my LiveScore App
 - [ ] Check the RapidApi if is possible to get data
-  - 'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
-  - final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
+```
+'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
+final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
+```
 - [ ] Mark favourite team
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
 - [ ] Request from the API my account and subscription details and implement them on a screen

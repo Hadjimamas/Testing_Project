@@ -9,28 +9,13 @@ Widget search(
   return Padding(
     padding: const EdgeInsets.all(10),
     child: TextField(
-      cursorColor: Colors.white,
-      onChanged: onChanged,
-      controller: editingController,
-      decoration: const InputDecoration(
-        enabledBorder: OutlineInputBorder(
-          //This is the color of the TextField before you click it to search
-          borderSide: BorderSide(width: 3, color: Colors.white),
-        ),
-        focusedBorder: OutlineInputBorder(
-          //Color of the TextField when you search
-          borderSide: BorderSide(width: 3, color: Colors.white),
-        ),
-        hintStyle: TextStyle(color: Colors.white),
-        labelStyle: TextStyle(color: Colors.white),
-        labelText: 'Search',
-        hintText: 'Search by Name',
-        prefixIcon: Icon(
-          Icons.search,
-          color: Colors.white,
-        ),
-      ),
-    ),
+        cursorColor: Colors.white,
+        onChanged: onChanged,
+        controller: editingController,
+        decoration: inputDecoration(
+          'Search',
+          'Search by name',
+        )),
   );
 }
 
@@ -122,4 +107,21 @@ Future checkNetworkConnection() async {
     slideDismissDirection: DismissDirection.up,
     background: color,
   );
+}
+
+inputDecoration(String labelText, String hintText) {
+  return InputDecoration(
+      enabledBorder: const OutlineInputBorder(
+        //This is the color of the TextField before you click it to search
+        borderSide: BorderSide(width: 3, color: Colors.white),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        //Color of the TextField when you search
+        borderSide: BorderSide(width: 3, color: Colors.white),
+      ),
+      hintStyle: const TextStyle(color: Colors.white),
+      labelStyle: const TextStyle(color: Colors.white),
+      labelText: labelText,
+      border: const OutlineInputBorder(),
+      hintText: hintText);
 }

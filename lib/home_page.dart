@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:testing/mail.dart';
 import 'package:testing/package_info.dart';
 import 'package:testing/widget.dart';
 
@@ -136,7 +137,7 @@ class MyHomePageState extends State<MyHomePage> {
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           bottom: const TabBar(
@@ -146,6 +147,7 @@ class MyHomePageState extends State<MyHomePage> {
               Tab(icon: Icon(Icons.home_outlined), text: 'Home'),
               Tab(icon: Icon(Icons.info_outline), text: 'About'),
               Tab(icon: Icon(Icons.favorite), text: 'Favorite'),
+              Tab(icon: Icon(Icons.email_outlined), text: 'Email'),
             ],
           ),
           title: Row(
@@ -299,6 +301,7 @@ class MyHomePageState extends State<MyHomePage> {
                 : const Center(
                     child: Text('No Favourite data'),
                   ),
+            const EmailSender()
           ],
         ),
       ),
