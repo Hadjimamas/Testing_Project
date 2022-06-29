@@ -136,17 +136,19 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Color getColor(Set<MaterialState> states) {
-      const Set<MaterialState> interactiveStates = <MaterialState>{
+    /**
+        Color getColor(Set<MaterialState> states) {
+        const Set<MaterialState> interactiveStates = <MaterialState>{
         MaterialState.pressed,
         MaterialState.hovered,
         MaterialState.focused,
-      };
-      if (states.any(interactiveStates.contains)) {
+        };
+        if (states.any(interactiveStates.contains)) {
         return Colors.red;
-      }
-      return Colors.green;
-    }
+        }
+        return Colors.green;
+        }
+     **/
 
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
@@ -213,14 +215,20 @@ class MyHomePageState extends State<MyHomePage> {
           children: [
             Column(
               children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  fillColor: MaterialStateProperty.resolveWith(getColor),
+                SwitchListTile(
+                  title: const Text('Mode'),
+                  subtitle: const Text('Change Mode'),
+                  //checkColor: Colors.white,
+                  //fillColor: MaterialStateProperty.resolveWith(getColor),
+                  activeColor: Colors.black,
+                  activeTrackColor: Colors.blue,
+                  inactiveTrackColor: Colors.red,
+                  inactiveThumbColor: Colors.white,
                   value: isChecked,
                   onChanged: (bool? value) {
                     setState(() {
                       isChecked = value!;
-                      print('Checkbox value: $isChecked');
+                      print('Switch value: $isChecked');
                     });
                   },
                 ),
@@ -320,7 +328,8 @@ class MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       );
-                    })
+                    },
+                  )
                 : const Center(
                     child: Text('No Favourite data'),
                   ),
