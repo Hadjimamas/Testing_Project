@@ -136,18 +136,6 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Color getColor(Set<MaterialState> states) {
-      const Set<MaterialState> interactiveStates = <MaterialState>{
-        MaterialState.pressed,
-        MaterialState.hovered,
-        MaterialState.focused,
-      };
-      if (states.any(interactiveStates.contains)) {
-        return Colors.red;
-      }
-      return Colors.green;
-    }
-
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
     String foundUsers = _foundUsers.length.toString();
