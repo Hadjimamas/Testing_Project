@@ -90,7 +90,7 @@ class MyHomePageState extends State<MyHomePage> {
       initialEntryMode: DatePickerEntryMode.calendarOnly,
       keyboardType: TextInputType.datetime,
       builder: (context, child) {
-        ///Change the design of the date
+        ///Change the design of the date picker
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
