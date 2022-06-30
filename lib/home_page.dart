@@ -169,7 +169,7 @@ class MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'event_icons/round.png',
+                'assets/event_icons/round.png',
                 height: 40,
               ),
               Text(
