@@ -63,6 +63,20 @@ class ProjectInfoState extends State<ProjectInfo> {
           Icons.settings_ethernet,
           color: color,
         );
+      } else if (newResult == ConnectivityResult.mobile) {
+        msg = 'Mobile Data Connection';
+        color = Colors.green;
+        networkIcon = Icon(
+          Icons.swap_vert,
+          color: color,
+        );
+      } else {
+        msg = 'No Internet Connection';
+        color = Colors.red;
+        networkIcon = Icon(
+          Icons.wifi_off,
+          color: color,
+        );
       }
     });
     super.initState();
