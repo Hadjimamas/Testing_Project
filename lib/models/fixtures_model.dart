@@ -1,13 +1,13 @@
-class Fixtures {
+class FixturesData {
   Fixture? fixture;
   League? league;
   Teams? teams;
   Goals? goals;
   Score? score;
 
-  Fixtures({this.fixture, this.league, this.teams, this.goals, this.score});
+  FixturesData({this.fixture, this.league, this.teams, this.goals, this.score});
 
-  Fixtures.fromJson(Map<String, dynamic> json) {
+  FixturesData.fromJson(Map<String, dynamic> json) {
     fixture =
     json['fixture'] != null ? Fixture.fromJson(json['fixture']) : null;
     league =
