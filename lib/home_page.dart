@@ -136,19 +136,17 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    /**
-        Color getColor(Set<MaterialState> states) {
-        const Set<MaterialState> interactiveStates = <MaterialState>{
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
         MaterialState.pressed,
         MaterialState.hovered,
         MaterialState.focused,
-        };
-        if (states.any(interactiveStates.contains)) {
+      };
+      if (states.any(interactiveStates.contains)) {
         return Colors.red;
-        }
-        return Colors.green;
-        }
-     **/
+      }
+      return Colors.green;
+    }
 
     String newDate = formatDateTime(selectedDate);
     String allUsers = _allUsers.length.toString();
@@ -216,8 +214,9 @@ class MyHomePageState extends State<MyHomePage> {
             Column(
               children: [
                 SwitchListTile(
-                  title: const Text('Mode'),
-                  subtitle: const Text('Change Mode'),
+                  title: const Text('Theme'),
+                  subtitle: const Text('Dark Mode'),
+                  secondary: const Icon(Icons.dark_mode),
                   //checkColor: Colors.white,
                   //fillColor: MaterialStateProperty.resolveWith(getColor),
                   activeColor: Colors.black,
