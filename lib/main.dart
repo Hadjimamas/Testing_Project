@@ -3,6 +3,7 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:testing/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
