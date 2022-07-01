@@ -11,6 +11,7 @@ final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 - [ ] Simplify side_nav_bar
 1. Divider that separates leagues
 2. ListTile - Different for each category
+- [ ] Create a website for app policy and contact form
 - [ ] Mark favourite team
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
 
