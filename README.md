@@ -9,7 +9,6 @@ A flutter project that I will test new features and interesting packages
 final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 ```
 - [ ] Mark favourite team
-- [ ] Request from the API my account and subscription details and implement them on a screen
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
 
 ![alt-text](assets/architecture.png "API Architecture")
