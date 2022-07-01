@@ -126,3 +126,7 @@ inputDecoration(String labelText, String hintText) {
       border: const OutlineInputBorder(),
       hintText: hintText);
 }
+
+Widget divider() {
+  return Divider(color: Color(0xFF65747B), thickness: 2);
+}
