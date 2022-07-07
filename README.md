@@ -8,6 +8,7 @@ A flutter project that I will test new features and interesting packages
 'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
 final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 ```
+**New season starts at 27/08. Complete the app during this period**
 - [ ] Simplify side_nav_bar
 1. Divider that separates leagues
 2. ListTile - Different for each category
