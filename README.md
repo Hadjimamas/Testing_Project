@@ -24,7 +24,6 @@ final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 - ## **[Kali Linux installation](https://www.youtube.com/watch?v=G-eZPZL56sA)**
 - ## **[Kali Linux ISO download](https://www.kali.org/get-kali/#kali-bare-metal)**
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/)**
-- ## **[Flutter Mailer](https://pub.dev/packages/flutter_mailer)**
 - ## **[Generate UML diagram](https://www.youtube.com/watch?v=PuA9XtazJUA)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
