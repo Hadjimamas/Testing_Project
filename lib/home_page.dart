@@ -204,7 +204,7 @@ class MyHomePageState extends State<MyHomePage> {
                 SwitchListTile(
                   title: const Text('Theme'),
                   subtitle: const Text('Dark Mode'),
-                  secondary: const Icon(Icons.dark_mode),
+                  secondary: const Icon(Icons.dark_mode_outlined),
                   //checkColor: Colors.white,
                   //fillColor: MaterialStateProperty.resolveWith(getColor),
                   activeColor: Colors.black,
