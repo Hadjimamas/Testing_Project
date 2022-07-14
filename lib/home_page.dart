@@ -193,6 +193,7 @@ class MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 selectedDate = DateTime.now();
                 modalBottomSheet(context);
+                print('Ad Unit Id: ${AdHelper.bannerAdUnitId}');
               },
             ),
           ],
