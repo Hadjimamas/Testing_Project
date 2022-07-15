@@ -2,7 +2,7 @@
     package="com.example.testing">
     <uses-permission android:name="android.permission.VIBRATE"/>
    <application
-        android:label="testing"
+        android:label="Test App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
