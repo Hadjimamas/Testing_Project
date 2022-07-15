@@ -130,3 +130,27 @@ inputDecoration(String labelText, String hintText) {
 Widget divider() {
   return Divider(color: Color(0xFF65747B), thickness: 2);
 }
+/**
+  ListView.separated(
+    itemCount: squad.length,
+    itemBuilder: (context, index) {
+    return squadTile(squad[index]);
+    },
+    separatorBuilder: (context, index) {
+    if (squad[index].position !=
+    squad[index].position) {
+    return const Divider(
+    thickness: 10,
+    color: Color(0xFFE3790F),
+    );
+    } else {
+    return const Divider(
+    thickness: 1,
+    color: Color(0xFF00BFFF),
+    );
+    }
+    },
+    )
+**/
+
+
