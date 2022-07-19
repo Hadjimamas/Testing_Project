@@ -8,9 +8,9 @@ A flutter project that I will test new features and interesting packages
 'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
 final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 ```
-|                       Home Screen                        |                    Fixtures Screen                     | Teams Screen                                         |
-|:--------------------------------------------------------:|:------------------------------------------------------:|------------------------------------------------------|
-| ![alt-text](assets/screenshots/HomePage.jpg "Home Page") | ![alt-text](assets/screenshots/Matches.jpg "Fixtures") | ![alt-text](assets/screenshots/Teams.jpg "Fixtures") |
+| Screen    |                           Home                           |                        Fixtures                        | Team                                                 |
+|-----------|:--------------------------------------------------------:|:------------------------------------------------------:|------------------------------------------------------|
+| **Image** | ![alt-text](assets/screenshots/HomePage.jpg "Home Page") | ![alt-text](assets/screenshots/Matches.jpg "Fixtures") | ![alt-text](assets/screenshots/Teams.jpg "Fixtures") |
 
 New season starts at **27/08**. Complete the app during this period
 - [ ] Create a website for app policy and contact form
