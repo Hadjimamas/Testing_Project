@@ -8,9 +8,9 @@ A flutter project that I will test new features and interesting packages
 'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
 final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 ```
-| Screen    |                           Home                           |                        Fixtures                        | Team                                                 |
-|-----------|:--------------------------------------------------------:|:------------------------------------------------------:|------------------------------------------------------|
-| **Image** | ![alt-text](assets/screenshots/HomePage.jpg "Home Page") | ![alt-text](assets/screenshots/Matches.jpg "Fixtures") | ![alt-text](assets/screenshots/Teams.jpg "Fixtures") |
+| Screen     |                           Home                           |                        Fixtures                        |                          Team                          |
+|:-----------|:--------------------------------------------------------:|:------------------------------------------------------:|:------------------------------------------------------:|
+| **Image**  | ![alt-text](assets/screenshots/HomePage.jpg "Home Page") | ![alt-text](assets/screenshots/Matches.jpg "Fixtures") |  ![alt-text](assets/screenshots/Teams.jpg "Fixtures")  |
 
 New season starts at **27/08**. Complete the app during this period
 - [ ] Create a website for app policy and contact form
@@ -25,7 +25,6 @@ New season starts at **27/08**. Complete the app during this period
 - ## **[Kali Linux installation](https://www.youtube.com/watch?v=G-eZPZL56sA)**
 - ## **[Kali Linux ISO download](https://www.kali.org/get-kali/#kali-bare-metal)**
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/)**
-- ## **[Generate UML diagram](https://www.youtube.com/watch?v=PuA9XtazJUA)**
 - ## **[Add Flutter App on Play Store](https://dhruvnakum.xyz/how-to-publish-flutter-app-on-play-store)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
