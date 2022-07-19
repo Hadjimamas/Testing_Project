@@ -8,9 +8,11 @@ A flutter project that I will test new features and interesting packages
 'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
 final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 ```
+|                       Home Screen                        |                    Fixtures Screen                     | Teams Screen                                         |
+|:--------------------------------------------------------:|:------------------------------------------------------:|------------------------------------------------------|
+| ![alt-text](assets/screenshots/HomePage.jpg "Home Page") | ![alt-text](assets/screenshots/Matches.jpg "Fixtures") | ![alt-text](assets/screenshots/Teams.jpg "Fixtures") |
+
 New season starts at **27/08**. Complete the app during this period
-- [ ] Change the name of **screens.dart** file to **constants**
-- [ ] Take some screenshots of the app
 - [ ] Create a website for app policy and contact form
 - [ ] Be able to mark your favourite team
 - [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
