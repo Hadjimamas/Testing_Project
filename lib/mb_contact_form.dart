@@ -218,7 +218,7 @@ class _MBContactFormState extends State<MBContactForm> {
                         ? const Icon(Icons.person_outline)
                         : null,
                     label: const Text('Name'),
-                    hintText: 'FirstName LastName',
+                    hintText: 'Full Name',
                     border: const OutlineInputBorder(),
                   ),
                 ),
