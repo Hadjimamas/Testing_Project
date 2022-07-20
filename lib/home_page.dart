@@ -12,6 +12,8 @@ import 'package:testing/mail.dart';
 import 'package:testing/package_info.dart';
 import 'package:testing/widget.dart';
 
+import 'mb_contact_form.dart';
+
 ///Check the type of the device to add the correct adUnit for every OS(ex.android,iOS);
 class AdHelper {
   static String get bannerAdUnitId {
@@ -321,7 +323,8 @@ class MyHomePageState extends State<MyHomePage> {
                 : const Center(
                     child: Text('No Favourite data'),
                   ),
-            const EmailSender()
+            MBContactForm(withIcons: true, destinationEmail: 'andreashadjimama@hotmail.com',)
+            //const EmailSender()
           ],
         ),
       ),
