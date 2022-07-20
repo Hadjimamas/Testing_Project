@@ -148,7 +148,7 @@ class _MBContactFormState extends State<MBContactForm> {
       }),
     );
 
-    launch(emailLaunchUri.toString());
+    launchUrl(emailLaunchUri);
   }
 
   @override

@@ -322,7 +322,10 @@ class MyHomePageState extends State<MyHomePage> {
                 : const Center(
                     child: Text('No Favourite data'),
                   ),
-            MBContactForm(withIcons: true, destinationEmail: 'andreashadjimama@hotmail.com',)
+            MBContactForm(
+              withIcons: true,
+              destinationEmail: 'andreashadjimama@hotmail.com',
+            )
           ],
         ),
       ),
