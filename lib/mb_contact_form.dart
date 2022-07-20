@@ -306,19 +306,20 @@ class _MBContactFormState extends State<MBContactForm> {
                 //   },
                 // ),
                 IconButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        setState(() {
-                          _sendEmail(
-                            name: name,
-                            destEmail: widget.destinationEmail,
-                            body: message,
-                          );
-                        });
-                      }
-                    },
-                    icon: Icon(Icons.send))
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      setState(() {
+                        _sendEmail(
+                          name: name,
+                          destEmail: widget.destinationEmail,
+                          body: message,
+                        );
+                      });
+                    }
+                  },
+                  icon: Icon(Icons.send),
+                )
               ],
             ),
           ),
