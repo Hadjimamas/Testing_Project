@@ -1,7 +1,6 @@
 library mb_contact_form;
 
 import 'package:flutter/material.dart';
-import 'package:mb_button/mb_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// [MBContactForm] is a [StatefulWidget].
@@ -287,26 +286,39 @@ class _MBContactFormState extends State<MBContactForm> {
                 const SizedBox(
                   height: 32,
                 ),
-
                 // Submit button
-                MBButton(
-                  isIconButton: true,
-                  elevation: 0,
-                  roundness: 10,
-                  text: 'Submit',
-                  onTapFunction: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      setState(() {
-                        _sendEmail(
-                          name: name,
-                          destEmail: widget.destinationEmail,
-                          body: message,
-                        );
-                      });
-                    }
-                  },
-                ),
+                // MBButton(
+                //   isIconButton: true,
+                //   elevation: 0,
+                //   roundness: 10,
+                //   text: 'Submit',
+                //   onTapFunction: () {
+                //     if (_formKey.currentState!.validate()) {
+                //       _formKey.currentState!.save();
+                //       setState(() {
+                //         _sendEmail(
+                //           name: name,
+                //           destEmail: widget.destinationEmail,
+                //           body: message,
+                //         );
+                //       });
+                //     }
+                //   },
+                // ),
+                IconButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        setState(() {
+                          _sendEmail(
+                            name: name,
+                            destEmail: widget.destinationEmail,
+                            body: message,
+                          );
+                        });
+                      }
+                    },
+                    icon: Icon(Icons.send))
               ],
             ),
           ),
