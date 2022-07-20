@@ -1,5 +1,3 @@
-/// Copyright 2021
-/// Author : Mouli Bheemaneti
 library mb_contact_form;
 
 import 'package:flutter/material.dart';
@@ -17,7 +15,7 @@ class MBContactForm extends StatefulWidget {
   final bool withIcons;
 
   /// [destinationEmail] is a [String] variable which cannot be null.
-  /// The destinationEmail must be a proper email address of the reciever.
+  /// The destinationEmail must be a proper email address of the receiver.
   /// The message entered will be sent as a mail for the destinationEmail.
   final String destinationEmail;
 
@@ -89,7 +87,6 @@ class _MBContactFormState extends State<MBContactForm> {
 
   /// [_validateName] validates the value of [_name]
   String? _validateName(String name) {
-    // Regular Expression for fullname (a space between first name and second name)
     String nameRegExp = r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$";
 
     if (name.isEmpty) {

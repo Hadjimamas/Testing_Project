@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:testing/mail.dart';
 import 'package:testing/package_info.dart';
 import 'package:testing/widget.dart';
 
@@ -324,7 +323,6 @@ class MyHomePageState extends State<MyHomePage> {
                     child: Text('No Favourite data'),
                   ),
             MBContactForm(withIcons: true, destinationEmail: 'andreashadjimama@hotmail.com',)
-            //const EmailSender()
           ],
         ),
       ),
