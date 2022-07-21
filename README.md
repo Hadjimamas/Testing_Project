@@ -3,21 +3,27 @@
 A flutter project that I will test new features and interesting packages
 
 ## What should I include next to my LiveScore App
+
 - [ ] Check the RapidApi if is possible to get data
+
 ```
 'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
 final String baseUrl = 'https://api-football-v1.p.rapidapi.com/v3/'
 ```
+
 New season starts at **27/08**. Complete the app during this period
+
 - [ ] Create a website for app policy and contact form
 - [ ] Be able to mark your favourite team
-- [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "fixtures?live=318-319-320-321-852";
+- [x] Get live Matches for all the coverage leagues in one screen. The apiLink will be "
+  fixtures?live=318-319-320-321-852";
 
 ![alt-text](assets/architecture.png "API Architecture")
 <p align="center"><a href="https://www.api-football.com/"><img src=assets/API_Logo.png alt="API-Data Provider" /></a>
 <p align="center"><strong>API Data Provider</strong></p>
 
 # <p style="text-align: center;">Useful Tutorials</p>
+
 - ## **[Kali Linux installation](https://www.youtube.com/watch?v=G-eZPZL56sA)**
 - ## **[Kali Linux ISO download](https://www.kali.org/get-kali/#kali-bare-metal)**
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/)**
