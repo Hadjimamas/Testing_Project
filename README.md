@@ -27,6 +27,7 @@ New season starts at **27/08**. Complete the app during this period
 - ## **[Kali Linux installation](https://www.youtube.com/watch?v=G-eZPZL56sA)**
 - ## **[Kali Linux ISO download](https://www.kali.org/get-kali/#kali-bare-metal)**
 - ## **[RapidApi](https://rapidapi.com/api-sports/api/api-football/)**
+- ## **[Generate App QR Code](https://www.qrcodechimp.com/)**
 - ## **[Add Flutter App on Play Store](https://dhruvnakum.xyz/how-to-publish-flutter-app-on-play-store)**
 - ## **[Logo Creator](https://logomakr.com/app/)**
 - ## **[Icons for Events](https://www.flaticon.com/)**
