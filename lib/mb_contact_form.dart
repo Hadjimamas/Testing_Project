@@ -130,7 +130,7 @@ class _MBContactFormState extends State<MBContactForm> {
   /// entered by the user.
   void _sendEmail(
       {required String destEmail, required String body, required String name}) {
-    String? encodeQueryParameters(Map<String, String> params) {
+    String encodeQueryParameters(Map<String, String> params) {
       return params.entries
           .map((e) =>
               '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
@@ -153,13 +153,6 @@ class _MBContactFormState extends State<MBContactForm> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.only(
-        left: 32,
-        right: 32,
-        top: 32,
-        bottom: 32,
-      ),
-
       /// Contact Form
       child: Form(
         key: _formKey,
@@ -167,22 +160,22 @@ class _MBContactFormState extends State<MBContactForm> {
           elevation: 3,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              20,
+              40,
             ),
           ),
           child: Padding(
             padding: const EdgeInsets.only(
-              left: 24,
-              right: 24,
-              top: 32,
-              bottom: 32,
+              left: 20,
+              right: 20,
+              top: 30,
+              bottom: 30,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 widget.hasHeading
                     ? const Text(
-                        'Contact Form',
+                        'Contact Developer',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 24,
@@ -216,7 +209,7 @@ class _MBContactFormState extends State<MBContactForm> {
                     icon: widget.withIcons
                         ? const Icon(Icons.person_outline)
                         : null,
-                    label: const Text('Name'),
+                    label: const Text('Full Name'),
                     hintText: 'Full Name',
                     border: const OutlineInputBorder(),
                   ),
@@ -248,7 +241,7 @@ class _MBContactFormState extends State<MBContactForm> {
                         ? const Icon(Icons.alternate_email)
                         : null,
                     label: const Text('E-mail'),
-                    hintText: 'Name',
+                    hintText: 'E-mail',
                     border: const OutlineInputBorder(),
                   ),
                 ),
@@ -286,26 +279,8 @@ class _MBContactFormState extends State<MBContactForm> {
                 const SizedBox(
                   height: 32,
                 ),
-                // Submit button
-                // MBButton(
-                //   isIconButton: true,
-                //   elevation: 0,
-                //   roundness: 10,
-                //   text: 'Submit',
-                //   onTapFunction: () {
-                //     if (_formKey.currentState!.validate()) {
-                //       _formKey.currentState!.save();
-                //       setState(() {
-                //         _sendEmail(
-                //           name: name,
-                //           destEmail: widget.destinationEmail,
-                //           body: message,
-                //         );
-                //       });
-                //     }
-                //   },
-                // ),
-                IconButton(
+                //Submit Button
+                ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
@@ -318,7 +293,10 @@ class _MBContactFormState extends State<MBContactForm> {
                       });
                     }
                   },
-                  icon: Icon(Icons.send),
+                  child: const ListTile(
+                    leading: Icon(Icons.send, color: Colors.white),
+                    title: Text('Contact Developer'),
+                  ),
                 )
               ],
             ),
